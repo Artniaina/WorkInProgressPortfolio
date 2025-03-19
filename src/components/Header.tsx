@@ -24,7 +24,7 @@ const Header = () => {
         >
           LOGO
         </motion.div>
-         <div className="flex items-center gap-6">
+         <div className="flex items-center gap-8">
              <motion.a 
                href="#" 
                className="text-cyber-pink text-2xl font-pixel"

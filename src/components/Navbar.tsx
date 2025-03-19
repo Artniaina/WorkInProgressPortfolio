@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="bg-cyber-dark/90 py-3 sticky top-0 z-10 border-b border-cyber-pink/20">
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-8">
           <motion.a 
             href="#" 
             className="text-cyber-pink text-xl font-pixel"
