@@ -16,45 +16,44 @@ const Header = () => {
   }, []);
 
   return (
-    <header ref={headerRef} className="mt-[106px]">
-
-      <nav className="flex justify-between items-center max-w-6xl mx-auto z-10">
+    <header ref={headerRef} className="mt-[8rem] mx-[5rem]">
+      <nav className="flex justify-between items-center  z-10">
         <motion.div 
           className="text-cyber-pink text-2xl font-pixel"
           whileHover={{ scale: 1.1 }}
         >
-          DEV.8BIT
+          LOGO
         </motion.div>
          <div className="flex items-center gap-6">
-                 <motion.a 
-                   href="#" 
-                   className="text-cyber-pink text-xl font-pixel"
-                   whileHover={{ scale: 1.05 }}
-                 >
-                   HOME
-                 </motion.a>
-                 <motion.a 
-                   href="#about" 
-                   className="text-sm hover:text-cyber-pink transition-colors"
-                   whileHover={{ scale: 1.05 }}
-                 >
-                   ABOUT
-                 </motion.a>
-                 <motion.a 
-                   href="#blog" 
-                   className="text-sm hover:text-cyber-pink transition-colors"
-                   whileHover={{ scale: 1.05 }}
-                 >
-                   SKILLS
-                 </motion.a>
-                 <motion.a 
-                   href="#blog" 
-                   className="text-sm hover:text-cyber-pink transition-colors"
-                   whileHover={{ scale: 1.05 }}
-                 >
-                   WORK
-                 </motion.a>
-               </div>
+             <motion.a 
+               href="#" 
+               className="text-cyber-pink text-2xl font-pixel"
+               whileHover={{ scale: 1.05 }}
+             >
+               HOME
+             </motion.a>
+             <motion.a 
+               href="#about" 
+               className="text-lg hover:text-cyber-pink transition-colors"
+               whileHover={{ scale: 1.05 }}
+             >
+               ABOUT
+             </motion.a>
+             <motion.a 
+               href="#blog" 
+               className="text-lg hover:text-cyber-pink transition-colors"
+               whileHover={{ scale: 1.05 }}
+             >
+               SKILLS
+             </motion.a>
+             <motion.a 
+               href="#blog" 
+               className="text-lg hover:text-cyber-pink transition-colors"
+               whileHover={{ scale: 1.05 }}
+             >
+               PROJECT
+             </motion.a>
+             </div>
       </nav>
     </header>
   );
