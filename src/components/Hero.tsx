@@ -27,12 +27,13 @@ const Hero = () => {
       </motion.h1>
       
       <motion.p 
-        className="text-lg mb-12 text-cyber-light"
+        className="text-lg mb-12 text-cyber-light  text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        I am a fullstack developer from Madagascar, <br /> still learning and improving my skills everyday.
+        I am a web and mobile developer from Madagascar. <br /> 
+        Continuously learning, evolving, <br />and refining my craft every single day.
       </motion.p>
 
       <motion.div 
@@ -41,9 +42,12 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8 }}
       >
-        <a href="#contact" className="px-8 py-4 border-2 border-cyber-pink hover:bg-cyber-pink transition-colors rounded">
-          Download CV
-        </a>
+            <a href="#contact" className="px-8 py-4 border-2 border-cyber-pink bg-cyber-purple hover:bg-cyber-pink transition-colors rounded">
+             Download CV
+            </a>
+             <a href="#projects" className="px-8 py-4 bg-cyber-purple hover:bg-cyber-pink transition-colors rounded pixel-border">
+              Contact me
+            </a>
       </motion.div>
     </div>
     </div>
