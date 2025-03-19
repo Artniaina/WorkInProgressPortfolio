@@ -36,13 +36,13 @@ function App() {
       <div className="min-h-screen bg-cyber-dark flex flex-col items-center justify-center px-4">
         <div className="mb-10 flex ">
           <span className='animate-[bounce_1.1s_infinite]'>
-          <img src={Stickers} alt="Loading Sticker" width="80" height="80" />
+          <img src={Stickers}  width="70" height="70" />
           </span>
           <span className='animate-[bounce_1.3s_infinite]'>
-          <img src={Stickers} alt="Loading Sticker" width="80" height="80" />
+          <img src={Stickers}  width="70" height="70" />
           </span>
-          <span className='animate-[bounce_1.5s_infinite]'>
-          <img src={Stickers} alt="Loading Sticker" width="80" height="80" />
+          <span className='animate-[bounce_0.9s_infinite]'>
+          <img src={Stickers}  width="70" height="70" />
           </span>
         </div>
         
@@ -73,9 +73,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cyber-dark text-white">
-      <div className='h-[90vh]'>
+      <div className='h-[83vh]'>
         <Header />
-        <main className="max-w-6xl mx-auto px-6 py-20">
+        <main >
           <Hero />  
         </main>
       </div>

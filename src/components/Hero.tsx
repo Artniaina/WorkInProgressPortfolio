@@ -1,17 +1,29 @@
 import { motion } from 'framer-motion';
-
+import { ReactTyped } from 'react-typed';
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center text-center">
+    <div className="max-w-8xl px-6 py-20 flex justify-start">
+    <div className="flex flex-col items-center">
       <motion.h1 
-        className="text-4xl md:text-6xl font-pixel retro-shadow mb-8"
+        className="text-4xl md:text-6xl font-pixel retro-shadow mb-8 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         <span className="glitch-effect" data-text="I AM KANTO">I AM KANTO </span>
         <br />
-        <span className="text-cyber-pink">A FULLSTACK DEVELOPER</span>
+        <span className="text-cyber-pink text-[1.7rem] mt-7 flex justify-start align-center ml-10">
+          <ReactTyped
+            strings={[
+              "A FULLSTACK DEVELOPER",
+              "A TECH ENTHUSIAST",
+              "A LIFELONG LEARNER",
+            ]}
+            typeSpeed={50}
+            backSpeed={30}
+            loop
+          />
+        </span>
       </motion.h1>
       
       <motion.p 
@@ -20,7 +32,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        I am a fullstack developer from Madagascar, still learning and improving my skills everyday.
+        I am a fullstack developer from Madagascar, <br /> still learning and improving my skills everyday.
       </motion.p>
 
       <motion.div 
@@ -33,6 +45,7 @@ const Hero = () => {
           Download CV
         </a>
       </motion.div>
+    </div>
     </div>
   );
 };
