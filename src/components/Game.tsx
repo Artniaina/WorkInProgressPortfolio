@@ -63,7 +63,7 @@ function Game() {
 };</code></pre>`,
               ]}
               typeSpeed={40}
-              backSpeed={1}
+              backSpeed={5}
               loop={true}
               />
             </div>

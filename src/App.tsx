@@ -4,13 +4,14 @@ import Footer from './components/Footer';
 import Skills from './components/Skills';
 import Hero from './components/Hero';
 import Stickers from "./assets/test1.png"
+import About from './components/About';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const duration = 10000; 
+    const duration = 5000; 
     const interval = 50; 
     const steps = duration / interval;
     const increment = 100 / steps;
@@ -81,6 +82,7 @@ function App() {
       </div>
  
       <section className="bg-cyber-purple/10 py-20">
+        <About/>
         <Skills />
       </section>
       <Footer />

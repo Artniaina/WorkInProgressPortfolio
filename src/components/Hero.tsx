@@ -2,17 +2,18 @@ import { motion } from 'framer-motion';
 import { ReactTyped } from 'react-typed';
 import image from '../assets/testt.gif';
 import CyberpunkWebcamFrame from './Frame';
+
 const Hero = () => {
   return (
-    <div className="max-w-8xl px-6 py-20 flex justify-start relative">
-      <div className="flex flex-col items-center">
+    <div className="max-w-8xl px-6 py-20 flex justify-start relative overflow-hidden">
+      <div className="flex flex-col relative -top-12 items-center">
         <motion.h1
           className="text-4xl md:text-6xl font-pixel retro-shadow mb-8 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-        <span className="glitch-effect" data-text="I AM KANTO">I AM KANTO </span>
+          <span className="glitch-effect" data-text="I AM KANTO">I AM KANTO </span>
 
           <br />
           <span className="text-cyber-pink text-[1.7rem] mt-7 flex justify-start align-center ml-10">
