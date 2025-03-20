@@ -4,7 +4,7 @@ interface CyberpunkWebcamFrameProps {
     imageUrl: string;
 }
 
-const CyberpunkWebcamFrame: React.FC<CyberpunkWebcamFrameProps> = ({ imageUrl }) => {
+const CyberpunkWebcamFrame: React.FC<CyberpunkWebcamFrameProps> = () => {
     return (
         <div className="relative w-[40rem]" style={{ imageRendering: 'pixelated' }}>
             <div
