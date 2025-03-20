@@ -22,7 +22,7 @@ const Header = () => {
           className="text-cyber-pink text-2xl font-pixel"
           whileHover={{ scale: 1.1 }}
         >
-          LOGO
+          KANTO
         </motion.div>
          <div className="flex items-center gap-8">
              <motion.a 

@@ -57,6 +57,39 @@ body {
   clip: rect(85px, 550px, 140px, 0);
   animation: glitch-anim 2s infinite linear alternate-reverse;
 }
+.cube-game {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 2s infinite linear;
+}
+
+.cube-face-game {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+.front { transform: translateZ(20px); }
+.back { transform: rotateY(180deg) translateZ(20px); }
+.right { transform: rotateY(90deg) translateZ(20px); }
+.left { transform: rotateY(-90deg) translateZ(20px); }
+.top { transform: rotateX(90deg) translateZ(20px); }
+.bottom { transform: rotateX(-90deg) translateZ(20px); }
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
 
 @keyframes glitch-anim {
   0% {

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ReactTyped } from 'react-typed';
 import image from '../assets/testt.gif';
+import CyberpunkWebcamFrame from './Frame';
 const Hero = () => {
   return (
     <div className="max-w-8xl px-6 py-20 flex justify-start relative">
@@ -29,7 +30,7 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p
-          className="text-lg mb-12 text-cyber-light text-center"
+          className="text-base mb-12 text-cyber-light text-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -61,12 +62,12 @@ const Hero = () => {
       </div>
 
       <div className="absolute bottom-5 right-20">
-        <img
-          src={image}
-          alt="Animated GIF"
-          className="w-[25rem] h-[25rem] object-cover"
-       
-        />
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1.2 }}>
+        <CyberpunkWebcamFrame imageUrl={image} />
+        </motion.div>
       </div>
     </div>
   );
