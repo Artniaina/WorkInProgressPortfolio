@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Code2 } from 'lucide-react';
+import Image1 from '../assets/TS.webp';
+import Image2 from '../assets/JS.jpg';
+import Image3 from '../assets/PY.png';
+import Image4 from '../assets/REACT.png';
 
-const LOGOS = [
-    "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60", 
-    "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&auto=format&fit=crop&q=60", 
-    "https://images.unsplash.com/photo-1648941167589-1538c0bdb9df?w=800&auto=format&fit=crop&q=60",
-    "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&auto=format&fit=crop&q=60", 
-    "https://images.unsplash.com/photo-1640132219022-e7a98b4c92e9?w=800&auto=format&fit=crop&q=60", 
-];
+const LOGOS = [Image1, Image2, Image3, Image4];
 
 function Game() {
     const [isJumping, setIsJumping] = useState(false);
@@ -17,7 +15,7 @@ function Game() {
     useEffect(() => {
         const moveObstacle = () => {
             setObstaclePosition((prev) => {
-                if (prev <= -100) {
+                if (prev <= -10) {
                     setCurrentLogo((prevLogo) => (prevLogo + 1) % LOGOS.length);
                     return 100;
                 }
@@ -37,7 +35,7 @@ function Game() {
     }, [obstaclePosition, isJumping]);
 
     return (
-        <div className="h-[44rem] bg-gradient-to-br from-purple-900 via-pink-800 to-purple-900 flex items-center justify-center overflow-hidden">
+        <div className="h-[44rem] bg-gradient-to-br  flex items-center justify-center overflow-hidden">
             <div className="relative w-[800px] ">
 
                 <div className="absolute inset-0 grid grid-cols-12 grid-rows-6 gap-4 opacity-20 pointer-events-none">
@@ -49,9 +47,11 @@ function Game() {
                 <div className="absolute bottom-[70px] w-full h-1 bg-pink-500 shadow-[0_0_20px_rgba(236,72,153,0.5)]"></div>
 
                 <div
-                    className="absolute bottom-[70px] w-10 h-10 bg-pink-500 rounded-full"
+                    className="absolute bottom-[70px] w-10 h-10"
                     style={{ left: `${obstaclePosition}%` }}
-                ></div>
+                >
+                    <img src={LOGOS[currentLogo]} className="w-full h-full object-contain" />
+                </div>
 
                 <div
                     className={`absolute left-20 bottom-20 transition-transform duration-500 ${
