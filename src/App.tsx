@@ -73,8 +73,8 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-cyber-dark text-white">
-      <div className='h-[83vh]'>
+    <div className="min-h-screen bg-cyber-dark ">
+      <div className='h-[80vh]'>
         <Header />
         <main >
           <Hero />  

@@ -4,9 +4,7 @@ import { CgMail } from "react-icons/cg";
 const AboutFrame = () => {
   return (
     <div className="bg-transparent ">
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-[url('/api/placeholder/800/600')] opacity-20"></div>
-      </div>
+
 
       <div className="flex space-x-4 p-6 z-10 h-[39rem] w-[25rem]">
         <div className="w-50 bg-purple-800 rounded border-2 border-purple-400 overflow-hidden flex flex-col">
@@ -42,7 +40,7 @@ const AboutFrame = () => {
                 <div className="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center mr-2">
                     <div className="text-white text-lg"><CgMail className="text-white text-2xl"/></div>
                 </div>
-                <div className="text-white text-xs">kanto.andriahariniaina@gmail.com</div>
+                <div className="text-white text-xs">kanto.andriahariniaina <br /> @gmail.com</div>
               </div>
 
               <div className="flex items-center">

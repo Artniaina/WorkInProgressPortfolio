@@ -6,7 +6,7 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-8">
           <motion.a 
-            href="#" 
+            href="#home" 
             className="text-cyber-pink text-xl font-pixel"
             whileHover={{ scale: 1.05 }}
           >
@@ -20,14 +20,14 @@ const Navbar = () => {
             ABOUT
           </motion.a>
           <motion.a 
-            href="#blog" 
+            href="#techno" 
             className="text-sm hover:text-cyber-pink transition-colors"
             whileHover={{ scale: 1.05 }}
           >
             TECHNO
           </motion.a>
           <motion.a 
-            href="#blog" 
+            href="#work" 
             className="text-sm hover:text-cyber-pink transition-colors"
             whileHover={{ scale: 1.05 }}
           >
