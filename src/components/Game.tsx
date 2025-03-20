@@ -19,11 +19,11 @@ function Game() {
                     setCurrentLogo((prevLogo) => (prevLogo + 1) % LOGOS.length);
                     return 100;
                 }
-                return prev - 1;
+                return prev - 1.1;
             });
         };
 
-        const obstacleInterval = setInterval(moveObstacle, 16);
+        const obstacleInterval = setInterval(moveObstacle, 10);
         return () => clearInterval(obstacleInterval);
     }, []);
 
@@ -35,26 +35,41 @@ function Game() {
     }, [obstaclePosition, isJumping]);
 
     return (
-        <div className="h-[44rem] bg-gradient-to-br  flex items-center justify-center overflow-hidden">
+        <div className="h-[44rem] bg-gradient-to-br flex items-center justify-center overflow-hidden">
             <div className="relative w-[800px] ">
-
-                <div className="absolute inset-0 grid grid-cols-12 grid-rows-6 gap-4 opacity-20 pointer-events-none">
+                <div className="absolute inset-0 grid grid-cols-12 grid-rows-6 gap-4 opacity-20 pointer-events-none">     
                     {Array.from({ length: 72 }).map((_, i) => (
                         <div key={i} className="border border-pink-500"></div>
                     ))}
                 </div>
-
+                <div className="absolute bottom-[9rem] text-sm ml-[7rem] transform  text-center pixel-font">
+                 <div className="text-pink-500 w-[25rem] text-xs">
+                    "The future depends on what we do in the present." — Mahatma Gandhi
+                    </div>
+                <pre className="text-lg text-left p-2 rounded-md overflow-x-auto text-gray-300 shadow-lg  border-pink-500 ">
+                    <code> 
+                        <span className="text-pink-500">const</span> <span className="text-cyan-400">pursueGoal</span> = <span className="text-yellow-400">goal</span> =&gt; <br />
+                        {"  "}<span className="text-green-400">isAchievable</span>(<span className="text-yellow-400">goal</span>) <br />
+                        {"    "}? (<span className="text-purple-400">workHard</span>(<span className="text-yellow-400">goal</span>), <span className="text-green-400">faceChallenges</span>(<span className="text-yellow-400">goal</span>)) <br />
+                        {"    "}{"&&"} (<span className="text-pink-500">stayPositive</span>(), <span className="text-purple-400">workHard</span>(<span className="text-yellow-400">goal</span>)) <br />
+                        {"    "}: <span className="text-pink-500">setRealisticExpectations</span>(<span className="text-yellow-400">goal</span>);
+                    </code>
+                </pre>
+  
+                   
+                </div>
                 <div className="absolute bottom-[70px] w-full h-1 bg-pink-500 shadow-[0_0_20px_rgba(236,72,153,0.5)]"></div>
-
+              
                 <div
                     className="absolute bottom-[70px] w-10 h-10"
                     style={{ left: `${obstaclePosition}%` }}
                 >
+                    
                     <img src={LOGOS[currentLogo]} className="w-full h-full object-contain" />
                 </div>
 
                 <div
-                    className={`absolute left-20 bottom-20 transition-transform duration-500 ${
+                    className={`absolute left-10 bottom-20 transition-transform duration-500 ${
                         isJumping ? 'translate-y-[-150px]' : 'translate-y-0'
                     }`}
                 >
