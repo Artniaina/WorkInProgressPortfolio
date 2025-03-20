@@ -15,8 +15,7 @@ const Header = () => {
     }
   }, []);
 
-  const scrollToSection = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  const handleScroll = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -26,46 +25,42 @@ const Header = () => {
   return (
     <header ref={headerRef} className="mt-[8rem] mx-[5rem]">
       <nav className="flex justify-between items-center z-10">
-        <motion.div
+        <motion.div 
           className="text-cyber-pink text-2xl font-pixel"
           whileHover={{ scale: 1.1 }}
         >
           KANTO
         </motion.div>
         <div className="flex items-center gap-8">
-          <motion.a
-            href="#home"
-            onClick={scrollToSection('home')}
-            className="text-cyber-pink text-2xl font-pixel active:text-cyber-pink"
+          <motion.a 
+            href="#"
+            className="text-cyber-pink text-2xl font-pixel"
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            onClick={() => handleScroll('home')}
           >
             HOME
           </motion.a>
-          <motion.a
+          <motion.a 
             href="#about"
-            onClick={scrollToSection('about')}
-            className="text-lg hover:text-cyber-pink transition-colors active:text-cyber-pink"
+            className="text-lg hover:text-cyber-pink transition-colors"
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            onClick={() => handleScroll('about')}
           >
             ABOUT
           </motion.a>
-          <motion.a
+          <motion.a 
             href="#skills"
-            onClick={scrollToSection('skills')}
-            className="text-lg hover:text-cyber-pink transition-colors active:text-cyber-pink"
+            className="text-lg hover:text-cyber-pink transition-colors"
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            onClick={() => handleScroll('skills')}
           >
             SKILLS
           </motion.a>
-          <motion.a
-            href="#project"
-            onClick={scrollToSection('project')}
-            className="text-lg hover:text-cyber-pink transition-colors active:text-cyber-pink"
+          <motion.a 
+            href="#projects"
+            className="text-lg hover:text-cyber-pink transition-colors"
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            onClick={() => handleScroll('projects')}
           >
             PROJECT
           </motion.a>
