@@ -74,16 +74,21 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cyber-dark ">
-      <div className='h-[80vh]'>
+      <div className='h-[83vh]'>
         <Header />
         <main >
           <Hero />  
         </main>
       </div>
  
-      <section className="bg-cyber-purple/10 py-20">
+      <section className="bg-cyber-purple/10 ">
+      <div>
         <About/>
+      </div>
+      <div>
+
         <Skills />
+      </div>
       </section>
       <Footer />
     </div>
