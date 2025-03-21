@@ -6,7 +6,7 @@ const FrameWorkLol = () => {
     return (
         <div>
             <motion.div
-                className="w-[58rem] bg-purple-800 rounded h-[36rem] border-2 border-purple-400 overflow-hidden flex flex-col"
+                className="w-[58rem] bg-purple-800 rounded h-[32rem] border-2 border-purple-400 overflow-hidden flex flex-col"
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
