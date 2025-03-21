@@ -45,22 +45,17 @@ const About = () => {
                 ABOUT ME
             </motion.h1>
             <div className="flex flex-row justify-center items-center w-full space-x-8">
-                <motion.div
+                <div
                     className="h-[40rem]"
-                    animate={controls}
-                    initial="hidden"
-                    variants={leftVariants}
+                 
                 >
                     <AboutFrame />
-                </motion.div>
-                <motion.div
+                </div>
+                <div
                     className="h-[37rem]"
-                    animate={controls}
-                    initial="hidden"
-                    variants={rightVariants}
                 >
                     <FrameWorkLol resetAnimation={inView} />
-                </motion.div>
+                </div>
             </div>
         </div>
     );

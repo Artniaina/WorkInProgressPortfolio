@@ -6,16 +6,15 @@ import Pixel from "../assets/pixell.png";
 
 const AboutFrame = () => {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Animation triggers only once when in view
-    threshold: 0.2, // Trigger when 20% of the component is visible
+    threshold: 0.2, 
   });
 
   return (
     <motion.div
-      ref={ref} // Attach the ref to the container
+      ref={ref}
       className="bg-transparent"
       initial={{ opacity: 0, y: -50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}} // Animate only when in view
+      animate={inView ? { opacity: 1, y: 0 } : {}} 
       transition={{ duration: 0.5 }}
     >
       <div className="flex space-x-4 p-6 z-10 h-[35rem] w-[25rem]">

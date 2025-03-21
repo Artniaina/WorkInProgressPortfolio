@@ -6,6 +6,10 @@ const FrameWorkLol = ({ resetAnimation }: { resetAnimation: boolean }) => {
     const controls = useAnimation();
 
     useEffect(() => {
+        controls.start("visible");
+    }, [controls]);
+
+    useEffect(() => {
         if (resetAnimation) {
             controls.start("visible");
         } else {
@@ -53,19 +57,18 @@ const FrameWorkLol = ({ resetAnimation }: { resetAnimation: boolean }) => {
                 >
                     <div className="mb-6">
                         <div className="text-xl mb-2 text-cyber-pink">Education and Background:</div>
-                        <div className="pl-4 mb-4">
-                            <div className="mb-2">
-                                • Bachelor's Degree in Computer Science: Integration and Development at ESTI : "École Supérieure des
-                                Technologies de l'Information " (2022-2025)
+                        <div className="pl-4 text-sm text-left">
+                            <div className="mb-2 pb-2">
+                                • Bachelor's Degree in Computer Science: Integration and Development at ESTI (2022-2025)
                             </div>
-                            <div className="mb-2">• English Courses at "Madagascar Professional Training Centre" (2021)</div>
-                            <div className="mb-2">• Scientific Baccalaureate at "Les Bambinos II" (2021)</div>
-                        </div>
+                            <div className="mb-2 pb-2">• English Courses at Madagascar Professional Training Centre (2021)</div>
+                            <div className="mb-2 pb-2">• Scientific Baccalaureate at Les Bambinos II (2021)</div>
+                        </div>   
                     </div>
 
                     <div>
                         <div className="text-xl mb-2 text-cyber-pink"> Soft skills:</div>
-                        <div className="pl-4">
+                        <div className="pl-4 text-sm">
                             {skills.map((skill, index) => (
                                 <motion.div
                                     key={index}
