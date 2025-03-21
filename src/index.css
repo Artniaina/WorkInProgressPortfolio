@@ -81,7 +81,18 @@ body {
 .left { transform: rotateY(-90deg) translateZ(20px); }
 .top { transform: rotateX(90deg) translateZ(20px); }
 .bottom { transform: rotateX(-90deg) translateZ(20px); }
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
+.typing-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(40, end) forwards;
+  animation-delay: 0.8s;
+}
 @keyframes rotate {
   from {
     transform: rotateY(0);

@@ -5,6 +5,7 @@ import Skills from './components/Skills';
 import Hero from './components/Hero';
 import Stickers from "./assets/test1.png"
 import About from './components/About';
+import AboutMe from './components/AboutMe';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -75,21 +76,32 @@ function App() {
   return (
     <div className="min-h-screen bg-cyber-dark ">
       <div className='h-[83vh]'>
-        <Header />
-        <main >
-          <Hero />  
-        </main>
+      <Header />
+      <main >
+        <Hero />  
+      </main>
       </div>
- 
+   
+      <section className="bg-cyber-purple/10 ">
+      <div>
+        <AboutMe />
+      </div>
+      </section>
+
       <section className="bg-cyber-purple/10 ">
       <div>
         <About/>
       </div>
+      </section>
+      
+      <section className="bg-cyber-purple/10 ">
       <div>
-
         <Skills />
       </div>
       </section>
+      
+    
+      
       <Footer />
     </div>
   );

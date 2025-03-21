@@ -1,21 +1,22 @@
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
+import { useInView } from "react-intersection-observer";
 
-const FrameWorkLol = ({ resetAnimation }: { resetAnimation: boolean }) => {
-    const skills: string[] = ['Adaptability', 'Fast Selflearning', 'Versatility','Continuous Improvement Enthusiast'];
+const FrameWorkLol = () => {
+    const { ref, inView } = useInView({
+        threshold: 0.2, 
+    });
+
+    const skills: string[] = ['Adaptability', 'Fast Selflearning', 'Versatility', 'Continuous Improvement Enthusiast'];
     const controls = useAnimation();
 
     useEffect(() => {
-        controls.start("visible");
-    }, [controls]);
-
-    useEffect(() => {
-        if (resetAnimation) {
+        if (inView) {
             controls.start("visible");
         } else {
             controls.start("hidden");
         }
-    }, [resetAnimation, controls]);
+    }, [inView, controls]);
 
     const containerVariants = {
         hidden: { opacity: 0, y: -50 },
@@ -28,7 +29,7 @@ const FrameWorkLol = ({ resetAnimation }: { resetAnimation: boolean }) => {
     };
 
     return (
-        <div>
+        <div ref={ref}>
             <motion.div
                 className="w-[58rem] bg-purple-800 rounded h-[32rem] border-2 border-purple-400 overflow-hidden flex flex-col"
                 animate={controls}
@@ -37,7 +38,7 @@ const FrameWorkLol = ({ resetAnimation }: { resetAnimation: boolean }) => {
             >
                 <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center"></div>
                 <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
-                    <div className="text-white">APresentationOfMeXD.txt</div>
+                    <div className="text-white">APresentationOfMe.txt</div>
                     <div className="flex space-x-2">
                         <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
                             <div className="w-2 h-2 bg-purple-300"></div>
@@ -58,11 +59,38 @@ const FrameWorkLol = ({ resetAnimation }: { resetAnimation: boolean }) => {
                     <div className="mb-6">
                         <div className="text-xl mb-2 text-cyber-pink">Education and Background:</div>
                         <div className="pl-4 text-sm text-left">
-                            <div className="mb-2 pb-2">
-                                • Bachelor's Degree in Computer Science: Integration and Development at ESTI (2022-2025)
-                            </div>
-                            <div className="mb-2 pb-2">• English Courses at Madagascar Professional Training Centre (2021)</div>
-                            <div className="mb-2 pb-2">• Scientific Baccalaureate at Les Bambinos II (2021)</div>
+                            <motion.div
+                                className="mb-2 pb-2"
+                                initial={{ x: -50, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                • Master's Degree in Software Engineering: Currently pursuing at ESTI: "Ecole Supérieure des technologies de l'Information"
+                            </motion.div>
+                            <motion.div
+                                className="mb-2 pb-2"
+                                initial={{ x: -50, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                • Bachelor's Degree in Computer Science: Integration and Development at ESTI: "Ecole Supérieure des technologies de l'Information" (2022-2025)
+                            </motion.div>
+                            <motion.div
+                                className="mb-2 pb-2"
+                                initial={{ x: -50, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 0.6 }}
+                            >
+                                • English Courses at " Madagascar Professional Training Centre"  (2021)
+                            </motion.div>
+                            <motion.div
+                                className="mb-2 pb-2"
+                                initial={{ x: -50, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ delay: 0.4, duration: 0.6 }}
+                            >
+                                • Scientific Baccalaureate at " Les Bambinos II " (2021)
+                            </motion.div>
                         </div>   
                     </div>
 
@@ -73,9 +101,9 @@ const FrameWorkLol = ({ resetAnimation }: { resetAnimation: boolean }) => {
                                 <motion.div
                                     key={index}
                                     className="mb-1"
-                                    initial={{ x: -20, opacity: 0 }}
+                                    initial={{ x: -30, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
-                                    transition={{ delay: index * 0.2, duration: 0.5 }}
+                                    transition={{ delay: index * 0.3, duration: 0.6 }}
                                 >
                                     • {skill}
                                 </motion.div>
