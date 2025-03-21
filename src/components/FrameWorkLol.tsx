@@ -1,15 +1,35 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
 
-const FrameWorkLol = () => {
+const FrameWorkLol = ({ resetAnimation }: { resetAnimation: boolean }) => {
     const skills: string[] = ['Adaptability', 'Fast Selflearning', 'Versatility','Continuous Improvement Enthusiast'];
+    const controls = useAnimation();
+
+    useEffect(() => {
+        if (resetAnimation) {
+            controls.start("visible");
+        } else {
+            controls.start("hidden");
+        }
+    }, [resetAnimation, controls]);
+
+    const containerVariants = {
+        hidden: { opacity: 0, y: -50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    };
+
+    const contentVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { delay: 0.3, duration: 0.5 } }
+    };
 
     return (
         <div>
             <motion.div
                 className="w-[58rem] bg-purple-800 rounded h-[32rem] border-2 border-purple-400 overflow-hidden flex flex-col"
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                animate={controls}
+                initial="hidden"
+                variants={containerVariants}
             >
                 <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center"></div>
                 <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
@@ -27,9 +47,9 @@ const FrameWorkLol = () => {
 
                 <motion.div
                     className="flex-grow bg-gray-900 p-4 text-white"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.5 }}
+                    animate={controls}
+                    initial="hidden"
+                    variants={contentVariants}
                 >
                     <div className="mb-6">
                         <div className="text-xl mb-2 text-cyber-pink">Education and Background:</div>
