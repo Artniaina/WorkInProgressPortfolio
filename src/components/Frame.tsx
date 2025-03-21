@@ -6,7 +6,7 @@ interface CyberpunkWebcamFrameProps {
 
 const CyberpunkWebcamFrame: React.FC<CyberpunkWebcamFrameProps> = () => {
     return (
-        <div className="relative w-[35rem] -top-8 left-[2rem]" style={{ imageRendering: 'pixelated' }}>
+        <div className="relative w-[35rem] -top-8" style={{ imageRendering: 'pixelated' }}>
             <div
                 className="border-4 border-fuchsia-600 rounded-md overflow-hidden shadow-lg"
                 style={{ boxShadow: '0 0 20px #d946ef, 0 0 40px #d946ef' }}

@@ -1,6 +1,7 @@
 import { FaGithub } from "react-icons/fa";
 import { CgMail } from "react-icons/cg";
 import { motion } from "framer-motion";
+import Pixel from "../assets/pixell.png"
 
 const AboutFrame = () => {
   return (
@@ -10,7 +11,7 @@ const AboutFrame = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex space-x-4 p-6 z-10 h-[32rem] w-[25rem]">
+      <div className="flex space-x-4 p-6 z-10 h-[35rem] w-[25rem]">
         <motion.div
           className="w-50 bg-purple-800 rounded border-2 border-purple-400 overflow-hidden flex flex-col"
           initial={{ scale: 0.8 }}
@@ -28,7 +29,7 @@ const AboutFrame = () => {
               </div>
               <div className="w-4 h-4 bg-gray-900 border border-purple-300"></div>
               <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
-                <div className="text-purple-300 text-xs">×</div>
+                <div className="text-purple-300 text-xs">X</div>
               </div>
             </div>
           </div>
@@ -40,13 +41,21 @@ const AboutFrame = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="w-32 h-32 rounded-full bg-purple-700 border-2 border-purple-400 p-1">
-              <div className="w-full h-full rounded-full bg-purple-600 overflow-hidden flex items-center justify-center">
-                <div className="w-24 h-24 bg-[url('/api/placeholder/100/100')] bg-cover"></div>
+              <div className="w-full h-full rounded-full bg-purple-600 overflow-hidden flex items-center justify-center">     
+              <img src={Pixel} alt="Just a pixel character" />
               </div>
             </div>
           </motion.div>
 
           <div className="px-6 py-2 flex-grow">
+            <motion.div
+              className="text-white text-sm font-bold mb-6 -mt-2 px-2 text-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              ANDRIAHARINIAINA <br /> Kanto Fitiavana
+            </motion.div>
             <motion.div
               className="text-white text-xl font-bold mb-4 px-2"
               initial={{ opacity: 0 }}
