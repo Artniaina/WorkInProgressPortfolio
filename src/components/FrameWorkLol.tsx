@@ -51,16 +51,16 @@ const FrameWorkLol = () => {
                 </div>
 
                 <motion.div
-                    className="flex-grow bg-gray-900 p-4 text-white"
+                    className="flex-grow bg-gray-900  p-4 text-white"
                     animate={controls}
                     initial="hidden"
                     variants={contentVariants}
                 >
                     <div className="mb-6">
                         <div className="text-xl mb-2 text-cyber-pink">Education and Background:</div>
-                        <div className="pl-4 text-sm text-left">
+                        <div className="pl-4 text-[1.2rem] font-mono  text-left">
                             <motion.div
-                                className="mb-2 pb-2"
+                                className="mb-2 "
                                 initial={{ x: -50, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 transition={{ duration: 0.6 }}
@@ -68,7 +68,7 @@ const FrameWorkLol = () => {
                                 • Master's Degree in Software Engineering: Currently pursuing at ESTI: "Ecole Supérieure des technologies de l'Information"
                             </motion.div>
                             <motion.div
-                                className="mb-2 pb-2"
+                                className="mb-2 "
                                 initial={{ x: -50, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 transition={{ duration: 0.6 }}
@@ -76,7 +76,7 @@ const FrameWorkLol = () => {
                                 • Bachelor's Degree in Computer Science: Integration and Development at ESTI: "Ecole Supérieure des technologies de l'Information" (2022-2025)
                             </motion.div>
                             <motion.div
-                                className="mb-2 pb-2"
+                                className="mb-2 "
                                 initial={{ x: -50, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 transition={{ delay: 0.2, duration: 0.6 }}
@@ -95,8 +95,8 @@ const FrameWorkLol = () => {
                     </div>
 
                     <div>
-                        <div className="text-xl mb-2 text-cyber-pink"> Soft skills:</div>
-                        <div className="pl-4 text-sm">
+                        <div className="text-xl mb-2 text-cyber-pink "> Soft skills:</div>
+                        <div className="pl-4 text-[1.2rem] font-mono ">
                             {skills.map((skill, index) => (
                                 <motion.div
                                     key={index}

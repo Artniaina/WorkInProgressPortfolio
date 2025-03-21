@@ -31,20 +31,20 @@ const About = () => {
   return (
     <div ref={ref} className="flex flex-col items-center pt-12">
       <motion.h1
-        className="text-3xl font-bold mb-8"
-        animate={controls}
-        initial="hidden"
-        variants={variants}
+      className="text-3xl font-bold mb-8"
+      animate={controls}
+      initial="hidden"
+      variants={variants}
       >
-        
+       ABOUT ME
       </motion.h1>
       <div className="flex flex-row justify-center items-center w-full space-x-8">
-        <div className="h-[40rem]">
-          <AboutFrame />
-        </div>
-        <div className="h-[37rem]">
-          <FrameWorkLol />
-        </div>
+      <div className="h-[40rem]">
+      <AboutFrame />
+      </div>
+      <div className="h-[37rem]">
+      <FrameWorkLol />
+      </div>
       </div>
     </div>
   );
