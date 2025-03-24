@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaPlay } from "react-icons/fa";
-
+import { IoPlayForwardSharp } from "react-icons/io5";
 const AboutMe: React.FC = () => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
@@ -41,8 +40,7 @@ const AboutMe: React.FC = () => {
         >
           WHO AM I?
         </motion.h1>
-      </div>
-      <motion.a
+        <motion.a
         animate={{
           scale: [1, 1.1, 1],
         }}
@@ -53,12 +51,17 @@ const AboutMe: React.FC = () => {
         style={{
           textShadow: "1px 1px 0 rgba(0,0,0,0.5)",
           fontFamily: "'Press Start 2P', cursive",
+          left: "25rem",
+          position: "relative",
         }}
         href="#aboutMe"
-        className="p-1.5 w-8 text-white text-3xl h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform"
-      >
-       <FaPlay />
-      </motion.a>
+        className="p-1.5 w-[8rem] mt-8 text-white text-sm h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform"
+            >
+        Next
+             <IoPlayForwardSharp className="text-2xl"/>
+            </motion.a>
+      </div>
+     
 
       <motion.div
         className="w-[75rem] rounded-lg overflow-hidden border-4 border-gray-600 shadow-2xl"
