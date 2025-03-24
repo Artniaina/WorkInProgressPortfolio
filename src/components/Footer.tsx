@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-cyber-dark/80 py-8">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center">
-          <p className="text-sm">© 2024 </p>
+          <p className="text-sm">© 2025 </p>
           <div className="flex gap-6">
             {[
               { icon: <FaGithub size={24} />, url: "https://github.com" },

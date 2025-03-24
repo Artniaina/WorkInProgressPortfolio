@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import Stickers from "./assets/test1.png"
 import About from './components/About';
 import AboutMe from './components/AboutMe';
+import SkillsFrame from './components/SkillsFrame';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -75,7 +76,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cyber-dark ">
-      <div className='h-[83vh] '>
+      <div className='h-[83vh] relative b-[2rem]'>
       <Header />
       <main >
         <Hero />  
@@ -95,8 +96,10 @@ function App() {
       </section>
       
       <section className="bg-cyber-purple/10 ">
-      <div>
-        <Skills />
+      <div >
+        <SkillsFrame>
+          <Skills />
+        </SkillsFrame>
       </div>
       </section>
       

@@ -93,6 +93,15 @@ body {
   animation: typing 2s steps(40, end) forwards;
   animation-delay: 0.8s;
 }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
 @keyframes rotate {
   from {
     transform: rotateY(0);

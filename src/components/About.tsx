@@ -34,7 +34,7 @@ const About = () => {
       >
        ABOUT ME
       </motion.h1>
-      <div className="flex flex-row justify-center items-center w-full space-x-8">
+      <div className="flex flex-row relative -top-4 justify-center items-center w-full space-x-8">
       <div className="h-[40rem]">
       <AboutFrame />
       </div>
