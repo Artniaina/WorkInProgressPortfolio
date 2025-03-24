@@ -1,27 +1,42 @@
-import { motion, useAnimation } from 'framer-motion';
-import { Code2, Cpu, Gamepad2 } from 'lucide-react';
-import { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import Javascript from "../assets/JS.jpg";
+import ReactIcon from "../assets/REACT.png";
+import Typescript from "../assets/TS.webp";
+import Html from "../assets/HTML5_logo_and_wordmark.svg.png";
+import Css from "../assets/CSS3_logo_and_wordmark.svg.png";
+import Php from "../assets/php.png";
+import mySql from "../assets/mysql.png";
+import Redux from "../assets/redux.svg";
+import Thunder from "../assets/thunder.png";
+import Webdev from "../assets/wedev.webp";
+import Git from "../assets/git.png";
+import Github from "../assets/github.png";
+import Express from "../assets/express-js.png";
+import Hfsql from "../assets/cloud_stockage-hfsql.svg";
+import Python from "../assets/PY.png";
+import ReactNative from "../assets/reactnative-inner.svg";
 
 const Skills = () => {
   const { ref, inView } = useInView({
     threshold: 0.2,
-    triggerOnce: false
+    triggerOnce: false,
   });
 
   const controls = useAnimation();
 
   useEffect(() => {
     if (inView) {
-      controls.start('visible');
+      controls.start("visible");
     } else {
-      controls.start('hidden');
+      controls.start("hidden");
     }
   }, [inView, controls]);
 
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
   const itemVariants = {
@@ -29,43 +44,77 @@ const Skills = () => {
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         delay: i * 0.1,
-        duration: 0.5
-      }
-    })
+        duration: 0.5,
+      },
+    }),
   };
 
-  const categories = [
-    { icon: <Code2 size={32} />, title: "Frontend", skills: ["React", "TypeScript", "Tailwind CSS", "Next.js", "HTML/CSS"] },
-    { icon: <Cpu size={32} />, title: "Backend", skills: ["Node.js", "Express", "MongoDB", "PostgreSQL", "REST API"] },
-    { icon: <Gamepad2 size={32} />, title: "Tools", skills: ["Git", "GitHub", "VS Code", "Figma", "Vercel"] }
+  const skills = [
+    Html,
+    Css,
+    Javascript,
+    Php,
+    Typescript,
+    Python,
+    ReactIcon,
+    ReactNative,
+    Redux,
+    Express,
+    Hfsql,
+    mySql,
+    Git,
+    Github,
+    Thunder,
+    Webdev,
   ];
 
+  const rows = [
+    [skills[0], skills[1], skills[2], skills[3], skills[4]],
+    [skills[5], skills[6], skills[7], skills[8], skills[9]], 
+    [...skills.slice(10, 16)], 
+  ];
   return (
-    <div  className="py-20 px-6">
- 
-
-      <motion.div
-        className="flex items-center justify-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate={controls}
-      >
-        <div >
-          {/* Terminal header */}
-         
-
-  
-
-          {/* Terminal footer */}
-          <div className="mt-6 pt-4 border-t border-cyber-light/30 text-cyber-light/70 text-sm font-mono">
-            <div className="typing-animation">
-              $ Skills updated successfully. Version 1.2.5
-            </div>
+    <div className="py-20 px-6">
+      <div ref={ref}>
+        <motion.div
+          className="flex flex-col items-center justify-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate={controls}
+        >
+          <div className="grid gap-8">
+            {rows.map((row, rowIndex) => (
+              <div
+                key={rowIndex}
+                className="flex justify-center gap-8 flex-wrap"
+              >
+                {row.map((skill, index) => (
+                    <motion.div
+                    key={index}
+                    className="w-24 h-24 bg-white border-4 border-black flex items-center justify-center rounded-lg shadow-lg"
+                    style={{
+                      imageRendering: "pixelated",
+                    }}
+                    variants={itemVariants}
+                    custom={index}
+                    >
+                    <img
+                      src={skill}
+                      alt={`Skill ${index}`}
+                      className="w-16 h-16 object-contain"
+                      style={{
+                      imageRendering: "pixelated",
+                      }}
+                    />
+                    </motion.div>
+                ))}
+              </div>
+            ))}
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };

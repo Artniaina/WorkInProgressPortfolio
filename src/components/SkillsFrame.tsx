@@ -25,23 +25,37 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
     hidden: { opacity: 0, y: -50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
+
+  const frameVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } },
+  };
+
   return (
-    <div
+    <motion.div
       id="skills"
       ref={ref}
       className="relative t-[3rem] w-full py-20 px-6 h-screen flex items-center justify-center bg-cyber-dark"
-    >
-    <motion.h1
-      className="absolute top-12 transform -translate-x-1/2 text-white text-3xl font-bold"
       animate={controls}
       initial="hidden"
-      variants={variants}
+      variants={frameVariants}
     >
-      MY TECH STACK
-    </motion.h1>
-      <div className="absolute inset-0 overflow-hidden">
+      <motion.h1
+        className="absolute top-12 transform -translate-x-1/2 text-white text-3xl font-bold"
+        animate={controls}
+        initial="hidden"
+        variants={variants}
+      >
+        MY TECH STACK
+      </motion.h1>
+      <motion.div
+        className="absolute inset-0 overflow-hidden"
+        animate={controls}
+        initial="hidden"
+        variants={frameVariants}
+      >
         {[...Array(15)].map((_, i) => (
-          <div
+          <motion.div
             key={`plus-${i}`}
             className="absolute text-[#7FFFD4] text-xl font-bold animate-twinkle"
             style={{
@@ -50,13 +64,19 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
               opacity: Math.random() * 0.7 + 0.3,
               animationDelay: `${Math.random() * 2}s`,
             }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
           >
             +
-          </div>
+          </motion.div>
         ))}
 
         {[...Array(8)].map((_, i) => (
-          <div
+          <motion.div
             key={`square-${i}`}
             className="absolute bg-[#7FFFD4] w-1 h-1 animate-twinkle"
             style={{
@@ -65,11 +85,22 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
               opacity: Math.random() * 0.7 + 0.3,
               animationDelay: `${Math.random() * 2}s`,
             }}
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
           />
         ))}
-      </div>
+      </motion.div>
 
-      <div className="relative w-[90%] mt-2 w-8 h-[35rem] top-8 aspect-[16/9] bg-[#B341F3] rounded-2xl p-1">
+      <motion.div
+        className="relative w-[70%] mt-2 w-8 h-[32rem] top-8 aspect-[16/9] bg-[#B341F3] rounded-2xl p-1"
+        animate={controls}
+        initial="hidden"
+        variants={frameVariants}
+      >
         <div className="absolute -top-1 left-4 w-2 h-2 bg-[#B341F3]"></div>
         <div className="absolute -top-1 left-8 w-2 h-2 bg-[#B341F3]"></div>
         <div className="absolute -top-1 left-12 w-2 h-2 bg-[#B341F3]"></div>
@@ -79,10 +110,23 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
         <div className="absolute -left-3 top-32 w-3 h-8 bg-[#B341F3]"></div>
 
         <div className="w-full h-full bg-cyber-dark rounded-xl p-1">
-          <div className="w-full h-fullrounded-lg p-6">{children}</div>
+          <div className="border-b-2 border-[#B341F3]  p-1">Skills.exe</div>
+          <div className="mt-6 ml-6 pt-4 border-t border-cyber-light/30 text-cyber-light text-sm font-mono">
+            <div className="typing-animation">
+              $ Skills updated successfully. Version 2.4.5
+            </div>
+          </div>
+          <motion.div
+            className="w-full h-full rounded-lg relative bottom-[4.5rem]"
+            animate={controls}
+            initial="hidden"
+            variants={variants}
+          >
+            {children}
+          </motion.div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

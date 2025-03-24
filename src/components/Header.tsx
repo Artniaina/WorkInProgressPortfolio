@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <header ref={headerRef} className="mt-[8rem] mx-[5rem]">
-      <nav className="flex justify-between  relative b-[2rem] items-center z-10">
+      <nav className="flex justify-between  relative top-[2rem] items-center z-10">
         <motion.div 
           className="text-cyber-pink text-2xl font-pixel"
           whileHover={{ scale: 1.1 }}
