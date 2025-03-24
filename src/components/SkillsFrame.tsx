@@ -110,7 +110,7 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
         <div className="absolute -left-3 top-32 w-3 h-8 bg-[#B341F3]"></div>
 
         <div className="w-full h-full bg-cyber-dark rounded-xl p-1">
-          <div className="border-b-2 border-[#B341F3]  p-1">Skills.exe</div>
+          <div className="border-b-2 border-[#B341F3]  p-1">SkillsFolder</div>
           <div className="mt-1 ml-6 pt-4 border-t border-cyber-light/30 text-cyber-light text-sm font-mono">
             
           </div>
