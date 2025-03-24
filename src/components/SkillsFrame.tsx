@@ -32,15 +32,13 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
   };
 
   return (
-    <motion.div
+    <div
       id="skills"
-      className=" flex items-center h-[105vh] justify-center p-4 flex-col"
-      animate={controls}
-      initial="hidden"
-      variants={frameVariants}
+      ref={ref}
+      className="relative t-[5rem] w-full py-20 px-6 h-screen flex items-center justify-center bg-cyber-dark"
     >
       <motion.h1
-        className="relative mb-6 top-10 transform -translate-x-1/2 text-white text-3xl font-bold"
+        className="absolute top-12 transform -translate-x-1/2 text-white text-3xl font-bold"
         animate={controls}
         initial="hidden"
         variants={variants}
@@ -110,9 +108,7 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
 
         <div className="w-full h-full bg-cyber-dark rounded-xl p-1">
           <div className="border-b-2 border-[#B341F3]  p-1">SkillsFolder</div>
-          <div className="mt-1 ml-6 pt-4 border-t border-cyber-light/30 text-cyber-light text-sm font-mono">
-            
-          </div>
+          <div className="mt-1 ml-6 pt-4 border-t border-cyber-light/30 text-cyber-light text-sm font-mono"></div>
           <motion.div
             className="w-full h-full rounded-lg relative bottom-[4.5rem]"
             animate={controls}
@@ -120,13 +116,10 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
             variants={variants}
           >
             {children}
-            
           </motion.div>
-      
         </div>
-        
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 
