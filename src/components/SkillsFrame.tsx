@@ -38,12 +38,12 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
       className="relative t-[5rem] w-full py-20 px-6 h-screen flex items-center justify-center bg-cyber-dark"
     >
       <motion.h1
-        className="absolute top-12 transform -translate-x-1/2 text-white text-3xl font-bold"
+        className="absolute top-12 transform -translate-x-1/2 text-white text-3xl font-bold text-[#ffd700] font-pixel text-2xl"
         animate={controls}
         initial="hidden"
         variants={variants}
       >
-        MY TECH STACK
+          MY TECH STACK
       </motion.h1>
       <motion.div
         className="absolute inset-0 overflow-hidden"
