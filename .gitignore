@@ -11,22 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-# Asset files
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
-*.webp
-*.ico
-*.bmp
-*.tiff
-*.psd
-*.ai
-*.eps
-*.sketch
-*.fig
-*.raw
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

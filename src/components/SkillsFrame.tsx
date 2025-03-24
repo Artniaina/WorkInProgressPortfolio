@@ -111,10 +111,8 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
 
         <div className="w-full h-full bg-cyber-dark rounded-xl p-1">
           <div className="border-b-2 border-[#B341F3]  p-1">Skills.exe</div>
-          <div className="mt-6 ml-6 pt-4 border-t border-cyber-light/30 text-cyber-light text-sm font-mono">
-            <div className="typing-animation">
-              $ Skills updated successfully. Version 2.4.5
-            </div>
+          <div className="mt-1 ml-6 pt-4 border-t border-cyber-light/30 text-cyber-light text-sm font-mono">
+            
           </div>
           <motion.div
             className="w-full h-full rounded-lg relative bottom-[4.5rem]"
@@ -123,8 +121,11 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
             variants={variants}
           >
             {children}
+            
           </motion.div>
+      
         </div>
+        
       </motion.div>
     </motion.div>
   );

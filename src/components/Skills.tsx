@@ -61,19 +61,19 @@ const Skills = () => {
     ReactIcon,
     ReactNative,
     Redux,
+    Webdev,
     Express,
     Hfsql,
     mySql,
     Git,
     Github,
     Thunder,
-    Webdev,
   ];
 
   const rows = [
-    [skills[0], skills[1], skills[2], skills[3], skills[4]],
-    [skills[5], skills[6], skills[7], skills[8], skills[9]], 
-    [...skills.slice(10, 16)], 
+    [skills[0], skills[1], skills[2], skills[3], skills[4], skills[5]],
+    [skills[6], skills[7], skills[8], skills[9], skills[10]],
+    [...skills.slice(11, 16)],
   ];
   return (
     <div className="py-20 px-6">
@@ -112,6 +112,11 @@ const Skills = () => {
                 ))}
               </div>
             ))}
+                <div className="mt-2 -ml-12 pt-4 text-[1rem] border-t border-cyber-light text-cyber-light  font-mono">
+            <div className="typing-animation">
+              $ Skills updated successfully. Version 2.4.5
+            </div>
+          </div>
           </div>
         </motion.div>
       </div>
