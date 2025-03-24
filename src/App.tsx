@@ -7,6 +7,7 @@ import Stickers from "./assets/test1.png"
 import About from './components/About';
 import AboutMe from './components/AboutMe';
 import SkillsFrame from './components/SkillsFrame';
+import Projects from './components/Projects';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -100,6 +101,12 @@ function App() {
         <SkillsFrame>
           <Skills />
         </SkillsFrame>
+      </div>
+      </section>
+
+      <section className="bg-cyber-purple/10 ">
+      <div >
+       <Projects />
       </div>
       </section>
       

@@ -84,7 +84,7 @@ const AboutMe: React.FC = () => {
               className=" ml-20 text-white font-mono font-bold text-xl tracking-wide"
               style={{ textShadow: "2px 2px 0 rgba(0,0,0,0.3)" }}
             >
-              AboutMe.exe
+              AboutMe.txt
             </div>
           </div>
 

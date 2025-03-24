@@ -34,14 +34,13 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
   return (
     <motion.div
       id="skills"
-      ref={ref}
-      className="relative t-[3rem] w-full py-20 px-6 h-screen flex items-center justify-center bg-cyber-dark"
+      className=" flex items-center h-[105vh] justify-center p-4 flex-col"
       animate={controls}
       initial="hidden"
       variants={frameVariants}
     >
       <motion.h1
-        className="absolute top-12 transform -translate-x-1/2 text-white text-3xl font-bold"
+        className="relative mb-6 top-10 transform -translate-x-1/2 text-white text-3xl font-bold"
         animate={controls}
         initial="hidden"
         variants={variants}

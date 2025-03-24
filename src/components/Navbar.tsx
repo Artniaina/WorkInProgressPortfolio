@@ -24,7 +24,7 @@ const Navbar = () => {
             className="text-sm hover:text-cyber-pink transition-colors"
             whileHover={{ scale: 1.05 }}
           >
-            TECHNO
+            SKILLS
           </motion.a>
           <motion.a 
             href="#work" 
