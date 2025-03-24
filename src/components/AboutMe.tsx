@@ -1,10 +1,16 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FaPlay } from "react-icons/fa";
 
 const AboutMe: React.FC = () => {
   const controls = useAnimation();
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: false });
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+  });
+  useEffect(() => {
+    controls.start("hidden");
+  }, [controls]);
 
   useEffect(() => {
     if (inView) {
@@ -18,32 +24,48 @@ const AboutMe: React.FC = () => {
     hidden: { opacity: 0, y: -50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
-
-  const leftVariants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-  };
-
-  const rightVariants = {
-    hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+  const variants2 = {
+    hidden: { opacity: 0, x: -70 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.9 } },
   };
 
   return (
     <div id="about" className="flex items-center justify-center p-4 flex-col">
-      <motion.h1
-        className="text-3xl font-bold text-white mb-6"
+      <div className="flex justify-between">
+        <motion.h1
+          className="text-3xl  font-bold text-white mb-8 mt-8"
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={variants}
+        >
+          WHO AM I?
+        </motion.h1>
+      </div>
+      <motion.a
+        animate={{
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+        }}
+        style={{
+          textShadow: "1px 1px 0 rgba(0,0,0,0.5)",
+          fontFamily: "'Press Start 2P', cursive",
+        }}
+        href="#aboutMe"
+        className="p-1.5 w-8 text-white text-3xl h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform"
+      >
+       <FaPlay />
+      </motion.a>
+
+      <motion.div
+        className="w-[75rem] rounded-lg overflow-hidden border-4 border-gray-600 shadow-2xl"
         ref={ref}
         initial="hidden"
         animate={controls}
-        variants={variants}
-      >
-        WHO AM I?
-      </motion.h1>
-
-      <div
-        className="w-[75rem]  rounded-lg overflow-hidden border-4 border-gray-600 shadow-2xl"
-        style={{ backgroundColor: "rgba(58, 50, 100, 0.9)" }}
+        variants={variants2}
       >
         <div className="px-4 py-2 bg-purple-600 flex items-center justify-between relative">
           <div className="absolute left-0 top-0 flex">
@@ -54,12 +76,13 @@ const AboutMe: React.FC = () => {
               ></div>
             ))}
           </div>
-
-          <div
-            className="text-white font-mono font-bold mx-auto text-xl tracking-wide"
-            style={{ textShadow: "2px 2px 0 rgba(0,0,0,0.3)" }}
-          >
-            About_Me.exe
+          <div className="flex justify-between items-center w-full px-4">
+            <div
+              className=" ml-20 text-white font-mono font-bold text-xl tracking-wide"
+              style={{ textShadow: "2px 2px 0 rgba(0,0,0,0.3)" }}
+            >
+              AboutMe.exe
+            </div>
           </div>
 
           <div className="flex space-x-2">
@@ -84,19 +107,15 @@ const AboutMe: React.FC = () => {
           ))}
         </div>
 
-      
         <div className="p-6 bg-black relative">
-          {/* Purple planet decoration */}
           <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
 
-          {/* Side toolbar */}
           <div className="absolute right-0 top-0 h-full w-6 bg-purple-900 flex flex-col items-center py-2 gap-4">
             <div className="w-4 h-4 bg-purple-400 rounded-sm"></div>
             <div className="w-4 h-4 bg-purple-400 rounded-sm mt-auto"></div>
           </div>
 
-          {/* Text content */}
-          <div className="text-white h-[25rem] text-xl  font-mono space-y-6 pr-10">
+          <div className="text-white h-[25rem] text-xl font-mono space-y-6 pr-10">
             <p className="leading-relaxed mb-8 ">
               I'm{" "}
               <span className="text-bold text-purple-500">
@@ -132,21 +151,17 @@ const AboutMe: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="px-4 py-2 bg-purple-600 flex items-center justify-between">
-          {/* Navigation buttons */}
           <button className="w-8 h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center">
             <span className="text-white">◄</span>
           </button>
 
-          {/* Page indicators */}
           <div className="flex space-x-2">
             {[...Array(5)].map((_, i) => (
               <div key={i} className="w-4 h-1 bg-purple-300 rounded-full"></div>
             ))}
           </div>
 
-          {/* More navigation buttons */}
           <div className="flex space-x-2">
             <button className="w-8 h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center">
               <span className="text-white">►</span>
@@ -156,7 +171,7 @@ const AboutMe: React.FC = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -24,21 +24,17 @@ const About = () => {
     hidden: { opacity: 0, y: -50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
-
-
-
-
   return (
-    <div ref={ref} className="flex flex-col items-center pt-12">
+    <div id="aboutMe" ref={ref} className="flex flex-col items-center pt-12">
       <motion.h1
       className="text-3xl font-bold mb-8"
       animate={controls}
       initial="hidden"
       variants={variants}
       >
-       ABOUT ME
+      ABOUT ME
       </motion.h1>
-      <div className="flex flex-row justify-center items-center w-full space-x-8">
+      <div className="flex relative b-[1rem] flex-row justify-center items-center w-full space-x-8">
       <div className="h-[40rem]">
       <AboutFrame />
       </div>

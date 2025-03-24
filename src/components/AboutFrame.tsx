@@ -17,7 +17,7 @@ const AboutFrame = () => {
       animate={inView ? { opacity: 1, y: 0 } : {}} 
       transition={{ duration: 0.5 }}
     >
-      <div className="flex space-x-4 p-6 z-10 h-[35rem] w-[25rem]">
+      <div className="flex space-x-4 p-6 z-10 h-[37rem] w-[25rem]">
         <motion.div
           className="w-50 bg-purple-800 rounded border-2 border-purple-400 overflow-hidden flex flex-col"
           initial={{ scale: 0.8 }}

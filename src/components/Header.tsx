@@ -23,7 +23,7 @@ const Header = () => {
   };
 
   return (
-    <header ref={headerRef} className="mt-[8rem] mx-[5rem]">
+    <header ref={headerRef} className="mt-[8rem] mx-[5rem] relative b-[2rem]">
       <nav className="flex justify-between items-center z-10">
         <motion.div 
           className="text-cyber-pink text-2xl font-pixel"

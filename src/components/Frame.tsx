@@ -9,7 +9,7 @@ const CyberpunkWebcamFrame: React.FC<CyberpunkWebcamFrameProps> = () => {
         <div className="relative w-[35rem] -top-8" style={{ imageRendering: 'pixelated' }}>
             <div
                 className="border-4 border-fuchsia-600 rounded-md overflow-hidden shadow-lg"
-                style={{ boxShadow: '0 0 20px #d946ef, 0 0 40px #d946ef' }}
+                style={{ boxShadow: '0 0 20px rgb(0, 0, 0), 0 0 40px rgb(102, 0, 117)' }}
             >
                 <div className="bg-purple-900 p-2 flex justify-between items-center border-b-4 border-fuchsia-600">
                     <div className="flex gap-2">
