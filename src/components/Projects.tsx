@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "Lawyer Management Intranet",
+      title: "Lawyer management Intranet",
       description:
-        "Built a full-stack intranet for a lawyer association to manage internal activities, including document sharing, task management, and event scheduling.",
+        "Developed an intranet platform to manage a lawyer's bar and digitize internal processes.",
       stats: "",
-      tech: "React • Redux • Tailwind • WebDev • Hfsql",
+      tech: "React • Redux • Webdev • Express • Node • HFSQL",
+      githubLink: ""
     },
     {
       title: "E-commerce Platform",
@@ -16,20 +17,31 @@ const Projects: React.FC = () => {
         "Developed an e-commerce platform with features like product browsing, cart management, sales tracking, and user authentication.",
       stats: "",
       tech: "React • Redux • Express • Node • MySQL • MongoDB",
+       githubLink: ""
     },
     {
-      title: "Chat App with Socket.io",
+      title: "Classic Games Platform",
       description:
-        "Created a real-time chat application with user authentication, private messaging, and group chat functionality.",
-      stats: "",
-      tech: "React • Typescript • Socket.io • Node • Express",
-    },
-    {
-      title: "Classic Games in Javascript",
-      description:
-        "Developed mini games in JavaScript such as Tic-Tac-Toe, Snake, Brick Breaker, and Space Invader, focusing on game mechanics and user interaction.",
+        "A platform to play some old classic games such as Tic-Tac-Toe, Snake, Brick Breaker, and Space Invader.",
       stats: "",
       tech: "JavaScript • HTML • CSS",
+       githubLink: ""
+    },
+    {
+      title: "Movie Search Application (PWA)",
+      description:
+        "Developed a Progressive Web App (PWA) for searching movies, featuring offline support, responsive design, and integration with a movie database API.",
+      stats: "",
+      tech: "React • PWA • Service Worker • IndexedDB • API",
+       githubLink: ""
+    },
+    {
+      title: "Weather App with Geolocation",
+      description:
+        "Developed a weather application with geolocation support, displaying the current weather and forecast.",
+      stats: "",
+      tech: "React • Geolocation API • Weather API",
+       githubLink: ""
     },
   ];
 
@@ -42,16 +54,16 @@ const Projects: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
       <motion.h1
-        className="p-6 flex justify-center"
+        className="p-6 flex justify-center text-3xl font-bold text-white"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1 }}
       >
-        Some of my Achievement
+        TECHNICAL PROJECTS
       </motion.h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-4 gap-12">
-        {projects.map((project, index) => (
+      <div className="grid grid-cols-2 lg:grid-cols-3 m-4 gap-12">
+      {projects.map((project, index) => (
           <motion.div
             key={index}
             className="rounded border-2 border-purple-400 overflow-hidden flex flex-col relative"
@@ -77,24 +89,23 @@ const Projects: React.FC = () => {
 
             <div className="flex flex-col justify-center">
               <div className="h-[15rem] border-b-2 flex items-center justify-center text-white font-mono text-2xl">
-                Hello
+              {"<img/>"}
               </div>
-              <div className="space-y-4 text-center p-6">
-                <h2 className="text-xl font-mono font-bold text-white">
-                  {project.title}
-                </h2>
-                <p className="text-[15px] font-mono opacity-80 text-white">
-                  {project.description}
-                </p>
-                <div className="text-[10px] text-bold font-mono opacity-80 text-white">
-                  <span className="text-cyber-pink">Tech Stack:</span>{" "}
-                  {project.tech}
-                </div>
+              <div className="space-y-4 text-center pb-12">
+              <h2 className="text-xl font-mono font-bold text-white">
+                {project.title}
+              </h2>
+              <p className="text-[15px] font-mono opacity-80 text-white">
+                {project.description}
+              </p>
+              <div className="text-[10px] text-bold font-mono opacity-80 text-white">
+                <span className="text-cyber-pink">Tech Stack:</span>{" "}
+                {project.tech}
+              </div>
               </div>
             </div>
-
             <a
-              href="#"
+              href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
               className="absolute bottom-2 right-2 text-[10px] text-white flex items-center space-x-1"
