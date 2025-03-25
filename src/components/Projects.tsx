@@ -1,125 +1,139 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-function Projects() {
+const Projects: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const projects = [
     {
       title: "Lawyer Management Intranet",
-      description: "Built a full-stack intranet for a lawyer association to manage internal activities.",
+      description:
+        "Built a full-stack intranet for a lawyer association to manage internal activities.",
       stats: "",
-      tech: "React • Redux • WebDev • Hfsql"
+      tech: "React • Redux • WebDev • Hfsql",
     },
     {
       title: "Ecommerce Web App",
-      description: "Developed an e-commerce platform with product, cart, sales, and user management.",
+      description:
+        "Developed an e-commerce platform with product, cart, sales, and user management.",
       stats: "",
-      tech: "React • Redux • Express • Node • MySQL • MongoDB"
+      tech: "React • Redux • Express • Node • MySQL • MongoDB",
     },
     {
-      title: "Mini JavaScript Games",
-      description: "Developed mini games in JavaScript such as Tic-Tac-Toe, Snake, and Brick Breaker.",
+      title: "Classic Games in Javascript",
+      description:
+        "Developed mini games in JavaScript such as Tic-Tac-Toe, Snake, and Brick Breaker, Space invader.",
       stats: "",
-      tech: "JavaScript • HTML • CSS"
+      tech: "JavaScript • HTML • CSS",
     },
-
   ];
 
   const nextSlide = () => {
+    setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % projects.length);
   };
 
   const prevSlide = () => {
+    setDirection(-1);
     setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   return (
-    <div id="projects" className="min-h-screen bg-[#1a0933] flex flex-col items-center justify-center p-8 relative">
-      <div className="absolute top-8 left-8">
-        <div className="bg-[#2a0f4d] border-2 border-[#ffd700] rounded-lg px-6 py-2">
-          <h1 className="text-[#ffd700] font-pixel text-2xl">SOME OF MY ACHIEVEMENTS</h1>
-        </div>
-      </div>
-
-      <div className="flex gap-6 w-full max-w-6xl mt-16">
-  
-        <div className="w-1/3 h-[500px] bg-[#2a0f4d] rounded-lg relative p-6">
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-[#ff00ff] bg-opacity-30 
-                        clip-bottom-left transform -skew-x-12">
-            <div className="absolute bottom-0 left-0 w-24 h-1 bg-[#ff00ff]"></div>
-          </div>
-          
-          <div className="absolute top-0 left-0 right-0 h-1 bg-[#ff00ff]"></div>
-          <div className="absolute top-0 left-0 w-1 h-full bg-[#ff00ff]"></div>
-          <div className="absolute top-0 right-0 w-1 h-full bg-[#ff00ff]"></div>
-
-          <div className="space-y-4">
-            <h2 className="text-xl font-mono font-bold">{projects[currentSlide].title}</h2>
-            <p className="text-lg font-mono opacity-80">{projects[currentSlide].stats}</p>
-          </div>
-        </div>
-
-  
-        <div className="w-2/3 h-[500px] bg-[#2a0f4d] rounded-lg relative p-6">
-          <div className="absolute top-12 left-8 right-8 h-0.5 bg-[#ff00ff] opacity-50"></div>
-
-          <div className="absolute top-0 left-0 right-0 h-1 bg-[#ff00ff]"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#ff00ff]"></div>
-          <div className="absolute top-0 left-0 w-1 h-full bg-[#ff00ff]"></div>
-          <div className="absolute top-0 right-0 w-1 h-full bg-[#ff00ff]"></div>
-
-          <div className="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-[#ff00ff]"></div>
-          <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-[#ff00ff]"></div>
-
-          <div className="space-y-6">
-            <p className="text-sm font-mono leading-relaxed">{projects[currentSlide].description}</p>
-            <div className="text-xs font-mono opacity-80">
-              <span className="text-[#ffd700]">Tech Stack:</span> {projects[currentSlide].tech}
-            </div>
-          </div>
-
-          <div className="absolute bottom-4 right-4">
-            <a 
-              href="https://github.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-4 py-2 bg-[#2a0f4d] border-2 border-[#ff00ff] text-[#ffd700] 
-                         hover:bg-[#3a1f5d] transition-colors duration-300"
-            >
-              View Code Source on GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex gap-4 mt-8">
-        <button 
+    <motion.div
+      id="projects"
+      className="min-h-screen bg-[#1a0933]  items-center justify-center p-8 relative"
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div
+        className="p-6 flex justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1 }}
+      >
+        <button
           onClick={prevSlide}
-          className="px-4 py-2 bg-[#2a0f4d] border-2 border-[#ff00ff] 
-                   hover:bg-[#3a1f5d] transition-colors duration-300"
+          className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded mr-4"
+        >
+          Some of my Achievement
+        </button>
+      </motion.div>
+      {/* <motion.div
+        className="p-6 flex justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1 }}
+      >
+        <button
+          onClick={prevSlide}
+          className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded mr-4"
         >
           Previous
         </button>
-        <div className="flex gap-2">
-          {projects.map((_, index) => (
-            <div 
-              key={index}
-              className={`w-3 h-3 rounded-full cursor-pointer
-                        ${currentSlide === index ? 'bg-[#ff00ff]' : 'bg-[#2a0f4d] border border-[#ff00ff]'}`}
-              onClick={() => setCurrentSlide(index)}
-            />
-          ))}
+      </motion.div> */}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <motion.div
+        key={index}
+        className="rounded border-2 border-purple-400 overflow-hidden flex flex-col"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.2 }}
+          >
+        <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
+          <div className="flex space-x-1">
+            <div className="w-2 h-2 bg-purple-300"></div>
+            <div className="w-2 h-2 bg-purple-300"></div>
+          </div>
+          <div className="flex space-x-2">
+            <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
+          <div className="w-2 h-2 bg-purple-300"></div>
+            </div>
+            <div className="w-4 h-4 bg-gray-900 border border-purple-300"></div>
+            <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
+          <div className="text-purple-300 text-xs">X</div>
+            </div>
+          </div>
         </div>
-        <button 
+
+        <div className="flex flex-col justify-center">
+          <div className="h-[15rem] border-b-2 flex items-center justify-center text-white font-mono text-2xl">
+            Hello
+          </div>
+          <div className="space-y-4 text-center">
+            <h2 className="text-xl font-mono font-bold text-white">
+          {project.title}
+            </h2>
+            <p className="text-lg font-mono opacity-80 text-white">
+          {project.description}
+            </p>
+            <div className="text-xs font-mono opacity-80 text-white">
+          <span className="text-[#ffd700]">Tech Stack:</span> {project.tech}
+            </div>
+          </div>
+        </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* <motion.div
+        className="p-6 flex justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1 }}
+      >
+        <button
           onClick={nextSlide}
-          className="px-4 py-2 bg-[#2a0f4d] border-2 border-[#ff00ff] 
-                   hover:bg-[#3a1f5d] transition-colors duration-300"
+          className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded"
         >
           Next
         </button>
-      </div>
-    </div>
+      </motion.div> */}
+    </motion.div>
   );
-}
+};
 
 export default Projects;
