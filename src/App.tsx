@@ -8,6 +8,7 @@ import About from './components/About';
 import AboutMe from './components/AboutMe';
 import SkillsFrame from './components/SkillsFrame';
 import Projects from './components/Projects';
+import Contacts from './components/Contacts';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -107,6 +108,12 @@ function App() {
       <section className="bg-cyber-purple/10 ">
       <div >
        <Projects />
+      </div>
+      </section>
+
+      <section className="bg-cyber-purple/10 ">
+      <div >
+       <Contacts />
       </div>
       </section>
       

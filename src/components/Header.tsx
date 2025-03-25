@@ -48,14 +48,7 @@ const Header = () => {
           >
             ABOUT
           </motion.a>
-          <motion.a 
-            href="#skills"
-            className="text-lg hover:text-cyber-pink transition-colors"
-            whileHover={{ scale: 1.05 }}
-            onClick={() => handleScroll('skills')}
-          >
-            SKILLS
-          </motion.a>
+    
           <motion.a 
             href="#projects"
             className="text-lg hover:text-cyber-pink transition-colors"
@@ -63,6 +56,14 @@ const Header = () => {
             onClick={() => handleScroll('projects')}
           >
             PROJECT
+          </motion.a>
+          <motion.a 
+            href="#contacts"
+            className="text-lg hover:text-cyber-pink transition-colors"
+            whileHover={{ scale: 1.05 }}
+            onClick={() => handleScroll('projects')}
+          >
+            CONTACTS
           </motion.a>
         </div>
       </nav>

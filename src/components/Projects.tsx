@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
         "Developed an intranet platform to manage a lawyer's bar and digitize internal processes.",
       stats: "",
       tech: "React • Redux • Webdev • Express • Node • HFSQL",
-      githubLink: ""
+      githubLink: "https://github.com/example/lawyer-management-intranet"
     },
     {
       title: "E-commerce Platform",
@@ -17,7 +17,7 @@ const Projects: React.FC = () => {
         "Developed an e-commerce platform with features like product browsing, cart management, sales tracking, and user authentication.",
       stats: "",
       tech: "React • Redux • Express • Node • MySQL • MongoDB",
-       githubLink: ""
+      githubLink: "https://github.com/example/ecommerce-platform"
     },
     {
       title: "Classic Games Platform",
@@ -25,7 +25,7 @@ const Projects: React.FC = () => {
         "A platform to play some old classic games such as Tic-Tac-Toe, Snake, Brick Breaker, and Space Invader.",
       stats: "",
       tech: "JavaScript • HTML • CSS",
-       githubLink: ""
+      githubLink: "https://github.com/example/classic-games-platform"
     },
     {
       title: "Movie Search Application (PWA)",
@@ -33,7 +33,15 @@ const Projects: React.FC = () => {
         "Developed a Progressive Web App (PWA) for searching movies, featuring offline support, responsive design, and integration with a movie database API.",
       stats: "",
       tech: "React • PWA • Service Worker • IndexedDB • API",
-       githubLink: ""
+      githubLink: "https://github.com/example/movie-search-app"
+    },
+    {
+      title: "2FA Authentication System",
+      description:
+        "Implemented a Two-Factor Authentication (2FA) system  with Google Authenticator integration.",
+      stats: "",
+      tech: "MySQL • Express • React • Node • JWT • OTP • Google Authenticator",
+      githubLink: "https://github.com/example/2fa-authentication-system"
     },
     {
       title: "Weather App with Geolocation",
@@ -41,7 +49,7 @@ const Projects: React.FC = () => {
         "Developed a weather application with geolocation support, displaying the current weather and forecast.",
       stats: "",
       tech: "React • Geolocation API • Weather API",
-       githubLink: ""
+      githubLink: "https://github.com/example/weather-app"
     },
   ];
 
@@ -95,11 +103,11 @@ const Projects: React.FC = () => {
               <h2 className="text-xl font-mono font-bold text-white">
                 {project.title}
               </h2>
-              <p className="text-[15px] font-mono opacity-80 text-white">
+              <p className="text-[16px] font-mono opacity-80 text-white">
                 {project.description}
               </p>
-              <div className="text-[10px] text-bold font-mono opacity-80 text-white">
-                <span className="text-cyber-pink">Tech Stack:</span>{" "}
+              <div className="text-[15px] text-bold font-mono opacity-80 text-white">
+                <span className="text-cyber-pink">Tech Stack and tools:</span>{" "}
                 {project.tech}
               </div>
               </div>
