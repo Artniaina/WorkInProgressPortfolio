@@ -1,5 +1,6 @@
 import { FaGithub } from "react-icons/fa";
 import { CgMail } from "react-icons/cg";
+import { IoHome } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Pixel from "../assets/pixell.png";
@@ -12,12 +13,12 @@ const AboutFrame = () => {
   return (
     <motion.div
       ref={ref}
-      className="bg-transparent"
+      className="bg-transparent "
       initial={{ opacity: 0, y: -50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}} 
       transition={{ duration: 0.5 }}
     >
-      <div className="flex space-x-4 p-6 z-10 h-[37rem] w-[31rem]">
+      <div className="flex space-x-4  ml-[8rem] p-6 z-10 h-[38rem] w-[30rem]">
         <motion.div
           className="w-50 rounded border-2 border-purple-400 overflow-hidden flex flex-col"
           initial={{ scale: 0.8 }}
@@ -61,12 +62,12 @@ const AboutFrame = () => {
               ANDRIAHARINIAINA  Kanto Fitiavana
             </motion.div>
             <motion.div
-              className="text-white text-xl font-bold mb-4 px-2"
+              className="text-white text-lg font-bold mb-4 px-2"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              My Contacts:
+             My contacts
             </motion.div>
 
             <div className="space-y-4">
@@ -112,7 +113,7 @@ const AboutFrame = () => {
                 >
                 <div className="w-8 h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-2">
                   <div className="text-white text-xs">
-                  <CgMail className="text-2xl" />
+                  <IoHome className="text-2xl" />
                   </div>
                 </div>
                 <div className="text-white text-xs">
