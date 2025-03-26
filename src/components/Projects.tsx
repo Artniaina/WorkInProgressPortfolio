@@ -131,25 +131,46 @@ const Projects: React.FC = () => {
         </AnimatePresence>
     
         <div className="absolute w-full flex justify-between px-4">
-          {currentIndex > 0 && (
-            <motion.button 
-              onClick={handlePrevious} 
-              className="bg-purple-600 text-white p-2 rounded-full hover:bg-purple-700 transition"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            {currentIndex > 0 && (
+            <motion.a
+              animate={{
+              scale: [1, 1.1, 1],
+              }}
+              transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              }}
+              style={{
+              textShadow: "1px 1px 0 rgba(0,0,0,0.5)",
+              fontFamily: "'Press Start 2P', cursive",
+              position: "relative",
+              }}
+              onClick={handlePrevious}
+              className="p-2 w-[3rem] h-[3rem] left-[7rem] text-white text-sm h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform"
             >
-              <FaChevronLeft />
-            </motion.button>
-          )}
-          {currentIndex < projects.length - 1 && (
-            <motion.button
-              onClick={handleNext} 
-              className="bg-purple-600 text-white p-2 rounded-full hover:bg-purple-700 transition ml-auto"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              
+              <FaChevronLeft className="text-2xl" />
+            </motion.a>
+            )}
+            {currentIndex < projects.length - 1 && (
+            <motion.a
+              animate={{
+              scale: [1, 1.1, 1],
+              }}
+              transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              }}
+              style={{
+              textShadow: "1px 1px 0 rgba(0,0,0,0.5)",
+              fontFamily: "'Press Start 2P', cursive",
+              position: "relative",
+              }}
+              onClick={handleNext}
+              className="p-2 w-[3rem] h-[3rem] right-[8rem] text-white text-xs h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform ml-auto"
             >
-              <FaChevronRight />
-            </motion.button>
+              <FaChevronRight className="text-3xl" />
+            </motion.a>
           )}
         </div>
       </div>
