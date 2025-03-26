@@ -54,7 +54,7 @@ const Hero = () => {
             Download CV
           </a>
           <a
-            href="#projects"
+            href="#contacts"
             className="px-8 py-4 bg-cyber-purple hover:bg-cyber-pink transition-colors rounded pixel-border"
           >
             Contact me

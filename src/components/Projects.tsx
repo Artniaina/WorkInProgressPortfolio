@@ -1,32 +1,10 @@
-import { FaGithub } from "react-icons/fa6";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { FaGithub, FaChevronRight, FaChevronLeft } from "react-icons/fa6";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const Projects: React.FC = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    threshold: 0.2,
-    triggerOnce: false,
-  });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    } else {
-      controls.set("hidden");
-    }
-  }, [controls, inView]);
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
-
-  const h1Variants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.5 } },
-  };
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   const projects = [
     {
@@ -35,7 +13,7 @@ const Projects: React.FC = () => {
         "Developed an intranet platform to manage a lawyer's bar and digitize internal processes.",
       stats: "",
       tech: "React • Redux • Webdev • Express • Node • HFSQL",
-      githubLink: "http</div>s://github.com/Artniaina/AdvocatHub",
+      githubLink: "https://github.com/Artniaina/AdvocatHub",
     },
     {
       title: "E-commerce Platform",
@@ -79,102 +57,141 @@ const Projects: React.FC = () => {
     },
   ];
 
+  const handleNext = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => Math.min(prev + 1, projects.length - 1));
+  };
+
+  const handlePrevious = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0
+    })
+  };
+
   return (
     <motion.div
-      ref={ref}
       id="projects"
       className="min-h-screen bg-[#1a0933] items-center justify-center p-8 relative"
-      animate={controls}
-      initial="hidden"
-      variants={containerVariants}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <motion.h1
         className="p-6 flex justify-center text-3xl font-bold text-white"
-        variants={{
-          hidden: { opacity: 0, y: -50 },
-          visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.5 } },
-        }}
-        initial="hidden"
-        animate={controls}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
       >
         TECHNICAL PROJECTS
       </motion.h1>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 m-4 gap-12">
-        {projects.map((project, index) => (
+      <div className="relative overflow-hidden flex justify-center items-center min-h-[600px]">
+        <AnimatePresence initial={false} custom={direction}>
           <motion.div
-            key={index}
-            className="rounded border-2 border-purple-400 overflow-hidden flex flex-col relative"
-            initial={{ opacity: 0, y: 50 }} // Start from the bottom
-            animate={{ opacity: 1, y: 0 }}
+            key={currentIndex}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
             transition={{
-              duration: 0.8,
-              delay: index * 1, // Delay each card by 1 second
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
             }}
-            whileHover={{
-              scale: 1.05,
-              rotate: 0,
-              x: 0,
-              y: 0,
-              transition: { type: "spring", stiffness: 300, damping: 20 },
-            }}
-            onMouseMove={(e) => {
-              const rect = e.currentTarget.getBoundingClientRect();
-              const x = e.clientX - rect.left - rect.width / 2;
-              const y = e.clientY - rect.top - rect.height / 2;
-              e.currentTarget.style.transition = "transform 0.1s ease-out";
-              e.currentTarget.style.transform = `perspective(1000px) rotateX(${-y / 10}deg) rotateY(${x / 10}deg)`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transition = "transform 0.3s ease-out";
-              e.currentTarget.style.transform =
-                "perspective(1000px) rotateX(0deg) rotateY(0deg)";
-            }}
+            className="absolute w-full max-w-md"
           >
-            <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
-              <div className="flex space-x-1">
-                <div className="w-2 h-2 bg-purple-300"></div>
-                <div className="w-2 h-2 bg-purple-300"></div>
-              </div>
-              <div className="flex space-x-2">
-                <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
+            <motion.div
+              className="rounded border-2 border-purple-400 overflow-hidden flex flex-col relative"
+              whileHover={{
+                scale: 1.05,
+                transition: { type: "spring", stiffness: 300, damping: 20 },
+              }}
+            >
+              <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
+                <div className="flex space-x-1">
+                  <div className="w-2 h-2 bg-purple-300"></div>
                   <div className="w-2 h-2 bg-purple-300"></div>
                 </div>
-                <div className="w-4 h-4 bg-gray-900 border border-purple-300"></div>
-                <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
-                  <div className="text-purple-300 text-xs">X</div>
+                <div className="flex space-x-2">
+                  <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
+                    <div className="w-2 h-2 bg-purple-300"></div>
+                  </div>
+                  <div className="w-4 h-4 bg-gray-900 border border-purple-300"></div>
+                  <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
+                    <div className="text-purple-300 text-xs">X</div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="flex flex-col justify-center">
-              <div className="h-[15rem] border-b-2 flex items-center justify-center text-white font-mono text-2xl">
-                {"<img/>"}
-              </div>
-              <div className="space-y-4 text-center pb-12">
-                <h2 className="text-xl font-mono font-bold text-white">
-                  {project.title}
-                </h2>
-                <p className="text-[16px] font-mono opacity-80 text-white">
-                  {project.description}
-                </p>
-                <div className="text-[15px] text-bold font-mono opacity-80 text-white">
-                  <span className="text-cyber-pink">Tech Stack and tools:</span>{" "}
-                  {project.tech}
+              <div className="flex flex-col justify-center">
+                <div className="h-[15rem] border-b-2 flex items-center justify-center text-white font-mono text-2xl">
+                  {"<img/>"}
+                </div>
+                <div className="space-y-4 text-center pb-12 p-4">
+                  <h2 className="text-xl font-mono font-bold text-white">
+                    {projects[currentIndex].title}
+                  </h2>
+                  <p className="text-[16px] font-mono opacity-80 text-white">
+                    {projects[currentIndex].description}
+                  </p>
+                  <div className="text-[15px] text-bold font-mono opacity-80 text-white">
+                    <span className="text-cyber-pink">Tech Stack and tools:</span>{" "}
+                    {projects[currentIndex].tech}
+                  </div>
                 </div>
               </div>
-            </div>
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute bottom-2 right-2 text-[10px] text-white flex items-center space-x-1"
-            >
-              <FaGithub className="text-sm text-white" />
-              <span>View code</span>
-            </a>
+              <a
+                href={projects[currentIndex].githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-2 right-2 text-[10px] text-white flex items-center space-x-1"
+              >
+                <FaGithub className="text-sm text-white" />
+                <span>View code</span>
+              </a>
+            </motion.div>
           </motion.div>
-        ))}
+        </AnimatePresence>
+
+    
+        <div className="absolute w-full flex justify-between px-4">
+          {currentIndex > 0 && (
+            <motion.button 
+              onClick={handlePrevious} 
+              className="bg-purple-600 text-white p-2 rounded-full hover:bg-purple-700 transition"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaChevronLeft />
+            </motion.button>
+          )}
+          {currentIndex < projects.length - 1 && (
+            <motion.button 
+              onClick={handleNext} 
+              className="bg-purple-600 text-white p-2 rounded-full hover:bg-purple-700 transition ml-auto"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaChevronRight />
+            </motion.button>
+          )}
+        </div>
       </div>
     </motion.div>
   );

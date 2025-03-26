@@ -50,20 +50,20 @@ const Header = () => {
           </motion.a>
     
           <motion.a 
+            href="#skills"
+            className="text-lg hover:text-cyber-pink transition-colors"
+            whileHover={{ scale: 1.05 }}
+            onClick={() => handleScroll('projects')}
+          >
+            SKILLS
+          </motion.a>
+          <motion.a 
             href="#projects"
             className="text-lg hover:text-cyber-pink transition-colors"
             whileHover={{ scale: 1.05 }}
             onClick={() => handleScroll('projects')}
           >
-            PROJECT
-          </motion.a>
-          <motion.a 
-            href="#contacts"
-            className="text-lg hover:text-cyber-pink transition-colors"
-            whileHover={{ scale: 1.05 }}
-            onClick={() => handleScroll('projects')}
-          >
-            CONTACTS
+            PROJECTS
           </motion.a>
         </div>
       </nav>
