@@ -1,17 +1,50 @@
+import { useInView } from 'react-intersection-observer';
 import Totoro from '../assets/ghibli.gif'
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
+
 const Thanks=()=> {
+    const controls = useAnimation();
+    const [ref, inView] = useInView({
+      threshold: 0.2,
+      triggerOnce: false,
+    });
+  
+    useEffect(() => {
+      if (inView) {
+        controls.start("visible");
+      } else {
+        controls.start("hidden");
+      }
+    }, [controls, inView]);
+  
+    const variants = {
+      hidden: { opacity: 0, y: -50 },
+      visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    };
   return (
-    <div className="  flex items-center w-[40rem]  justify-center p-4" >
+    <div ref={ref} className="  flex items-center w-[40rem]  justify-center p-4" >
       <div className="w-full max-w-3xl flex flex-col items-center">
-        <h1 className="text-[#e44cff] mt-4 text-3xl mb-12 font-bold tracking-wider" style={{
+        <motion.h1 className="text-[#e44cff] mt-4 text-3xl mb-12 font-bold tracking-wider" style={{
           textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
           fontFamily: "'Press Start 2P', cursive"
-        }}>
+        }}
+        animate={controls}
+        initial="hidden"
+        variants={variants}>
           HOW TO REACH ME
-        </h1>
+        </motion.h1>
 
 
-        <div className="w-full mt-4 ml-12 bg-[#2a1245] rounded-lg p-6 relative overflow-hidden">  
+        <motion.div 
+          className="w-full mt-4 ml-12 bg-[#2a1245] rounded-lg p-6 relative overflow-hidden"
+          animate={controls}
+          initial="hidden"
+          variants={{
+            hidden: { scale: 0.8, opacity: 0 },
+            visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
+          }}
+        >  
           <div
             className="absolute top-0 right-0 h-1 w-1/2 bg-[#e44cff] animate-pulse"
             style={{
@@ -45,23 +78,32 @@ const Thanks=()=> {
           </p>
           <div className="space-y-2 text-white">
             {['Yes', 'Maybe'].map((option, index) => (
-              <div
+              <motion.div
             key={index}
-            className={`flex items-center gap-2 cursor-pointer hover:text-[#e44cff] transition-colors animate-pulse`}
+            className={`flex items-center gap-2 cursor-pointer hover:text-[#e44cff] transition-colors`}
             style={{
               animationDelay: `${index * 0.5}s`,
               animationIterationCount: 'infinite',
             }}
+            whileHover={{ scale: 1.1 }}
               >
             <span className={index === 0 ? 'text-[#e44cff]' : 'opacity-0'}></span> {option}
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-      <div className='w-[12rem] h-[14rem] mt-12 mr-16'>
-        <img src={Totoro} alt="" />
-      </div>
+        <motion.div 
+          className='w-[14rem] h-[14rem] mt-8 mr-16'
+          animate={controls}
+          initial="hidden"
+          variants={{
+            hidden: { rotate: 10, opacity: 0 },
+            visible: { rotate: 0, opacity: 1, transition: { duration: 0.6 } },
+          }}
+        >
+          <img src={Totoro} alt="" />
+        </motion.div>
      
       </div>
     </div>

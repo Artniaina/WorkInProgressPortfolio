@@ -25,14 +25,7 @@ const Contacts = () => {
   };
   return (
     <div id="contacts" ref={ref} className="flex flex-col pt-12">
-      {/* <motion.h1
-        className="text-3xl font-bold mb-8 text-center"
-        animate={controls}
-        initial="hidden"
-        variants={variants}
-      >
-        HOW TO REACH ME
-      </motion.h1> */}
+ 
       <div className=" flex  relative -top-4 ml-[5rem] justify-start space-x-8">
         <div >
           <Thanks />
