@@ -3,10 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import FrameDesc from "./FrameDesc";
 import FrameImg from "./FrameImg";
+import { useInView } from "react-intersection-observer";
 
 const Projects: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+    const { ref, inView } = useInView({
+      threshold: 0.2, 
+    });
+
 
   const projects = [
     {
@@ -86,6 +91,7 @@ const Projects: React.FC = () => {
 
   return (
     <motion.div
+     ref={ref}
       id="projects"
       className="min-h-screen bg-[#1a0933] items-center justify-center p-8 relative"
       initial={{ opacity: 0 }}
@@ -95,8 +101,8 @@ const Projects: React.FC = () => {
       <motion.h1
         className="p-6 flex justify-center text-3xl font-bold text-white"
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.3, delay: 0.1 }}
       >
         TECHNICAL PROJECTS
       </motion.h1>
@@ -146,7 +152,7 @@ const Projects: React.FC = () => {
               position: "relative",
               }}
               onClick={handlePrevious}
-              className="p-2 w-[3rem] h-[3rem] left-[7rem] text-white text-sm h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform"
+              className="p-2 w-[3rem] h-[3rem] left-[3rem] text-white text-sm h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform"
             >
               
               <FaChevronLeft className="text-2xl" />
@@ -167,7 +173,7 @@ const Projects: React.FC = () => {
               position: "relative",
               }}
               onClick={handleNext}
-              className="p-2 w-[3rem] h-[3rem] right-[8rem] text-white text-xs h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform ml-auto"
+              className="p-2 w-[3rem] h-[3rem] right-[4rem] text-white text-xs h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform ml-auto"
             >
               <FaChevronRight className="text-3xl" />
             </motion.a>
