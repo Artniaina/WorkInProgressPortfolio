@@ -1,19 +1,8 @@
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
+import Logo from '../assets/logolol.png'
 
 const Header = () => {
-  const headerRef = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    if (headerRef.current) {
-      gsap.from(headerRef.current, {
-        y: -100,
-        duration: 1,
-        ease: "power4.out"
-      });
-    }
-  }, []);
 
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
@@ -23,13 +12,17 @@ const Header = () => {
   };
 
   return (
-    <header ref={headerRef} className="mt-[8rem] mx-[5rem]">
-      <nav className="flex justify-between  relative  items-center z-10">
+    <div className="mt-[3rem] mx-[5rem]">
+      <div className="flex justify-between  relative items-center z-10">
         <motion.div 
-          className="text-cyber-pink text-2xl font-pixel"
+          className="flex items-center text-white  font-pixel"
           whileHover={{ scale: 1.1 }}
         >
-          LOGO
+          <img src={Logo} className="w-16 h-16" alt="" />
+          <span className='relative top-4 text-lg'>
+
+          {"<Kanto/>"}
+          </span>
         </motion.div>
         <div className="flex items-center gap-8">
           <motion.a 
@@ -66,8 +59,8 @@ const Header = () => {
             PROJECTS
           </motion.a>
         </div>
-      </nav>
-    </header>
+      </div>
+    </div>
   );
 };
 

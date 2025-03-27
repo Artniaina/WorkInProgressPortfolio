@@ -78,12 +78,12 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cyber-dark ">
-      <div className='h-[100vh] relative'>
-      <Header />
+      
+  
       <main >
         <Hero />  
       </main>
-      </div>
+
    
       <section className="bg-cyber-purple/10 ">
       <div>

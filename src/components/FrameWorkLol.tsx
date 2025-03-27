@@ -25,7 +25,7 @@ const FrameWorkLol = () => {
     return (
         <div ref={ref}>
             <motion.div
-                className="w-[58rem] bg-purple-800 rounded h-[34rem] border-2 border-purple-400 overflow-hidden flex flex-col"
+                className="w-[35rem] bg-purple-800 rounded h-[20rem] border-2 border-purple-400 overflow-hidden flex flex-col"
                 animate={controls}
                 initial="hidden"
                 variants={containerVariants}
@@ -49,7 +49,6 @@ const FrameWorkLol = () => {
                     animate={controls}
                     initial="hidden"
                 >
-                    {/* Content inside the frame has been removed */}
                 </motion.div>
 
                 <motion.div

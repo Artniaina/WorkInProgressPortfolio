@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: none;
+  padding: none;
+}
 body {
   background-color: #1A0B2E;
   color: #fff;
