@@ -26,10 +26,10 @@ const Header = () => {
     <header ref={headerRef} className="mt-[8rem] mx-[5rem]">
       <nav className="flex justify-between  relative  items-center z-10">
         <motion.div 
-          className="text-cyber-light text-2xl font-pixel"
+          className="text-cyber-pink text-2xl font-pixel"
           whileHover={{ scale: 1.1 }}
         >
-          KANTO
+          LOGO
         </motion.div>
         <div className="flex items-center gap-8">
           <motion.a 

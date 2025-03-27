@@ -39,7 +39,7 @@ function App() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-cyber-dark flex flex-col items-center justify-center px-4">
-        <div className="mb-10 flex ">
+        <div className="mb-2 flex ">
           <span className='animate-[bounce_1.1s_infinite]'>
           <img src={Stickers}  width="70" height="70" />
           </span>
@@ -52,10 +52,9 @@ function App() {
         </div>
         
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-purple-300 mb-2">
+          <h2 className="text-xl font-bold text-purple-300 mb-2">
         Loading...
           </h2>
-          <p className="text-purple-400 font-mono">{Math.round(progress)}%</p>
         </div>
 
         <div className="w-full max-w-md h-3 bg-purple-900/50 rounded-full overflow-hidden backdrop-blur border-2 border-purple-500">
@@ -65,7 +64,8 @@ function App() {
           />
         </div>
         
-        <div className="mt-5 text-purple-300/80 text-sm font-mono">
+        <div className="mt-4 text-purple-300/80 text-sm text-lg font-mono">
+          <p className=" text-purple-400 text-center ">{Math.round(progress)}%</p>
           {progress < 20 && "Establishing connection..."}
           {progress >= 20 && progress < 40 && "Loading resources..."}
           {progress >= 40 && progress < 60 && "Calibrating interface..."}
