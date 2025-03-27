@@ -16,18 +16,20 @@ const Hero = () => {
           <span className="glitch-effect" data-text="I AM KANTO">I AM KANTO </span>
 
           <br />
-          <span className="text-cyber-pink text-[1.7rem] mt-7 flex justify-start align-center ml-10">
+            <span className="text-cyber-pink text-[1.7rem] mt-7 flex justify-start items-center ml-10">
             <ReactTyped
-              strings={[
-                "A FULLSTACK DEVELOPER",
-                "A DESIGNER",
-                "A LIFELONG LEARNER",
-              ]}
+         strings={[
+          "A FULL-STACK DEVELOPER",
+          "A UI/UX DESIGNER",
+          "AN ASPIRING ENGINEER",
+          "A LIFELONG LEARNER",
+        ]}
+        
               typeSpeed={50}
               backSpeed={30}
               loop
             />
-          </span>
+            </span>
         </motion.h1>
 
         <motion.p
@@ -47,15 +49,10 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
         >
-          <a
-            href="#contact"
-            className="px-8 py-4 border-2 border-cyber-pink bg-cyber-purple hover:bg-cyber-pink transition-colors rounded"
-          >
-            Download CV
-          </a>
+   
           <a
             href="#contacts"
-            className="px-8 py-4 bg-cyber-purple hover:bg-cyber-pink transition-colors rounded pixel-border"
+            className="px-8 py-4  hover:bg-cyber-pink transition-colors rounded pixel-border"
           >
             Contact me
           </a>

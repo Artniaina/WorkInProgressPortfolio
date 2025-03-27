@@ -98,8 +98,8 @@ const Thanks=()=> {
           animate={controls}
           initial="hidden"
           variants={{
-            hidden: { rotate: 10, opacity: 0 },
-            visible: { rotate: 0, opacity: 1, transition: { duration: 0.6 } },
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { duration: 0.6 } },
           }}
         >
           <img src={Totoro} alt="" />
