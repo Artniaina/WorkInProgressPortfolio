@@ -7,7 +7,6 @@ const FrameWorkLol = () => {
         threshold: 0.2, 
     });
 
-    const skills: string[] = ['Adaptability', 'Fast Selflearning', 'Versatility', 'Continuous Improvement Enthusiast'];
     const controls = useAnimation();
 
     useEffect(() => {
@@ -21,11 +20,6 @@ const FrameWorkLol = () => {
     const containerVariants = {
         hidden: { opacity: 0, y: -50 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-    };
-
-    const contentVariants = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { delay: 0.3, duration: 0.5 } }
     };
 
     return (
@@ -51,68 +45,13 @@ const FrameWorkLol = () => {
                 </div>
 
                 <motion.div
-                    className="flex-grow bg-gray-900  p-4 text-white"
+                    className="flex-grow bg-gray-900 p-4 text-white"
                     animate={controls}
                     initial="hidden"
-                    variants={contentVariants}
                 >
-                    <div className="mb-6">
-                        <div className="text-xl mb-2 text-cyber-pink">Education and Background:</div>
-                        <div className="pl-4 text-[1.2rem] font-mono  text-left">
-                            <motion.div
-                                className="mb-2 "
-                                initial={{ x: -50, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                transition={{ duration: 0.6 }}
-                            >
-                                • Master's Degree in Software Engineering: Currently pursuing at ESTI: "Ecole Supérieure des technologies de l'Information"
-                            </motion.div>
-                            <motion.div
-                                className="mb-2 "
-                                initial={{ x: -50, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                transition={{ duration: 0.6 }}
-                            >
-                                • Bachelor's Degree in Computer Science: Integration and Development at ESTI: "Ecole Supérieure des technologies de l'Information" (2022-2025)
-                            </motion.div>
-                            <motion.div
-                                className="mb-2 "
-                                initial={{ x: -50, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                transition={{ delay: 0.2, duration: 0.6 }}
-                            >
-                                • English Courses at " Madagascar Professional Training Centre"  (2021)
-                            </motion.div>
-                            <motion.div
-                                className="mb-2 pb-2"
-                                initial={{ x: -50, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                transition={{ delay: 0.4, duration: 0.6 }}
-                            >
-                                • Scientific Baccalaureate at " Les Bambinos II " (2021)
-                            </motion.div>
-                        </div>   
-                    </div>
-
-                    <div>
-                        <div className="text-xl mb-2 text-cyber-pink "> Soft skills:</div>
-                        <div className="pl-4 text-[1.2rem] font-mono ">
-                            {skills.map((skill, index) => (
-                                <motion.div
-                                    key={index}
-                                    className="mb-1"
-                                    initial={{ x: -30, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
-                                    transition={{ delay: index * 0.3, duration: 0.6 }}
-                                >
-                                    • {skill}
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
+                    {/* Content inside the frame has been removed */}
                 </motion.div>
 
-            
                 <motion.div
                     className="h-8 bg-purple-700 border-t border-purple-500 flex justify-between items-center px-2"
                     initial={{ y: 50, opacity: 0 }}

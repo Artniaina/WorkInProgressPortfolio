@@ -4,11 +4,11 @@ import Footer from './components/Footer';
 import Skills from './components/Skills';
 import Hero from './components/Hero';
 import Stickers from "./assets/test1.png"
-import About from './components/About';
 import AboutMe from './components/AboutMe';
 import SkillsFrame from './components/SkillsFrame';
 import Projects from './components/Projects';
 import Contacts from './components/Contacts';
+import Education from './components/Education';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -93,7 +93,7 @@ function App() {
 
       <section className="bg-cyber-purple/10 ">
       <div>
-        <About/>
+        <Education/>
       </div>
       </section>
       

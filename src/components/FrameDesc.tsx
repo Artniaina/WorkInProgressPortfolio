@@ -58,7 +58,6 @@ const FrameDesc: React.FC<FrameDescProps> = ({ title, description, tech, githubL
             <span className="text-cyber-pink">Tech Stack and tools:</span> {tech}
           </div>
         </motion.div>
-
         <motion.div
           className="h-8 bg-purple-700 border-t border-purple-500 flex justify-between items-center px-2"
           initial={{ y: 50, opacity: 0 }}
