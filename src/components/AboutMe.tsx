@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Profile from "../assets/profileee.jpg";
+// import Profile from "../assets/profileee.jpg";
 
 const AboutMe: React.FC = () => {
   const controls = useAnimation();
@@ -82,7 +82,7 @@ const AboutMe: React.FC = () => {
               </div>
               <div className="relative flex items-center justify-center h-[20rem]">
           <img
-            src={Profile}
+            // src={Profile}
             alt="Profile"
             className="w-[20rem] h-[19.6rem] object-cover"
           />
