@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import Game from "./Game";
 import Kiki from "../assets/kiki.gif";
-import Cute from "../assets/acute.gif"
+import Cute from "../assets/2Cat.gif"
 
 const FrameWorkLol = () => {
   const { ref, inView } = useInView({
@@ -28,18 +28,18 @@ const FrameWorkLol = () => {
   return (
     <div ref={ref}>
     <motion.div
-      className="relative flex left-[20rem]"
+      className="relative flex left-[16rem]"
       animate={controls}
       initial="hidden"
       variants={containerVariants}
     >
       <img
         src={Kiki}
-        className="w-[9rem] h-[9rem]  relative top-[0.6rem]  object-contain"
+        className="w-[10rem] h-[10rem]  relative top-[1rem]  object-contain"
       />
       <img
         src={Cute}
-        className="w-[6rem] h-[6rem] relative top-[3.5rem] object-contain"
+        className="w-[10rem] h-[10rem] relative top-[0.2rem] right-12 object-contain"
       />
     </motion.div>
       <motion.div

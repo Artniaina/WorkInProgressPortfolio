@@ -12,8 +12,8 @@ const Header = () => {
   };
 
   return (
-    <div className="mt-[3rem] mx-[5rem]">
-      <div className="flex justify-between  relative items-center z-10">
+    <div >
+      <div className="flex justify-between top-12 mx-12 relative items-center z-10">
         <motion.div 
           className="flex items-center text-white  font-pixel"
           whileHover={{ scale: 1.1 }}

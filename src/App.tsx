@@ -78,10 +78,10 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-cyber-dark ">
+    <div className="min-h-screen bg-cyber-purple/10">
       
   
-      <main >
+      <main className='bg-cyber-purple/10'>
         <Hero />  
       </main>
 
