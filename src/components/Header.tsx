@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <div>
+
       <div className="flex justify-between items-center top-12 mx-4 md:mx-12 relative py-4 z-10">
         <motion.div
           className="flex items-center text-white font-pixel"
@@ -73,7 +73,6 @@ const Header = () => {
           </motion.a>
         </div>
       </div>
-    </div>
   );
 };
 

@@ -38,40 +38,22 @@ const AboutMe: React.FC = () => {
     >
       <div className="flex justify-between">
         <motion.h1
-          className="text-3xl relative font-bold text-white bottom-10 left-24"
+          className="text-3xl relative  font-bold text-white mb-8 bottom-10 left-28"
           ref={ref}
           initial="hidden"
           animate={controls}
           variants={variants}
         >
-          WHO AM I?
+         ABOUT ME
         </motion.h1>
-        {/* <motion.a
-          animate={{
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 1.5,
-            repeat: Infinity,
-          }}
-          style={{
-            textShadow: "1px 1px 0 rgba(0,0,0,0.5)",
-            fontFamily: "'Press Start 2P', cursive",
-            left: "25rem",
-            position: "relative",
-          }}
-          href="#SeeMore"
-          className="p-2 text-xs top-[1.3rem] relative z-20 bottom-12 text-white text-sm h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform"
-        >
-         See more:D
-        </motion.a> */}
+       
        
       </div>
-      <motion.span
+      {/* <motion.span
         className="  text-xs top-[3.9rem] relative z-20 bottom-12 h-8 "
       >
       <img src={Cat2} alt="" className="w-[4rem] h-[4rem]"/>
-      </motion.span>
+      </motion.span> */}
       <div className="flex ">
         <div className="w-1/3 h-[20rem] relative bottom-[2rem] right-12 bg-cyber-dark flex items-center justify-center relative">
           <img

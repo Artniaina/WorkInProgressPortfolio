@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Header from './components/Header';
 import Footer from './components/Footer';
 import Skills from './components/Skills';
 import Hero from './components/Hero';
@@ -82,11 +81,9 @@ function App() {
       <main className='bg-cyber-purple/10'>
         <Hero />  
       </main>
-
-   
-      <section className="bg-cyber-purple/10 ">
+      <section className="bg-cyber-dark ">
       <div>
-        <AboutMe />
+        <AboutMe /> 
       </div>
       </section>
 

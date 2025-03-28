@@ -5,7 +5,7 @@ import FrameWorkLol from './FrameWorkLol';
 
 const Hero = () => {
   return (
-    <div className="h-full md:h-[93vh] relative bottom-4">
+    <div className="h-full md:h-[100vh] relative">
       <Header />
       <div className=" top-[8rem] px-6 py-20 flex flex-col md:flex-row justify-start relative overflow-hidden">
         <div className="w-full md:w-4xl flex flex-col relative -top-20 items-center md:items-start md:left-12">
@@ -60,7 +60,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <div className="relative mt-10 md:mt-0 md:absolute md:bottom-5 md:right-[-0.25rem] flex justify-center">
+        <div className="relative bottom-[4rem] mt-10 md:mt-0 md:absolute md:bottom-5 md:right-[-0.25rem] flex justify-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
