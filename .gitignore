@@ -11,8 +11,6 @@ node_modules
 dist
 dist-ssr
 *.local
-
-# Exclude profile images in assets
 assets/profileee.jpg
 
 # Editor directories and files
