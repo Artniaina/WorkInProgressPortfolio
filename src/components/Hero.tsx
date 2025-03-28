@@ -18,11 +18,11 @@ const Hero = () => {
             <span className="glitch-effect" data-text="I AM KANTO">I AM KANTO </span>
 
             <br />
-            <span className="text-pink-500 relative w-full md:w-[35rem] md:left-[1rem] md:top-4 text-[1.3rem] md:text-[1.5rem] mt-7 flex justify-center md:justify-start">
+            <span className="text-pink-500 relative w-full md:w-[35rem] md:left-[1rem] md:top-4 text-[1rem] md:text-[1.5rem] mt-7 flex justify-center md:justify-start">
               <ReactTyped
                 strings={[
                   'A JUNIOR DEVELOPER',
-                  'A FULL-STACK DEVELOPER',
+                  'A FULL-STACK DEV',
                   'A WEB DESIGNER',
                   'A SOFTWARE ENGINEER',
                 ]}

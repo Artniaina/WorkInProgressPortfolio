@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 assets/profileee.jpg
+assets/profileee1.png
 
 # Editor directories and files
 .vscode/*

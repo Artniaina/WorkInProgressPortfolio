@@ -2,9 +2,7 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Profile from "../assets/profileee.jpg";
-import Cute from "../assets/acute.gif";
-import Gif from '../assets/deliveryService.gif'
-import Cat2 from "../assets/2Cat.gif"
+
 const AboutMe: React.FC = () => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
@@ -46,8 +44,6 @@ const AboutMe: React.FC = () => {
         >
          ABOUT ME
         </motion.h1>
-       
-       
       </div>
       {/* <motion.span
         className="  text-xs top-[3.9rem] relative z-20 bottom-12 h-8 "
@@ -55,14 +51,46 @@ const AboutMe: React.FC = () => {
       <img src={Cat2} alt="" className="w-[4rem] h-[4rem]"/>
       </motion.span> */}
       <div className="flex ">
-        <div className="w-1/3 h-[20rem] relative bottom-[2rem] right-12 bg-cyber-dark flex items-center justify-center relative">
+      <motion.div
+          ref={ref}
+          className="bg-transparent"
+          initial={{ opacity: 0, y: -50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex p-6 z-10 h-[25rem] w-[15rem]">
+            <motion.div
+              className="w-50 rounded relative left-[-4rem] border-2 border-purple-400 overflow-hidden flex flex-col"
+              initial={{ scale: 0.8 }}
+              animate={inView ? { scale: 1 } : {}}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
+          <div className="flex space-x-1">
+            <div className="w-2 h-2 bg-purple-300"></div>
+            <div className="w-2 h-2 bg-purple-300"></div>
+          </div>
+          <div className="flex space-x-2">
+            <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
+              <div className="w-2 h-2 bg-purple-300"></div>
+            </div>
+            <div className="w-4 h-4 bg-gray-900 border border-purple-300"></div>
+            <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
+              <div className="text-purple-300 text-xs">X</div>
+            </div>
+          </div>
+              </div>
+              <div className="relative flex items-center justify-center h-[20rem]">
           <img
-            // src={Profile}
+            src={Profile}
             alt="Profile"
-            className="w-[12rem] h-[20rem] object-cover"
+            className="w-[20rem] h-[19.6rem] object-cover"
           />
-          <div className="absolute inset-0 border-4 border-purple-500 opacity-50 pointer-events-none"></div>
-        </div>
+          <div className="absolute inset-0 border-200 border-purple-500 opacity-50 pointer-events-none"></div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
         <motion.div
           className="w-[60rem] relative left-[2rem] top-4 rounded-lg overflow-hidden border-4 border-gray-600 shadow-2xl"
           ref={ref}

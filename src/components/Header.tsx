@@ -49,7 +49,7 @@ const Header = () => {
           </motion.a>
           <motion.a
             href="#about"
-            className="text-sm md:text-lg border-b-2 border-transparent hover:text-pink-500 hover:border-pink-500 transition-colors duration-300 pb-1"
+            className="text-sm md:text-lg  hover:text-pink-500  transition-colors duration-300 pb-1"
             whileHover={{ scale: 1.05 }}
             onClick={() => handleScroll('about')}
           >
