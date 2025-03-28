@@ -78,9 +78,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-cyber-purple/10">
-      
-  
+    <div className="min-h-screen bg-cyber-purple/10">  
       <main className='bg-cyber-purple/10'>
         <Hero />  
       </main>

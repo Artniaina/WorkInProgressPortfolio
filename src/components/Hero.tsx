@@ -18,7 +18,7 @@ const Hero = () => {
             <span className="glitch-effect" data-text="I AM KANTO">I AM KANTO </span>
 
             <br />
-            <span className="text-pink-500 relative w-full md:w-[35rem] md:left-[3rem] md:top-4 text-[1.3rem] md:text-[1.5rem] mt-7 flex justify-center md:justify-start">
+            <span className="text-pink-500 relative w-full md:w-[35rem] md:left-[1rem] md:top-4 text-[1.3rem] md:text-[1.5rem] mt-7 flex justify-center md:justify-start">
               <ReactTyped
                 strings={[
                   'A JUNIOR DEVELOPER',
@@ -60,7 +60,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <div className="relative mt-10 md:mt-0 md:absolute md:bottom-5 md:right-20 flex justify-center">
+        <div className="relative mt-10 md:mt-0 md:absolute md:bottom-5 md:right-[-0.25rem] flex justify-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

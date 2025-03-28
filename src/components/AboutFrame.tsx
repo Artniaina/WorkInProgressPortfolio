@@ -20,7 +20,7 @@ const AboutFrame = () => {
     >
       <div className="flex space-x-4  ml-[8rem] p-6 z-10 h-[38rem] w-[30rem]">
         <motion.div
-          className="w-50 rounded border-2 border-purple-400 overflow-hidden flex flex-col"
+          className="w-50 rounded relative left-[-4rem] border-2 border-purple-400 overflow-hidden flex flex-col"
           initial={{ scale: 0.8 }}
           animate={inView ? { scale: 1 } : {}}
           transition={{ duration: 0.5 }}
