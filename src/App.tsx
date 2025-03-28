@@ -40,33 +40,33 @@ function App() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-cyber-dark flex flex-col items-center justify-center px-4">
-        <div className="mb-2 flex space-x-2">
+        <div className="mb-2 flex ">
           <span className='animate-[bounce_1.1s_infinite]'>
-            <img src={Stickers} className="w-16 h-16 sm:w-20 sm:h-20" alt="Sticker" />
+          <img src={Stickers}  width="70" height="70" />
           </span>
           <span className='animate-[bounce_1.3s_infinite]'>
-            <img src={Stickers} className="w-16 h-16 sm:w-20 sm:h-20" alt="Sticker" />
+          <img src={Stickers}  width="70" height="70" />
           </span>
           <span className='animate-[bounce_0.9s_infinite]'>
-            <img src={Stickers} className="w-16 h-16 sm:w-20 sm:h-20" alt="Sticker" />
+          <img src={Stickers}  width="70" height="70" />
           </span>
         </div>
         
         <div className="text-center mb-6">
-          <h2 className="text-lg sm:text-xl font-bold text-purple-300 mb-2">
-            Loading...
+          <h2 className="text-xl font-bold text-purple-300 mb-2">
+        Loading...
           </h2>
         </div>
 
         <div className="w-full max-w-md h-3 bg-purple-900/50 rounded-full overflow-hidden backdrop-blur border-2 border-purple-500">
           <div 
-            className="h-full bg-gradient-to-r from-purple-500 via-pink-400 to-purple-300 rounded-full shadow-[0_0_10px_rgba(192,132,252,0.7)]"
-            style={{ width: `${progress}%`, transition: 'width 0.3s ease-out' }}
+        className="h-full bg-gradient-to-r from-purple-500 via-pink-400 to-purple-300 rounded-full shadow-[0_0_10px_rgba(192,132,252,0.7)]"
+        style={{ width: `${progress}%`, transition: 'width 0.3s ease-out' }}
           />
         </div>
         
-        <div className="mt-4 text-purple-300/80 text-sm sm:text-lg font-mono">
-          <p className="text-purple-400 text-center">{Math.round(progress)}%</p>
+        <div className="mt-4 text-purple-300/80 text-sm text-lg font-mono">
+          <p className=" text-purple-400 text-center ">{Math.round(progress)}%</p>
           {progress < 20 && "Establishing connection..."}
           {progress >= 20 && progress < 40 && "Loading resources..."}
           {progress >= 40 && progress < 60 && "Calibrating interface..."}
@@ -79,46 +79,49 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cyber-purple/10">
-      <main className="bg-cyber-purple/10 px-4 sm:px-8">
+      
+  
+      <main className='bg-cyber-purple/10'>
         <Hero />  
       </main>
 
-      <section className="bg-cyber-purple/10 px-4 sm:px-8">
-        <div>
-          <AboutMe />
-        </div>
+   
+      <section className="bg-cyber-purple/10 ">
+      <div>
+        <AboutMe />
+      </div>
       </section>
 
-      <section className="bg-cyber-purple/10 px-4 sm:px-8">
-        <div>
-          <SeeMore />
-        </div>
+      <section className="bg-cyber-purple/10 ">
+      <div>
+        <SeeMore />
+      </div>
       </section>
 
-      <section className="bg-cyber-purple/10 px-4 sm:px-8">
-        <div>
-          <Education />
-        </div>
+      <section className="bg-cyber-purple/10 ">
+      <div>
+        <Education/>
+      </div>
       </section>
       
-      <section className="bg-cyber-purple/10 px-4 sm:px-8">
-        <div>
-          <SkillsFrame>
-            <Skills />
-          </SkillsFrame>
-        </div>
+      <section className="bg-cyber-purple/10 ">
+      <div >
+        <SkillsFrame>
+          <Skills />
+        </SkillsFrame>
+      </div>
       </section>
 
-      <section className="bg-cyber-purple/10 px-4 sm:px-8">
-        <div>
-          <Projects />
-        </div>
+      <section className="bg-cyber-purple/10 ">
+      <div >
+       <Projects />
+      </div>
       </section>
 
-      <section className="bg-cyber-purple/10 px-4 sm:px-8">
-        <div>
-          <Contacts />
-        </div>
+      <section className="bg-cyber-purple/10 ">
+      <div >
+       <Contacts />
+      </div>
       </section>
  
       <Footer />

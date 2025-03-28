@@ -10,7 +10,7 @@ const Hero = () => {
       <div className=" top-[8rem] px-6 py-20 flex flex-col md:flex-row justify-start relative overflow-hidden">
         <div className="w-full md:w-4xl flex flex-col relative -top-20 items-center md:items-start md:left-12">
           <motion.h1
-            className="text-3xl md:text-5xl font-pixel mb-8 text-center md:text-left"
+            className="text-3xl w-[20rem] md:w-[40rem] md:text-5xl font-pixel mb-8 text-center md:text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}

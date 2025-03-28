@@ -43,9 +43,9 @@ function Game() {
           ))}
         </div>
      
-        <div className="absolute bottom-[5rem] text-sm ml-[4rem] transform text-center">
+        <div className="absolute bottom-[5rem] text-sm  md:ml-[4rem] transform text-center">
   
-            <div className="text-lg text-left p-2 rounded-md overflow-x-auto text-gray-300 shadow-lg border-pink-500">
+            <div className="text-sm md:text-lg text-left p-2  rounded-md overflow-x-auto text-gray-300 shadow-lg border-pink-500">
               <ReactTyped
               strings={[
               `<pre><code><span class="text-green-500 w-[25rem]">/*The future depends on what 
