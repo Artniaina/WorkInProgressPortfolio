@@ -1,7 +1,5 @@
 import { motion } from 'framer-motion';
 import { ReactTyped } from 'react-typed';
-import image from '../assets/testt.gif';
-import CyberpunkWebcamFrame from './Frame';
 import Header from './Header';
 import FrameWorkLol from './FrameWorkLol';
 
@@ -38,7 +36,7 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p
-          className="text-base mb-12 w-[32rem] left-4 relative  text-center"
+          className="text-base mb-12 w-[32rem] left-4 relative  text-start"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -48,16 +46,14 @@ const Hero = () => {
         </motion.p>
 
         <motion.div
-          className="relative top-12 flex gap-20"
+          className="relative top-12 left-[6rem] flex gap-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
         >
-   
-    
           <a
             href="#contacts"
-            className="px-4 py-2  rounded pixel-border"
+            className="px-4 py-2  border-2 border-cyber-light rounded-md"
           >
             Contact me
           </a>
