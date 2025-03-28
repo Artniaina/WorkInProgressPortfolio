@@ -9,6 +9,7 @@ import SkillsFrame from './components/SkillsFrame';
 import Projects from './components/Projects';
 import Contacts from './components/Contacts';
 import Education from './components/Education';
+import SeeMore from './components/SeeMore';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -88,6 +89,12 @@ function App() {
       <section className="bg-cyber-purple/10 ">
       <div>
         <AboutMe />
+      </div>
+      </section>
+
+      <section className="bg-cyber-purple/10 ">
+      <div>
+        <SeeMore />
       </div>
       </section>
 

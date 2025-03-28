@@ -22,10 +22,10 @@ const Hero = () => {
             <span className="text-pink-500 relative w-[35rem] left-[3rem] text-[1.5rem] mt-7 flex justify-start ">
             <ReactTyped
          strings={[
+          "A JUNIOR DEVELOPER",
           "A FULL-STACK DEVELOPER",
           "A WEB DESIGNER",
           "A SOFTWARE ENGINEER",
-  
         ]}
         
               typeSpeed={50}

@@ -223,8 +223,8 @@ const Education = () => {
                 <h3 className="text-[18px] text-white-200 mb-2 relative z-10 pixelated">
                   {edu.title}
                 </h3>
-                <div className="flex m-auto w-[12rem] pt-2 flex-col justify-between items-start border-b-2 border-pink-200 sm:items-center mb-4 relative z-10">
-                  <p className="text-xs text-pink-200 mb-2">{edu.period}</p>
+                <div className="flex m-auto w-[12rem] pt-2 flex-col justify-between items-start border-b-2 border-pink-400 sm:items-center mb-4 relative z-10">
+                  <p className="text-xs text-pink-400 mb-2">{edu.period}</p>
                 </div>
                 <p className="text-gray-300 font-mono text-xl relative z-10">
                   {edu.description}

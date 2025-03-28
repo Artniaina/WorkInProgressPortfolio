@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { IoPlayForwardSharp } from "react-icons/io5";
+import Profile from "../assets/profileee.jpg"
+
 const AboutMe: React.FC = () => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
@@ -29,10 +30,10 @@ const AboutMe: React.FC = () => {
   };
 
   return (
-    <div id="about" className="flex items-center justify-center p-4 flex-col">
+    <div id="about" className="flex items-center h-[100vh] justify-center p-4 flex-col">
       <div className="flex justify-between">
         <motion.h1
-          className="text-3xl  font-bold text-white mb-8 mt-8"
+          className="text-3xl relative font-bold text-white bottom-10 left-[8rem] "
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -55,126 +56,104 @@ const AboutMe: React.FC = () => {
           position: "relative",
         }}
         href="#aboutMe"
-        className="p-1.5 w-[8rem] mt-8 text-white text-sm h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform"
+        className="p-1.5 w-[10rem] relative bottom-12 text-white text-sm h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center shadow-md hover:shadow-lg transition-transform transform"
             >
-        Next
-             <IoPlayForwardSharp className="text-2xl"/>
+        See more:D
+           
             </motion.a>
       </div>
+    <div className="flex ">
+    <div className="w-1/3 h-[20rem] relative bottom-[2rem] right-12 bg-cyber-dark flex items-center justify-center relative">
+        <img
+          // src={Profile}
+          alt="Profile" 
+          className="w-[12rem] h-[20rem] object-cover"
+        />
+        <div className="absolute inset-0 border-4 border-purple-500 opacity-50 pointer-events-none"></div>
      
-
-      <motion.div
-        className="w-[75rem] rounded-lg overflow-hidden border-4 border-gray-600 shadow-2xl"
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={variants2}
-      >
-        <div className="px-4 py-2 bg-purple-600 flex items-center justify-between relative">
-          <div className="absolute left-0 top-0 flex">
-            {[...Array(3)].map((_, i) => (
-              <div
-                key={i}
-                className="w-4 h-4 bg-purple-300 m-1 rounded-sm"
-              ></div>
-            ))}
-          </div>
-          <div className="flex justify-between items-center w-full px-4">
-            <div
-              className=" ml-20 text-white font-mono font-bold text-xl tracking-wide"
-              style={{ textShadow: "2px 2px 0 rgba(0,0,0,0.3)" }}
-            >
-              AboutMe.txt
-            </div>
-          </div>
-
-          <div className="flex space-x-2">
-            <button className="w-6 h-6 flex items-center justify-center bg-purple-800 border-2 border-white rounded-sm">
-              <span className="text-white font-bold">-</span>
-            </button>
-            <button className="w-6 h-6 flex items-center justify-center bg-purple-800 border-2 border-white rounded-sm">
-              <span className="text-white font-bold">□</span>
-            </button>
-            <button className="w-6 h-6 flex items-center justify-center bg-purple-800 border-2 border-white rounded-sm">
-              <span className="text-white font-bold">×</span>
-            </button>
-          </div>
+       </div>
+     <motion.div
+       className="w-[60rem] relative left-[2rem] top-4 rounded-lg overflow-hidden border-4 border-gray-600 shadow-2xl"
+       ref={ref}
+       initial="hidden"
+       animate={controls}
+       variants={variants2}
+     >
+       <div className=" px-4 py-2 bg-purple-600 flex items-center justify-between relative">
+      <div className="absolute left-0 top-0 flex">
+        {[...Array(3)].map((_, i) => (
+          <div
+         key={i}
+         className="w-4 h-4 bg-purple-300 m-1 rounded-sm"
+          ></div>
+        ))}
+      </div>
+      <div className="flex justify-between items-center w-full px-4">
+        <div
+          className=" ml-20 text-white font-mono font-bold text-xl tracking-wide"
+          style={{ textShadow: "2px 2px 0 rgba(0,0,0,0.3)" }}
+        >
+          AboutMe.txt
         </div>
+      </div>
 
-        <div className="h-2 bg-gray-700 flex">
-          {[...Array(10)].map((_, i) => (
-            <div
-              key={i}
-              className="w-8 h-1 bg-gray-500 mx-4 rounded-full"
-            ></div>
-          ))}
-        </div>
+      <div className="flex space-x-2">
+        <button className="w-6 h-6 flex items-center justify-center bg-purple-800 border-2 border-white rounded-sm">
+          <span className="text-white font-bold">-</span>
+        </button>
+        <button className="w-6 h-6 flex items-center justify-center bg-purple-800 border-2 border-white rounded-sm">
+          <span className="text-white font-bold">□</span>
+        </button>
+        <button className="w-6 h-6 flex items-center justify-center bg-purple-800 border-2 border-white rounded-sm">
+          <span className="text-white font-bold">×</span>
+        </button>
+      </div>
+       </div>
 
-        <div className="p-6 bg-black relative">
-          <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
+       <div className="h-2 bg-gray-700 flex">
+      {[...Array(10)].map((_, i) => (
+        <div
+          key={i}
+          className="w-8 h-1 bg-gray-500 mx-4 rounded-full"
+        ></div>
+      ))}
+       </div>
 
-          <div className="absolute right-0 top-0 h-full w-6 bg-purple-900 flex flex-col items-center py-2 gap-4">
-            <div className="w-4 h-4 bg-purple-400 rounded-sm"></div>
-            <div className="w-4 h-4 bg-purple-400 rounded-sm mt-auto"></div>
-          </div>
+       <div className="p-6 bg-black relative">
+      <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
+      <div className="text-white h-[25rem] text-xl relative left-2 font-mono space-y-6 pr-10 h-[14rem]">
+        <p className="leading-relaxed mb-8">
+          I am{" "}
+          <span className="font-bold text-pink-300">
+          ANDRIAHARINIAINA Kanto Fitiavana
+          </span>{" "}
+          <br />
+          I am a{" "}
+          <span className="text-purple-300">
+          fourth-year Software Engineering student
+          </span>{" "}
+          passionate about technology and interactivity to create innovative
+          and engaging experiences. <br /> <br /> As a{" "}
+          <span className="text-pink-400">Full-Stack Developer</span>, I
+          specialize in building{" "}
+          <span className="text-salmon-400">
+          scalable, high-performance applications
+          </span>{" "}
+          across both the frontend and backend. <br /> <br />
+          Beyond functionality, I focus on delivering{" "}
+          <span className="text-purple-400">
+          seamless user experiences
+          </span>{" "}
+          through well-designed, intuitive interfaces that leave a lasting
+          impression.
+        </p>
+      </div>
+       </div>
+     </motion.div>
+ 
+  
+    </div>
 
-          <div className="text-white h-[25rem] text-xl font-mono space-y-6 pr-10">
-            <p className="leading-relaxed mb-8 ">
-              I'm{" "}
-              <span className="text-bold text-purple-500">
-                ANDRIAHARINIAINA Kanto Fitiavana
-              </span>{" "}
-              <br />
-              Currently in my 4th year of Software engineering studies, <br />{" "}
-              I'm passionate about blending technology and interactivity to
-              craft unique, memorable experiences. <br />
-              Additionally, I specialize as a fullstack developer, building
-              robust and scalable applications both on the server-side and
-              client-side.
-            </p>
-
-            <div className="space-y-4 mb-8">
-              <p className="text-pink-500 font-bold ">What drives me?</p>
-              <p className="pl-4">
-                Creating applications that aren't just functional but leave a
-                lasting impression.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-pink-500 font-bold">
-                What am I currently learning?
-              </p>
-              <p className="pl-4">
-                I'm currently diving deep into the world of Javascript,
-                enhancing my skills in modern frameworks such as React and
-                Next.js
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="px-4 py-2 bg-purple-600 flex items-center justify-between">
-          <button className="w-8 h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center">
-            <span className="text-white">◄</span>
-          </button>
-
-          <div className="flex space-x-2">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="w-4 h-1 bg-purple-300 rounded-full"></div>
-            ))}
-          </div>
-
-          <div className="flex space-x-2">
-            <button className="w-8 h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center">
-              <span className="text-white">►</span>
-            </button>
-            <button className="w-8 h-8 bg-purple-800 border-2 border-white rounded-sm flex items-center justify-center">
-              <span className="text-white">♥</span>
-            </button>
-          </div>
-        </div>
-      </motion.div>
     </div>
   );
 };
