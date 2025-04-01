@@ -4,9 +4,8 @@ import { useInView } from "react-intersection-observer";
 import Image from "../assets/hehe.png";
 import Animated from "../assets/accc.gif";
 import Planet from "../assets/planet.gif"
-import ButterFly from "../assets/purplebutter.gif"
-
 import { IoTriangleSharp } from "react-icons/io5";
+
 const AboutMe: React.FC = () => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
@@ -33,19 +32,16 @@ const AboutMe: React.FC = () => {
     visible: { opacity: 1, x: 0, transition: { duration: 0.9 } },
   };
 
-  // Generate a mix of planet sizes and positions
   const generatePlanets = (count: number) => {
     const planets = [];
     for (let i = 0; i < count; i++) {
-      // Create different size categories
       let sizeCategory = Math.floor(Math.random() * 3); // 0, 1, or 2
       let size;
       let opacity;
       
-      // Assign sizes and opacities based on category
-      if (sizeCategory === 0) { // Small planets
-        size = Math.random() * 2 + 1; // 1-3rem
-        opacity = Math.random() * 0.15 + 0.05; // 0.05-0.2
+      if (sizeCategory === 0) { 
+        size = Math.random() * 2 + 1;
+        opacity = Math.random() * 0.15 + 0.05; 
       } else if (sizeCategory === 1) { // Medium planets
         size = Math.random() * 3 + 3; // 3-6rem
         opacity = Math.random() * 0.15 + 0.1; // 0.1-0.25
@@ -77,7 +73,7 @@ const AboutMe: React.FC = () => {
         left: `${Math.random() * 100}vw`,
         size: `${size}rem`,
         opacity: opacity,
-        zIndex: -10, // Ensure all planets are in background
+        zIndex: 10, // Ensure all planets are in background
         animate: {
           x: xAmplified,
           y: yAmplified,
@@ -113,7 +109,7 @@ const AboutMe: React.FC = () => {
             width: planet.size,
             height: planet.size,
             opacity: planet.opacity,
-            zIndex: 20,
+            zIndex: planet.zIndex,
           }}
           animate={planet.animate}
           transition={planet.transition}
@@ -130,7 +126,7 @@ const AboutMe: React.FC = () => {
           animate={controls}
           variants={variants}
         >
-          ABOUT ME
+          ABOUT ME :D
         </motion.h1>
       </div>
 
@@ -163,7 +159,7 @@ const AboutMe: React.FC = () => {
           className="z-20"
         >
           <IoTriangleSharp
-            className="text-purple-600 text-[5.5rem] relative right-[-5.9rem] top-[0.4rem]"
+            className="text-purple-600 text-[5.5rem] relative right-[-5.8rem]  z-40 top-[0.4rem]"
             style={{ transform: "rotate(30deg)" }}
           />
         </motion.div>
