@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-// import Profile from "../assets/profileee.jpg";
+import Image from '../assets/hehe.png';
+import Animated from '../assets/bigTotoro.gif';
+import Cute from '../assets/acute.gif';
 
 const AboutMe: React.FC = () => {
   const controls = useAnimation();
@@ -36,7 +38,7 @@ const AboutMe: React.FC = () => {
     >
       <div className="flex justify-between">
         <motion.h1
-          className="text-3xl relative  font-bold text-white mb-8 bottom-10 left-28"
+          className="text-3xl relative  font-bold text-white mb-8 bottom-10 "
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -50,49 +52,52 @@ const AboutMe: React.FC = () => {
       >
       <img src={Cat2} alt="" className="w-[4rem] h-[4rem]"/>
       </motion.span> */}
-      <div className="flex ">
-      <motion.div
-          ref={ref}
-          className="bg-transparent"
-          initial={{ opacity: 0, y: -50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+      <div className="flex gap-8 relative z-10 right-[2rem] bottom-[2rem] ">
+      <motion.div 
+        className="w-[20rem] h-[21rem] mt-4 ml-12 bg-[#2a1245] rounded-lg p-6 relative overflow-hidden"
+        animate={controls}
+        initial="hidden"
+        variants={{
+          hidden: { scale: 0.8, opacity: 0 },
+          visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
+        }}
+      >  
+        <div
+          className="absolute top-0 right-0 h-1 w-1/2 bg-[#e44cff] animate-pulse"
+          style={{
+            clipPath: 'polygon(100% 0, 100% 100%, 0 100%)',
+            boxShadow: '0 0 10px #e44cff, 0 0 20px #e44cff',
+          }}
+        ></div>
+        <div
+          className="absolute bottom-0 left-0 h-1 w-1/2 bg-[#e44cff] animate-pulse"
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 0 100%)',
+            boxShadow: '0 0 10px #e44cff, 0 0 20px #e44cff',
+          }}
         >
-          <div className="flex p-6 z-10 h-[25rem] w-[15rem]">
-            <motion.div
-              className="w-50 rounded relative left-[-4rem] border-2 border-purple-400 overflow-hidden flex flex-col"
-              initial={{ scale: 0.8 }}
-              animate={inView ? { scale: 1 } : {}}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
-          <div className="flex space-x-1">
-            <div className="w-2 h-2 bg-purple-300"></div>
-            <div className="w-2 h-2 bg-purple-300"></div>
-          </div>
-          <div className="flex space-x-2">
-            <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
-              <div className="w-2 h-2 bg-purple-300"></div>
-            </div>
-            <div className="w-4 h-4 bg-gray-900 border border-purple-300"></div>
-            <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
-              <div className="text-purple-300 text-xs">X</div>
-            </div>
-          </div>
-              </div>
-              <div className="relative flex items-center justify-center h-[20rem]">
-          <img
-            // src={Profile}
-            alt="Profile"
-            className="w-[20rem] h-[19.6rem] object-cover"
-          />
-          <div className="absolute inset-0 border-200 border-purple-500 opacity-50 pointer-events-none"></div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+      
+        </div>
+        <div>
+        <img src={Image} alt="Hehe" />
+        </div>
+        <div
+          className="absolute top-0 left-0 w-1 h-1/2 bg-[#e44cff] animate-pulse"
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 0 100%)',
+            boxShadow: '0 0 10px #e44cff, 0 0 20px #e44cff',
+          }}
+        ></div>
+        <div
+          className="absolute bottom-0 right-0 w-1 h-1/2 bg-[#e44cff] animate-pulse"
+          style={{
+            clipPath: 'polygon(100% 0, 100% 100%, 0 100%)',
+            boxShadow: '0 0 10px #e44cff, 0 0 20px #e44cff',
+          }}
+        ></div>
+      </motion.div>
         <motion.div
-          className="w-[60rem] relative left-[2rem] top-4 rounded-lg overflow-hidden border-4 border-gray-600 shadow-2xl"
+          className="w-[55rem]  relative left-[2rem] top-4 rounded-lg overflow-hidden border-4 border-gray-600 shadow-2xl"
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -107,7 +112,7 @@ const AboutMe: React.FC = () => {
                 ></div>
               ))}
             </div>
-            <div className="flex justify-between items-center w-full px-4">
+            <div className="flex justify-between items-center px-4">
               <div
                 className=" ml-20 text-white font-mono font-bold text-xl tracking-wide"
                 style={{ textShadow: "2px 2px 0 rgba(0,0,0,0.3)" }}
@@ -129,19 +134,11 @@ const AboutMe: React.FC = () => {
             </div>
           </div>
 
-          <div className="h-2 bg-gray-700 flex">
-            {[...Array(10)].map((_, i) => (
-              <div
-                key={i}
-                className="w-8 h-1 bg-gray-500 mx-4 rounded-full"
-              ></div>
-            ))}
-          </div>
 
           <div className="p-6 bg-black relative">
             <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
-            <div className="text-white h-[25rem] text-xl relative left-2 font-mono space-y-6 pr-10 h-[14rem]">
-              <p className="leading-relaxed mb-8">
+            <div className="text-white h-[30rem] text-xl relative left-2 font-mono space-y-6 pr-10 h-[14rem]">
+            <p className="leading-relaxed mb-8">
                 I am{" "}
                 <span className="font-bold text-pink-300">
                   ANDRIAHARINIAINA Kanto Fitiavana
@@ -163,8 +160,14 @@ const AboutMe: React.FC = () => {
                   seamless user experiences
                 </span>{" "}
                 through well-designed, intuitive interfaces that leave a lasting
-                impression.
-              </p>
+                impression. <br />
+                I am currently expanding my knowledge of advanced JavaScript <br /> frameworks and libraries, including <span className="text-pink-500">Next.js, <br />Nest and beyond
+                </span>{" "}
+        
+
+                <img src={Animated} alt="Cute animation" className="w-[10rem] relative bottom-[5rem] left-[42rem]" />
+                </p>
+
             </div>
           </div>
         </motion.div>
