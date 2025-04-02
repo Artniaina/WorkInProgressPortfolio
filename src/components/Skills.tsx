@@ -50,71 +50,142 @@ const Skills = () => {
     }),
   };
 
-  const skills = [
-    Javascript,
-    Typescript,
-    Php,
-    Python,
-    ReactIcon,
-    ReactNative,
-    Redux,
-    Webdev,
-    Express, 
-    Node, 
-    Tailwind,
-    Hfsql,
-    mySql,
-    Git,
-    Github,
+  const skillsData = [
+    { image: Javascript, name: "JavaScript" },
+    { image: Typescript, name: "TypeScript" },
+    { image: Php, name: "PHP" },
+    { image: Python, name: "Python" },
+    { image: ReactIcon, name: "React" },
+    { image: ReactNative, name: "React Native" },
+    { image: Redux, name: "Redux" },
+    { image: Webdev, name: "WebDev" },
+    { image: Express, name: "Express" },
+    { image: Node, name: "Node.js" },
+    { image: Tailwind, name: "Tailwind" },
+    { image: Hfsql, name: "HFSQL" },
+    { image: mySql, name: "MySQL" },
+    { image: Git, name: "Git" },
+    { image: Github, name: "GitHub" },
   ];
 
-  const rows = [
-    [skills[0], skills[1], skills[2], skills[3], skills[4]],
-    [ skills[5], skills[6], skills[7], skills[8], skills[9]],
-    [...skills.slice(10, 15)], 
+  const mobileSkills = [
+    [skillsData[0], skillsData[1]],
+    [skillsData[2], skillsData[3]],
+    [skillsData[4], skillsData[5]],
+    [skillsData[6], skillsData[7]],
+    [skillsData[8], skillsData[9]],
+    [skillsData[10], skillsData[11]],
+    [skillsData[12], skillsData[13]],
+    [skillsData[14]],
+  ];
+
+  const tabletSkills = [
+    [skillsData[0], skillsData[1], skillsData[2]],
+    [skillsData[3], skillsData[4], skillsData[5]],
+    [skillsData[6], skillsData[7], skillsData[8]],
+    [skillsData[9], skillsData[10], skillsData[11]],
+    [skillsData[12], skillsData[13], skillsData[14]],
+  ];
+
+  const desktopSkills = [
+    [skillsData[0], skillsData[1], skillsData[2], skillsData[3], skillsData[4]],
+    [skillsData[5], skillsData[6], skillsData[7], skillsData[8], skillsData[9]],
+    [skillsData[10], skillsData[11], skillsData[12], skillsData[13], skillsData[14]],
   ];
 
   return (
-    <div className="py-20 px-6">
-      <div ref={ref}>
+    <div className="w-full h-full flex items-center justify-center">
+      <div ref={ref} className="w-full overflow-y-auto py-4">
         <motion.div
           className="flex flex-col items-center justify-center"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
         >
-          <div className="grid gap-8">
-            {rows.map((row, rowIndex) => (
+          <div className="grid gap-6 md:hidden">
+            {mobileSkills.map((row, rowIndex) => (
               <div
-                key={rowIndex}
-                className="flex justify-center gap-[3rem] flex-wrap"
+                key={`mobile-${rowIndex}`}
+                className="flex justify-center gap-4 flex-wrap"
               >
                 {row.map((skill, index) => (
                   <motion.div
-                    key={index}
-                    className="w-24 h-24 bg-white border-4 border-black flex items-center justify-center rounded-lg shadow-lg"
-                    style={{
-                      imageRendering: "pixelated",
-                    }}
+                    key={`mobile-${rowIndex}-${index}`}
+                    className="flex flex-col items-center"
                     variants={itemVariants}
-                    custom={index}
+                    custom={index + rowIndex * 3}
                   >
-                    <img
-                      src={skill}
-                      alt={`Skill ${index}`}
-                      className="w-16 h-16 object-contain"
-                      style={{
-                        imageRendering: "pixelated",
-                      }}
-                    />
+                    <div className=" bg-white  flex items-center justify-center rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                      <img
+                        src={skill.image}
+                        alt={skill.name}
+                        className="w-[6rem] h-[6rem] object-contain"
+                      />
+                    </div>
+                    <span className="mt-2 text-xs w-[7rem] font-medium text-center text-white opacity-80">{skill.name}</span>
                   </motion.div>
                 ))}
               </div>
             ))}
-            <div className="mt-2 -ml-12 pt-4 text-[1rem] border-t border-cyber-light text-cyber-light  font-mono">
-              <div className="typing-animation">
-                $ Skills updated successfully. Version 2.4.5
+          </div>
+
+          <div className="hidden md:grid lg:hidden gap-8">
+            {tabletSkills.map((row, rowIndex) => (
+              <div
+                key={`tablet-${rowIndex}`}
+                className="flex justify-center gap-8 flex-wrap"
+              >
+                {row.map((skill, index) => (
+                  <motion.div
+                    key={`tablet-${rowIndex}-${index}`}
+                    className="flex flex-col items-center"
+                    variants={itemVariants}
+                    custom={index + rowIndex * 4}
+                  >
+                    <div className=" bg-white border-2 border-black flex items-center justify-center rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                      <img
+                        src={skill.image}
+                        alt={skill.name}
+                        className="w-[7rem] h-[7rem] object-contain"
+                      />
+                    </div>
+                    <span className="mt-3 w-[10rem] text-sm font-medium text-center text-white">{skill.name}</span>
+                  </motion.div>
+                ))}
               </div>
+            ))}
+          </div>
+
+          <div className="hidden lg:grid gap-10">
+            {desktopSkills.map((row, rowIndex) => (
+              <div
+                key={`desktop-${rowIndex}`}
+                className="flex justify-center gap-10 flex-wrap"
+              >
+                {row.map((skill, index) => (
+                  <motion.div
+                    key={`desktop-${rowIndex}-${index}`}
+                    className="flex flex-col items-center"
+                    variants={itemVariants}
+                    custom={index + rowIndex * 5}
+                  >
+                    <div className=" w-[6.3rem] bg-white border-2 border-black flex items-center justify-center rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                      <img
+                        src={skill.image}
+                        alt={skill.name}
+                        className="w-[6rem] h-[6rem] object-contain"
+                      />
+                    </div>
+                    <span className="mt-4 text-base text-center  w-[9rem] font-medium text-center text-white">{skill.name}</span>
+                  </motion.div>
+                ))}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 pt-4 text-xs sm:text-sm md:text-base border-t border-cyber-light text-cyber-light font-mono w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl text-center">
+            <div className="typing-animation">
+              $ Skills updated successfully. Version 3.0.0
             </div>
           </div>
         </motion.div>
