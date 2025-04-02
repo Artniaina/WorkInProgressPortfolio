@@ -103,19 +103,19 @@ const Education = () => {
   return (
     <section
       id="aboutMe"
-      className="py-12 lg:py-20 bg-cyber-dark relative overflow-hidden"
+      className="py-8 md:py-12 lg:py-20 bg-cyber-dark relative overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 relative z-10" ref={ref}>
         <motion.div
           variants={titleVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center mb-12 lg:mb-20"
+          className="text-center mb-8 md:mb-12 lg:mb-20"
         >
-          <motion.h2 className="text-3xl font-bold pixelated">
+          <motion.h2 className="text-xl md:text-2xl lg:text-3xl font-bold pixelated">
             EDUCATION AND BACKGROUND
           </motion.h2>
-          <motion.p className="text-gray-400 mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base pixelated">
+          <motion.p className="text-gray-400 mt-2 md:mt-3 lg:mt-4 max-w-2xl mx-auto text-xs md:text-sm lg:text-base pixelated">
             My academic journey
           </motion.p>
         </motion.div>
@@ -151,7 +151,7 @@ const Education = () => {
               }`}
             >
               <motion.div
-                className={`absolute left-1/2 w-[4rem] h-[4rem] -ml-3 rounded-full bg-cyber-dark shadow-lg shadow-pink-400/50 border-4 border-white z-10 pixelated flex items-center justify-center`}
+                className="absolute left-1/2 w-[4rem] h-[4rem] -ml-3 rounded-full bg-cyber-dark shadow-lg shadow-pink-400/50 border-4 border-white z-10 pixelated flex items-center justify-center"
                 initial={{ scale: 0 }}
                 animate={
                   inView
@@ -232,12 +232,118 @@ const Education = () => {
           ))}
         </motion.div>
 
-        {/* Mobile Timeline (below lg screens) */}
         <motion.div
           variants={timelineVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="relative max-w-md mx-auto lg:hidden"
+          className="relative max-w-2xl mx-auto hidden md:block lg:hidden"
+        >
+          <motion.div
+            className="absolute left-6 top-0 bottom-0 w-0.5 bg-white before:content-[''] before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:w-full before:h-full before:blur-md before:bg-white/60 before:opacity-75 before:animate-pulse"
+            initial={{ scaleY: 0, opacity: 0 }}
+            animate={
+              inView ? { scaleY: 1, opacity: 1 } : { scaleY: 0, opacity: 0 }
+            }
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{
+              transformOrigin: "top",
+              boxShadow: "0 0 10px rgba(228, 76, 255, 0.43), 0 0 20px rgba(228, 76, 255, 0.43)",
+            }}
+          />
+
+          {education.map((edu, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="relative mb-10 pl-16"
+            >
+              <motion.div
+                className="absolute left-2 w-12 h-12 -ml-2 rounded-full bg-cyber-dark shadow-lg shadow-pink-400/50 border-3 border-white z-10 pixelated flex items-center justify-center"
+                initial={{ scale: 0 }}
+                animate={
+                  inView
+                    ? {
+                        scale: 1,
+                        transition: { delay: 0.2 + index * 0.2, duration: 0.5 },
+                      }
+                    : { scale: 0 }
+                }
+                whileHover={{
+                  scale: 1.2,
+                  boxShadow:
+                    "0 0 20px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.6)",
+                }}
+                style={{
+                  boxShadow:
+                    "0 0 10px rgba(255, 105, 180, 0.5), 0 0 20px rgba(255, 105, 180, 0.3)",
+                }}
+              >
+                <div
+                  className="text-white text-3xl"
+                  style={{
+                    textShadow:
+                      "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 105, 180, 0.6)",
+                  }}
+                >
+                  {edu.icon}
+                </div>
+              </motion.div>
+
+              <motion.div
+                variants={contentVariants(index)}
+                className="p-5 w-full bg-cyber-purple/30 backdrop-blur-md rounded-xl relative overflow-hidden group pixelated shadow-lg shadow-pink-500/10"
+                whileHover={{
+                  y: -4,
+                  transition: { duration: 0.2 },
+                }}
+              >
+                <div
+                  className="absolute top-0 right-0 h-1 w-1/2 bg-[#e44cff] animate-pulse"
+                  style={{
+                    clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
+                    boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
+                  }}
+                ></div>
+                <div
+                  className="absolute bottom-0 left-0 h-1 w-1/2 bg-[#e44cff] animate-pulse"
+                  style={{
+                    clipPath: "polygon(0 0, 100% 0, 0 100%)",
+                    boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
+                  }}
+                ></div>
+                <div
+                  className="absolute top-0 left-0 w-1 h-1/2 bg-[#e44cff] animate-pulse"
+                  style={{
+                    clipPath: "polygon(0 0, 100% 0, 0 100%)",
+                    boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
+                  }}
+                ></div>
+                <div
+                  className="absolute bottom-0 right-0 w-1 h-1/2 bg-[#e44cff] animate-pulse"
+                  style={{
+                    clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
+                    boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
+                  }}
+                ></div>
+                <h3 className="text-lg text-center text-white-200 mb-2 relative z-10 pixelated">
+                  {edu.title}
+                </h3>
+                <div className="flex m-auto w-[12rem] pt-1 flex-col justify-between items-center border-b-2 border-pink-400 mb-3 relative z-10">
+                  <p className="text-xs text-pink-400 mb-1">{edu.period}</p>
+                </div>
+                <p className="text-gray-300 font-mono text-center text-lg relative z-10">
+                  {edu.description}
+                </p>
+              </motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          variants={timelineVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="relative max-w-md mx-auto md:hidden"
         >
           <motion.div
             className="absolute left-4 top-0 bottom-0 w-0.5 bg-white before:content-[''] before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:w-full before:h-full before:blur-md before:bg-white/60 before:opacity-75 before:animate-pulse"
