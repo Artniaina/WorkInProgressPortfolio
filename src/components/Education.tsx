@@ -112,9 +112,9 @@ const Education = () => {
           animate={inView ? "visible" : "hidden"}
           className="text-center mb-8 md:mb-12 lg:mb-20"
         >
-          <motion.h2 className="text-xl md:text-2xl lg:text-3xl font-bold pixelated">
+            <motion.h2 className="text-lg md:text-2xl lg:text-3xl font-bold pixelated">
             EDUCATION AND BACKGROUND
-          </motion.h2>
+            </motion.h2>
           <motion.p className="text-gray-400 mt-2 md:mt-3 lg:mt-4 max-w-2xl mx-auto text-xs md:text-sm lg:text-base pixelated">
             My academic journey
           </motion.p>
@@ -135,7 +135,8 @@ const Education = () => {
             transition={{ duration: 1.2, ease: "easeOut" }}
             style={{
               transformOrigin: "top",
-              boxShadow: "0 0 10px rgba(228, 76, 255, 0.43), 0 0 20px rgba(228, 76, 255, 0.43)",
+              boxShadow:
+                "0 0 10px rgba(228, 76, 255, 0.43), 0 0 20px rgba(228, 76, 255, 0.43)",
             }}
           />
 
@@ -163,7 +164,7 @@ const Education = () => {
                 whileHover={{
                   scale: 1.3,
                   boxShadow:
-                    "0 0 20px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.6)", 
+                    "0 0 20px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.6)",
                 }}
                 style={{
                   boxShadow:
@@ -238,7 +239,7 @@ const Education = () => {
           className="relative max-w-2xl mx-auto hidden md:block lg:hidden"
         >
           <motion.div
-            className="absolute left-6 top-0 bottom-0 w-0.5 bg-white before:content-[''] before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:w-full before:h-full before:blur-md before:bg-white/60 before:opacity-75 before:animate-pulse"
+            className="absolute left-6  top-0 bottom-0 w-0.5 bg-white before:content-[''] before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:w-full before:h-full before:blur-md before:bg-white/60 before:opacity-75 before:animate-pulse"
             initial={{ scaleY: 0, opacity: 0 }}
             animate={
               inView ? { scaleY: 1, opacity: 1 } : { scaleY: 0, opacity: 0 }
@@ -246,7 +247,8 @@ const Education = () => {
             transition={{ duration: 1.2, ease: "easeOut" }}
             style={{
               transformOrigin: "top",
-              boxShadow: "0 0 10px rgba(228, 76, 255, 0.43), 0 0 20px rgba(228, 76, 255, 0.43)",
+              boxShadow:
+                "0 0 10px rgba(228, 76, 255, 0.43), 0 0 20px rgba(228, 76, 255, 0.43)",
             }}
           />
 
@@ -256,41 +258,41 @@ const Education = () => {
               variants={itemVariants}
               className="relative mb-10 pl-16"
             >
-              <motion.div
-                className="absolute left-2 w-12 h-12 -ml-2 rounded-full bg-cyber-dark shadow-lg shadow-pink-400/50 border-3 border-white z-10 pixelated flex items-center justify-center"
+                <motion.div
+                className="absolute left-2 w-16 h-16 -ml-4 rounded-full bg-cyber-dark shadow-lg shadow-pink-400/50 border-4 border-white z-10 pixelated flex items-center justify-center"
                 initial={{ scale: 0 }}
                 animate={
                   inView
-                    ? {
-                        scale: 1,
-                        transition: { delay: 0.2 + index * 0.2, duration: 0.5 },
-                      }
-                    : { scale: 0 }
+                  ? {
+                    scale: 1,
+                    transition: { delay: 0.2 + index * 0.2, duration: 0.5 },
+                    }
+                  : { scale: 0 }
                 }
                 whileHover={{
-                  scale: 1.2,
+                  scale: 1.3,
                   boxShadow:
-                    "0 0 20px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.6)",
+                  "0 0 25px rgba(255, 105, 180, 0.8), 0 0 50px rgba(255, 105, 180, 0.6)",
                 }}
                 style={{
                   boxShadow:
-                    "0 0 10px rgba(255, 105, 180, 0.5), 0 0 20px rgba(255, 105, 180, 0.3)",
+                  "0 0 15px rgba(255, 105, 180, 0.5), 0 0 30px rgba(255, 105, 180, 0.3)",
                 }}
-              >
+                >
                 <div
-                  className="text-white text-3xl"
+                  className="text-white text-4xl"
                   style={{
-                    textShadow:
-                      "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 105, 180, 0.6)",
+                  textShadow:
+                    "0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 105, 180, 0.6)",
                   }}
                 >
                   {edu.icon}
                 </div>
-              </motion.div>
+                </motion.div>
 
               <motion.div
                 variants={contentVariants(index)}
-                className="p-5 w-full bg-cyber-purple/30 backdrop-blur-md rounded-xl relative overflow-hidden group pixelated shadow-lg shadow-pink-500/10"
+                className="p-5 w-full mb-20 bg-cyber-purple/30 backdrop-blur-md rounded-xl relative overflow-hidden group pixelated shadow-lg shadow-pink-500/10"
                 whileHover={{
                   y: -4,
                   transition: { duration: 0.2 },
@@ -324,13 +326,13 @@ const Education = () => {
                     boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
                   }}
                 ></div>
-                <h3 className="text-lg text-center text-white-200 mb-2 relative z-10 pixelated">
+                <h3 className="text-lg text-start text-white-200 mb-2 relative z-10 pixelated">
                   {edu.title}
                 </h3>
-                <div className="flex m-auto w-[12rem] pt-1 flex-col justify-between items-center border-b-2 border-pink-400 mb-3 relative z-10">
-                  <p className="text-xs text-pink-400 mb-1">{edu.period}</p>
+                <div className="flex w-[13rem] pt-1 flex-col justify-between items-center border-b-2 border-pink-400 mb-3 relative z-10">
+                  <p className="text-sm text-pink-400 mb-1">{edu.period}</p>
                 </div>
-                <p className="text-gray-300 font-mono text-center text-lg relative z-10">
+                <p className="text-gray-300 font-mono text-start text-[1.3rem] relative z-10">
                   {edu.description}
                 </p>
               </motion.div>
@@ -353,7 +355,8 @@ const Education = () => {
             transition={{ duration: 1.2, ease: "easeOut" }}
             style={{
               transformOrigin: "top",
-              boxShadow: "0 0 10px rgba(228, 76, 255, 0.43), 0 0 20px rgba(228, 76, 255, 0.43)",
+              boxShadow:
+                "0 0 10px rgba(228, 76, 255, 0.43), 0 0 20px rgba(228, 76, 255, 0.43)",
             }}
           />
 
@@ -361,39 +364,39 @@ const Education = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="relative mb-8 pl-12"
+              className="relative mb-12 pl-12"
             >
-              <motion.div
-                className="absolute left-0 w-10 h-10 -ml-1 rounded-full bg-cyber-dark shadow-lg shadow-pink-400/50 border-2 border-white z-10 pixelated flex items-center justify-center"
+                <motion.div
+                className="absolute left-0 w-12 h-12 -ml-2 rounded-full bg-cyber-dark shadow-lg shadow-pink-400/50 border-4 border-white z-10 pixelated flex items-center justify-center"
                 initial={{ scale: 0 }}
                 animate={
                   inView
-                    ? {
-                        scale: 1,
-                        transition: { delay: 0.2 + index * 0.2, duration: 0.5 },
-                      }
-                    : { scale: 0 }
+                  ? {
+                    scale: 1,
+                    transition: { delay: 0.2 + index * 0.2, duration: 0.5 },
+                    }
+                  : { scale: 0 }
                 }
                 whileHover={{
-                  scale: 1.2,
+                  scale: 1.4,
                   boxShadow:
-                    "0 0 20px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.6)",
+                  "0 0 25px rgba(255, 105, 180, 0.8), 0 0 50px rgba(255, 105, 180, 0.6)",
                 }}
                 style={{
                   boxShadow:
-                    "0 0 10px rgba(255, 105, 180, 0.5), 0 0 20px rgba(255, 105, 180, 0.3)",
+                  "0 0 15px rgba(255, 105, 180, 0.5), 0 0 30px rgba(255, 105, 180, 0.3)",
                 }}
-              >
+                >
                 <div
-                  className="text-white text-2xl"
+                  className="text-white text-3xl"
                   style={{
-                    textShadow:
-                      "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 105, 180, 0.6)",
+                  textShadow:
+                    "0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 105, 180, 0.6)",
                   }}
                 >
                   {edu.icon}
                 </div>
-              </motion.div>
+                </motion.div>
 
               <motion.div
                 variants={contentVariants(index)}
@@ -431,13 +434,16 @@ const Education = () => {
                     boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
                   }}
                 ></div>
-                <h3 className="text-[0.9rem] text-center  text-white-200 mb-2 relative z-10 pixelated">
+                <h3 className="text-[1.2rem] text-start font-mono mb-2 relative z-10">
+                  {" "}
                   {edu.title}
                 </h3>
-                <div className="flex m-auto w-[10rem] pt-1 flex-col justify-between items-center border-b-2 border-pink-400 mb-2 relative z-10">
-                  <p className="text-[0.7rem]  text-pink-400 mb-1">{edu.period}</p>
+                <div className="flex w-[10rem] pt-1 flex-col justify-between items-center border-b-2 border-pink-400 mb-2 relative z-10">
+                  <p className="text-[0.7rem]  text-pink-400 mb-1">
+                    {edu.period}
+                  </p>
                 </div>
-                <p className="text-gray-300 text-center font-mono text-[1rem] relative z-10">
+                <p className="text-gray-300 text-start font-mono text-[1rem] relative z-10">
                   {edu.description}
                 </p>
               </motion.div>
