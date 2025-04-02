@@ -149,7 +149,7 @@ const Skills = () => {
                         className="w-[7rem] h-[7rem] object-contain"
                       />
                     </div>
-                    <span className="mt-3 w-[10rem] text-sm font-medium text-center text-white">{skill.name}</span>
+                    <span className="mt-3 w-[12rem] text-sm font-medium text-center text-white">{skill.name}</span>
                   </motion.div>
                 ))}
               </div>

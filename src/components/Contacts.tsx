@@ -20,12 +20,16 @@ const Contacts = () => {
   }, [controls, inView]);
 
   return (
-    <div id="contacts" ref={ref} className="flex items-center justify-center p-4 flex-col h-[100vh] pt-12">
-      <div className=" flex  relative -top-4 ml-[5rem] justify-start space-x-8">
-        <div >
+    <div 
+      id="contacts" 
+      ref={ref} 
+      className="flex items-center justify-center p-2 md:p-4 flex-col min-h-screen py-8 md:pt-12"
+    >
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start w-full">
+        <div className="w-full lg:w-auto mb-8 lg:mb-0">
           <Thanks />
         </div>
-        <div >
+        <div className="w-full lg:w-auto">
           <AboutFrame />
         </div>
       </div>

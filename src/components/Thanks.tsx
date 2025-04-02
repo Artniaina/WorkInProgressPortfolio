@@ -3,41 +3,43 @@ import Totoro from '../assets/ghibli.gif'
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
 
-const Thanks=()=> {
-    const controls = useAnimation();
-    const [ref, inView] = useInView({
-      threshold: 0.2,
-      triggerOnce: false,
-    });
-  
-    useEffect(() => {
-      if (inView) {
-        controls.start("visible");
-      } else {
-        controls.start("hidden");
-      }
-    }, [controls, inView]);
-  
-    const variants = {
-      hidden: { opacity: 0, y: -50 },
-      visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-    };
+const Thanks = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: false,
+  });
+ 
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
+ 
+  const variants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
   return (
-    <div ref={ref} className="  flex items-center w-[40rem]  justify-center p-4" >
-      <div className="w-full max-w-3xl flex flex-col items-center">
-        <motion.h1 className="text-[#e44cff] mt-4 text-3xl mb-12 font-bold tracking-wider" style={{
-          textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
-          fontFamily: "'Press Start 2P', cursive"
-        }}
-        animate={controls}
-        initial="hidden"
-        variants={variants}>
+    <div ref={ref} className="flex items-center w-full lg:w-[40rem] justify-center p-2 md:p-4">
+      <div className="w-full max-w-sm md:max-w-3xl flex flex-col items-center">
+        <motion.h1 
+          className="text-[#e44cff] mt-2 md:mt-4 text-xl md:text-3xl mb-6 md:mb-12 font-bold tracking-wider" 
+          style={{
+            textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
+            fontFamily: "'Press Start 2P', cursive"
+          }}
+          animate={controls}
+          initial="hidden"
+          variants={variants}
+        >
           HOW TO REACH ME
         </motion.h1>
-
-
-        <motion.div 
-          className="w-full mt-4 ml-12 bg-[#2a1245] rounded-lg p-6 relative overflow-hidden"
+        <motion.div
+          className="w-full mt-2 md:mt-4 lg:ml-12 bg-[#2a1245] rounded-lg p-3 md:p-6 relative overflow-hidden"
           animate={controls}
           initial="hidden"
           variants={{
@@ -73,28 +75,27 @@ const Thanks=()=> {
               boxShadow: '0 0 10px #e44cff, 0 0 20px #e44cff',
             }}
           ></div>
-          <p className="text-white mt-2 mb-6 text-lg">
+          <p className="text-white mt-1 md:mt-2 mb-3 md:mb-6 text-base md:text-lg">
             Would you be interested in working together?
           </p>
-          <div className="space-y-2 text-white">
+          <div className="space-y-1 md:space-y-2 text-white">
             {['Yes', 'Maybe'].map((option, index) => (
               <motion.div
-            key={index}
-            className={`flex items-center gap-2 cursor-pointer hover:text-[#e44cff] transition-colors`}
-            style={{
-              animationDelay: `${index * 0.5}s`,
-              animationIterationCount: 'infinite',
-            }}
-            whileHover={{ scale: 1.1 }}
+                key={index}
+                className={`flex items-center gap-2 cursor-pointer hover:text-[#e44cff] transition-colors`}
+                style={{
+                  animationDelay: `${index * 0.5}s`,
+                  animationIterationCount: 'infinite',
+                }}
+                whileHover={{ scale: 1.1 }}
               >
-            <span className={index === 0 ? 'text-[#e44cff]' : 'opacity-0'}></span> {option}
+                <span className={index === 0 ? 'text-[#e44cff]' : 'opacity-0'}></span> {option}
               </motion.div>
             ))}
           </div>
         </motion.div>
-
-        <motion.div 
-          className='w-[14rem] h-[14rem] mt-8 mr-16'
+        <motion.div
+          className='w-24 h-24 md:w-[14rem] md:h-[14rem] mt-4 md:mt-8 md:mr-16'
           animate={controls}
           initial="hidden"
           variants={{
@@ -102,9 +103,8 @@ const Thanks=()=> {
             visible: { opacity: 1, transition: { duration: 0.6 } },
           }}
         >
-          <img src={Totoro} alt="" />
+          <img src={Totoro} alt="" className="w-full h-full object-contain" />
         </motion.div>
-     
       </div>
     </div>
   );
