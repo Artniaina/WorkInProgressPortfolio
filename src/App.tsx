@@ -19,7 +19,6 @@ function App() {
     const interval = 50; 
     const steps = duration / interval;
     const increment = 100 / steps;
-
     const progressTimer = setInterval(() => {
       setProgress(prevProgress => {
         const newProgress = prevProgress + increment;

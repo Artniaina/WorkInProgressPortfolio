@@ -103,14 +103,14 @@ const Education = () => {
   return (
     <section
       id="aboutMe"
-      className="py-12 md:py-20 bg-cyber-dark relative overflow-hidden"
+      className="py-12 lg:py-20 bg-cyber-dark relative overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 relative z-10" ref={ref}>
         <motion.div
           variants={titleVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="text-center mb-12 md:mb-20"
+          className="text-center mb-12 lg:mb-20"
         >
           <motion.h2 className="text-3xl font-bold pixelated">
             EDUCATION AND BACKGROUND
@@ -120,14 +120,15 @@ const Education = () => {
           </motion.p>
         </motion.div>
 
+        {/* Desktop Timeline (lg screens) */}
         <motion.div
           variants={timelineVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="relative max-w-4xl mx-auto"
+          className="relative max-w-4xl mx-auto hidden lg:block"
         >
           <motion.div
-            className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 bg-white before:content-[''] before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:w-full before:h-full before:blur-md before:bg-white/60 before:opacity-75 before:animate-pulse"
+            className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-white before:content-[''] before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:w-full before:h-full before:blur-md before:bg-white/60 before:opacity-75 before:animate-pulse"
             initial={{ scaleY: 0, opacity: 0 }}
             animate={
               inView ? { scaleY: 1, opacity: 1 } : { scaleY: 0, opacity: 0 }
@@ -135,7 +136,6 @@ const Education = () => {
             transition={{ duration: 1.2, ease: "easeOut" }}
             style={{
               transformOrigin: "top",
-              
               boxShadow: "0 0 10px rgba(228, 76, 255, 0.43), 0 0 20px rgba(228, 76, 255, 0.43)",
             }}
           />
@@ -144,16 +144,14 @@ const Education = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`relative mb-4 h-[15rem] sm:mb-8 pl-12 sm:pl-0 ${
+              className={`relative mb-8 h-[15rem] ${
                 index % 2 === 0
-                  ? "sm:pr-[55%] w-[64rem] right-[5.2rem]"
-                  : "w-[50.5rem] left-[1.6rem] sm:pl-[55%]"
+                  ? "pr-[55%] w-[64rem] right-[5.2rem]"
+                  : "w-[50.5rem] left-[1.6rem] pl-[55%]"
               }`}
             >
               <motion.div
-                className={`absolute sm:left-1/2 w-[4rem] h-[4rem] -ml-3 rounded-full bg-cyber-dark shadow-lg shadow-pink-400/50 border-4 border-white z-10 pixelated flex items-center justify-center ${
-                  index % 2 === 0 ? "left-[20rem]" : "left-[25rem]"
-                }`}
+                className={`absolute left-1/2 w-[4rem] h-[4rem] -ml-3 rounded-full bg-cyber-dark shadow-lg shadow-pink-400/50 border-4 border-white z-10 pixelated flex items-center justify-center`}
                 initial={{ scale: 0 }}
                 animate={
                   inView
@@ -186,7 +184,7 @@ const Education = () => {
 
               <motion.div
                 variants={contentVariants(index)}
-                className="p-6 w-[30rem] text-center sm:p-8 bg-cyber-purple/30 backdrop-blur-md rounded-xl relative overflow-hidden group pixelated shadow-lg shadow-pink-500/10 "
+                className="p-6 w-[30rem] text-center p-8 bg-cyber-purple/30 backdrop-blur-md rounded-xl relative overflow-hidden group pixelated shadow-lg shadow-pink-500/10"
                 whileHover={{
                   y: -5,
                   transition: { duration: 0.2 },
@@ -223,10 +221,118 @@ const Education = () => {
                 <h3 className="text-[18px] text-white-200 mb-2 relative z-10 pixelated">
                   {edu.title}
                 </h3>
-                <div className="flex m-auto w-[12rem] pt-2 flex-col justify-between items-start border-b-2 border-pink-400 sm:items-center mb-4 relative z-10">
+                <div className="flex m-auto w-[12rem] pt-2 flex-col justify-between items-center border-b-2 border-pink-400 mb-4 relative z-10">
                   <p className="text-xs text-pink-400 mb-2">{edu.period}</p>
                 </div>
                 <p className="text-gray-300 font-mono text-xl relative z-10">
+                  {edu.description}
+                </p>
+              </motion.div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Mobile Timeline (below lg screens) */}
+        <motion.div
+          variants={timelineVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="relative max-w-md mx-auto lg:hidden"
+        >
+          <motion.div
+            className="absolute left-4 top-0 bottom-0 w-0.5 bg-white before:content-[''] before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:w-full before:h-full before:blur-md before:bg-white/60 before:opacity-75 before:animate-pulse"
+            initial={{ scaleY: 0, opacity: 0 }}
+            animate={
+              inView ? { scaleY: 1, opacity: 1 } : { scaleY: 0, opacity: 0 }
+            }
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{
+              transformOrigin: "top",
+              boxShadow: "0 0 10px rgba(228, 76, 255, 0.43), 0 0 20px rgba(228, 76, 255, 0.43)",
+            }}
+          />
+
+          {education.map((edu, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="relative mb-8 pl-12"
+            >
+              <motion.div
+                className="absolute left-0 w-10 h-10 -ml-1 rounded-full bg-cyber-dark shadow-lg shadow-pink-400/50 border-2 border-white z-10 pixelated flex items-center justify-center"
+                initial={{ scale: 0 }}
+                animate={
+                  inView
+                    ? {
+                        scale: 1,
+                        transition: { delay: 0.2 + index * 0.2, duration: 0.5 },
+                      }
+                    : { scale: 0 }
+                }
+                whileHover={{
+                  scale: 1.2,
+                  boxShadow:
+                    "0 0 20px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.6)",
+                }}
+                style={{
+                  boxShadow:
+                    "0 0 10px rgba(255, 105, 180, 0.5), 0 0 20px rgba(255, 105, 180, 0.3)",
+                }}
+              >
+                <div
+                  className="text-white text-2xl"
+                  style={{
+                    textShadow:
+                      "0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 105, 180, 0.6)",
+                  }}
+                >
+                  {edu.icon}
+                </div>
+              </motion.div>
+
+              <motion.div
+                variants={contentVariants(index)}
+                className="p-4 w-full bg-cyber-purple/30 backdrop-blur-md rounded-xl relative overflow-hidden group pixelated shadow-lg shadow-pink-500/10"
+                whileHover={{
+                  y: -3,
+                  transition: { duration: 0.2 },
+                }}
+              >
+                <div
+                  className="absolute top-0 right-0 h-1 w-1/2 bg-[#e44cff] animate-pulse"
+                  style={{
+                    clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
+                    boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
+                  }}
+                ></div>
+                <div
+                  className="absolute bottom-0 left-0 h-1 w-1/2 bg-[#e44cff] animate-pulse"
+                  style={{
+                    clipPath: "polygon(0 0, 100% 0, 0 100%)",
+                    boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
+                  }}
+                ></div>
+                <div
+                  className="absolute top-0 left-0 w-1 h-1/2 bg-[#e44cff] animate-pulse"
+                  style={{
+                    clipPath: "polygon(0 0, 100% 0, 0 100%)",
+                    boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
+                  }}
+                ></div>
+                <div
+                  className="absolute bottom-0 right-0 w-1 h-1/2 bg-[#e44cff] animate-pulse"
+                  style={{
+                    clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
+                    boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
+                  }}
+                ></div>
+                <h3 className="text-base text-white-200 mb-2 relative z-10 pixelated">
+                  {edu.title}
+                </h3>
+                <div className="flex m-auto w-24 pt-1 flex-col justify-between items-center border-b-2 border-pink-400 mb-2 relative z-10">
+                  <p className="text-xs text-pink-400 mb-1">{edu.period}</p>
+                </div>
+                <p className="text-gray-300 font-mono text-sm relative z-10">
                   {edu.description}
                 </p>
               </motion.div>
