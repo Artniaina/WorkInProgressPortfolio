@@ -120,7 +120,6 @@ const Education = () => {
           </motion.p>
         </motion.div>
 
-        {/* Desktop Timeline (lg screens) */}
         <motion.div
           variants={timelineVariants}
           initial="hidden"
@@ -432,13 +431,13 @@ const Education = () => {
                     boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
                   }}
                 ></div>
-                <h3 className="text-base text-white-200 mb-2 relative z-10 pixelated">
+                <h3 className="text-[0.9rem] text-center  text-white-200 mb-2 relative z-10 pixelated">
                   {edu.title}
                 </h3>
-                <div className="flex m-auto w-24 pt-1 flex-col justify-between items-center border-b-2 border-pink-400 mb-2 relative z-10">
-                  <p className="text-xs text-pink-400 mb-1">{edu.period}</p>
+                <div className="flex m-auto w-[10rem] pt-1 flex-col justify-between items-center border-b-2 border-pink-400 mb-2 relative z-10">
+                  <p className="text-[0.7rem]  text-pink-400 mb-1">{edu.period}</p>
                 </div>
-                <p className="text-gray-300 font-mono text-sm relative z-10">
+                <p className="text-gray-300 text-center font-mono text-[1rem] relative z-10">
                   {edu.description}
                 </p>
               </motion.div>
