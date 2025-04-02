@@ -126,7 +126,7 @@ const AboutMe: React.FC = () => {
 
       <div className="flex flex-col md:flex-col lg:flex-row gap-8 relative z-10 md:right-0 lg:right-[5rem] md:bottom-0 lg:bottom-[2rem] items-center">
         <motion.div
-          className="w-[10rem] h-[12rem] md:w-[14rem] lg:w-[16rem] h-[15rem] md:h-[18rem] lg:h-[20rem] bg-[#2a1245] rounded-full p-1 z-40 relative md:left-0 lg:left-[5rem] md:bottom-0 lg:bottom-[8rem] overflow-hidden border-4 border-[#e44cff] shadow-[0_0_20px_#e44cff] pixelated-frame"
+          className="w-[10rem] h-[12rem]  lg:w-[14rem] md:w-[13rem]  md:h-[15rem] lg:h-[20rem] bg-[#2a1245] rounded-full p-1 z-40 relative md:left-[5rem] lg:left-[6.5rem] md:bottom-0 lg:bottom-[8rem] overflow-hidden border-4 border-[#e44cff] shadow-[0_0_20px_#e44cff] pixelated-frame"
           animate={controls}
           initial="hidden"
           variants={{
