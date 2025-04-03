@@ -23,13 +23,13 @@ const Contacts = () => {
     <div 
       id="contacts" 
       ref={ref} 
-      className="flex items-center justify-center p-2 md:p-4 flex-col min-h-screen py-8 md:pt-12"
+      className="flex items-center justify-center  p-2 md:p-4 flex-col min-h-screen py-8 md:pt-12"
     >
-      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start w-full">
+      <div className="flex flex-col lg:flex-row gap-20 justify-center items-center lg:items-start w-full">
         <div className="w-full lg:w-auto mb-8 lg:mb-0">
           <Thanks />
         </div>
-        <div className="w-full lg:w-auto">
+        <div className="w-full lg:w-auto flex md:justify-center relative md:bottom-[7rem] lg:top-0 ">
           <AboutFrame />
         </div>
       </div>
