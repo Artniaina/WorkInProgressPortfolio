@@ -68,7 +68,7 @@ function Game() {
               />
             </div>
         </div>
-        {/* ITY DIA TEST TS NETY, FA TIAKO DONC TS HO FAFAKO */}
+        {/* ITY DIA TEST TS NETY, FA TIAKO DONC TS HO FAFAKO XD */}
         {/* <div className="absolute bottom-[80px] w-full h-1 bg-purple-500 shadow-[0_0_20px_rgba(236,72,153,0.5)]"></div>
         <div
           className="absolute bottom-[80px] w-10 h-10"
