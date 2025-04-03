@@ -1,12 +1,13 @@
 import { FaGithub, FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "../assets/pinkbutter.jpg";
 import Game from '../assets/Console.gif'
 
 const Projects: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const projects = [
     {
@@ -65,14 +66,41 @@ const Projects: React.FC = () => {
     },
   ];
 
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handleNext = () => {
     setDirection(1);
-    setCurrentIndex((prev) => Math.min(prev + 1, projects.length - (window.innerWidth >= 1024 ? 2 : 1)));
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
   };
 
   const handlePrevious = () => {
     setDirection(-1);
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
+  // Get card indexes based on current position for coverflow effect
+  const getCardIndexes = () => {
+    const totalCards = projects.length;
+    const numVisible = screenWidth >= 1280 ? 5 : 3;
+    const visibleCards = [];
+    
+    // Calculate which cards should be visible in the carousel
+    for (let i = -(Math.floor(numVisible / 2)); i <= Math.floor(numVisible / 2); i++) {
+      let index = (currentIndex + i + totalCards) % totalCards;
+      visibleCards.push({
+        index,
+        position: i
+      });
+    }
+    
+    return visibleCards;
   };
 
   const variants = {
@@ -92,7 +120,6 @@ const Projects: React.FC = () => {
     })
   };
 
-  // Card component to avoid repetition
   const ProjectCard = ({ project, index }: { project: any, index: number }) => (
     <motion.div
       className="rounded h-[37rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[42rem]"
@@ -168,8 +195,31 @@ const Projects: React.FC = () => {
         {/* <img src={Game} alt="" className="w-[8rem] h-[8rem] m-auto"/> */}
       </motion.h1>
   
-      {/* Mobile and md version (single card) */}
-      <div className="relative overflow-hidden flex justify-center items-center min-h-[38rem] md:min-h-[600px] w-full lg:hidden">
+      {/* Navigation buttons for desktop and tablet */}
+      <div className="hidden md:block">
+        <motion.button 
+          onClick={handlePrevious} 
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-purple-600 text-white p-3 border-2 border-white hover:bg-purple-700 transition shadow-md z-10"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label="Previous project"
+        >
+          <FaChevronLeft />
+        </motion.button>
+        
+        <motion.button 
+          onClick={handleNext} 
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-purple-600 text-white p-3 border-2 border-white hover:bg-purple-700 transition shadow-md z-10"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label="Next project"
+        >
+          <FaChevronRight />
+        </motion.button>
+      </div>
+
+      {/* Mobile view carousel - unchanged */}
+      <div className="relative overflow-hidden flex justify-center items-center min-h-[38rem] md:min-h-[45rem] w-full md:hidden">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
@@ -189,29 +239,89 @@ const Projects: React.FC = () => {
         </AnimatePresence>
       </div>
 
-      {/* Large screen version (2 cards) */}
-      <div className="hidden lg:flex justify-center items-center min-h-[42rem] w-full gap-8 overflow-hidden">
-        {[0, 1].map((offset) => {
-          const index = currentIndex + offset;
-          if (index >= projects.length) return null;
-          
-          return (
-            <motion.div
-              key={`lg-${index}`}
-              initial={{ opacity: 0, x: offset === 0 ? -50 : 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className="w-full max-w-md"
-            >
-              <ProjectCard project={projects[index]} index={index} />
-            </motion.div>
-          );
-        })}
+      {/* New 3D Coverflow Carousel for MD and LG screens */}
+      <div className="hidden md:flex justify-center items-center min-h-[42rem] w-full overflow-visible relative perspective-1000">
+        <div className="relative w-full flex justify-center items-center perspective-1000" style={{ perspective: "1200px" }}>
+          <AnimatePresence initial={false} custom={direction} mode="popLayout">
+            {getCardIndexes().map(({index, position}) => {
+              // Calculate card positioning based on its position relative to current
+              const xOffset = position * (screenWidth >= 1280 ? 280 : 220);
+              const zOffset = Math.abs(position) * -200;
+              const rotateY = position * (position < 0 ? 45 : -45);
+              const scale = Math.max(0.75, 1 - Math.abs(position) * 0.15);
+              const opacity = Math.max(0.4, 1 - Math.abs(position) * 0.3);
+              const zIndex = 10 - Math.abs(position);
+              
+              return (
+                <motion.div
+                  key={`card-${index}`}
+                  custom={direction}
+                  initial={{
+                    x: direction > 0 ? (position > 0 ? xOffset + 400 : xOffset - 400) : (position < 0 ? xOffset - 400 : xOffset + 400),
+                    z: zOffset,
+                    rotateY: position * (position < 0 ? 60 : -60),
+                    scale: scale - 0.1,
+                    opacity: 0
+                  }}
+                  animate={{
+                    x: xOffset,
+                    z: zOffset,
+                    rotateY,
+                    scale,
+                    opacity,
+                    transition: {
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30,
+                      mass: 1.5,
+                      duration: 0.7
+                    }
+                  }}
+                  exit={{
+                    x: direction > 0 ? (position < 0 ? xOffset - 400 : xOffset + 400) : (position > 0 ? xOffset + 400 : xOffset - 400),
+                    z: zOffset - 100,
+                    rotateY: position * (position < 0 ? 60 : -60),
+                    scale: scale - 0.1,
+                    opacity: 0,
+                    transition: {
+                      duration: 0.7,
+                      ease: [0.25, 0.8, 0.25, 1]
+                    }
+                  }}
+                  className={`absolute ${position === 0 ? 'z-20' : ''}`}
+                  style={{
+                    zIndex,
+                    transformStyle: "preserve-3d",
+                    filter: position === 0 ? "brightness(1)" : `brightness(${0.7 + (0.3 * (1 - Math.abs(position) / 3))})`,
+                    width: screenWidth >= 1280 ? "400px" : (screenWidth >= 768 ? "350px" : "300px"),
+                    cursor: position === 0 ? "default" : "pointer"
+                  }}
+                  onClick={() => {
+                    if (position !== 0) {
+                      if (position < 0) {
+                        setDirection(-1);
+                        setCurrentIndex((prev) => (prev - Math.abs(position) + projects.length) % projects.length);
+                      } else {
+                        setDirection(1);
+                        setCurrentIndex((prev) => (prev + Math.abs(position)) % projects.length);
+                      }
+                    }
+                  }}
+                  whileHover={{
+                    scale: position === 0 ? scale : scale + 0.05,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <ProjectCard project={projects[index]} index={index} />
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+        </div>
       </div>
 
-      {/* Controls - same for all versions */}
-      <div className="w-full flex justify-between items-center top-[4.6rem] mt-4 right-0 z-40 px-2 space-x-4">
+      {/* Navigation controls for mobile only */}
+      <div className="md:hidden w-full flex justify-between items-center top-[4.6rem] mt-4 right-0 z-40 px-2 space-x-4">
         <h2 
           className="text-sm bg-purple-600 font-bold mb-2 tracking-wide uppercase rounded-lg p-1 md:text-base"
           style={{
@@ -233,7 +343,7 @@ const Projects: React.FC = () => {
             </motion.button>
           )}
          
-          {currentIndex < projects.length - (window.innerWidth >= 1024 ? 2 : 1) && (
+          {currentIndex < projects.length - 1 && (
             <motion.button 
               onClick={handleNext} 
               className="bg-purple-600 text-white p-2 border-2 border-white hover:bg-purple-700 transition shadow-md z-10"
@@ -247,23 +357,32 @@ const Projects: React.FC = () => {
         </div>
       </div>
 
-      {/* Pagination dots */}
+      <div className="hidden md:flex justify-center mt-4">
+        <h2 
+          className="text-base bg-purple-600 font-bold tracking-wide uppercase rounded-lg p-2"
+          style={{
+            letterSpacing: "0.15em",
+          }}
+        >
+          {projects[currentIndex].title1}
+        </h2>
+      </div>
+
       <div className="flex justify-center mt-4 space-x-1">
-        {projects.map((_, index) => {
-          // For large screens, we need to adjust how we highlight the dots
-          const isActive = window.innerWidth >= 1024 
-            ? (index === currentIndex || index === currentIndex + 1)
-            : index === currentIndex;
-            
-          return (
-            <div 
-              key={index} 
-              className={`w-2 h-2 rounded-full ${
-                isActive ? "bg-pink-500" : "bg-purple-400 opacity-50"
-              }`}
-            />
-          );
-        })}
+        {projects.map((_, index) => (
+          <motion.div 
+            key={index} 
+            className={`w-2 h-2 rounded-full cursor-pointer ${
+              index === currentIndex ? "bg-pink-500" : "bg-purple-400 opacity-50"
+            }`}
+            onClick={() => {
+              setDirection(index > currentIndex ? 1 : -1);
+              setCurrentIndex(index);
+            }}
+            whileHover={{ scale: 1.5 }}
+            whileTap={{ scale: 0.9 }}
+          />
+        ))}
       </div>
     </motion.div>
   );
