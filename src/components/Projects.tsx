@@ -122,7 +122,7 @@ const Projects: React.FC = () => {
 
   const ProjectCard = ({ project, index }: { project: any, index: number }) => (
     <motion.div
-      className="rounded h-[37rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[42rem]"
+      className="rounded h-[37rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[37rem]"
       whileHover={{
         scale: 1.03,
         transition: { type: "spring", stiffness: 300, damping: 20 },
@@ -194,8 +194,7 @@ const Projects: React.FC = () => {
         TECHNICAL PROJECTS
         {/* <img src={Game} alt="" className="w-[8rem] h-[8rem] m-auto"/> */}
       </motion.h1>
-  
-      {/* Navigation buttons for desktop and tablet */}
+ 
       <div className="hidden md:block">
         <motion.button 
           onClick={handlePrevious} 
@@ -217,34 +216,45 @@ const Projects: React.FC = () => {
           <FaChevronRight />
         </motion.button>
       </div>
-
-      {/* Mobile view carousel - unchanged */}
-      <div className="relative overflow-hidden flex justify-center items-center min-h-[38rem] md:min-h-[45rem] w-full md:hidden">
+      <div className="relative overflow-hidden flex justify-center items-center min-h-[38rem] md:min-h-[41rem] w-full md:hidden">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
-            key={currentIndex}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 }
-            }}
-            className="absolute w-full max-w-[25rem] md:max-w-lg"
+        key={currentIndex}
+        custom={direction}
+        variants={{
+          enter: (direction: number) => ({
+            x: direction > 0 ? 1000 : -1000,
+            opacity: 0,
+          }),
+          center: {
+            x: 0,
+            opacity: 1,
+            rotateY: direction > 0 ? 360 : -360,
+          },
+          exit: (direction: number) => ({
+            x: direction < 0 ? 1000 : -1000,
+            opacity: 0,
+          }),
+        }}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        transition={{
+          x: { type: "spring", stiffness: 300, damping: 30 },
+          opacity: { duration: 0.2 },
+          rotateY: { duration: 0.9 },
+        }}
+        className="absolute w-full max-w-[25rem] md:max-w-lg"
           >
-            <ProjectCard project={projects[currentIndex]} index={currentIndex} />
+        <ProjectCard project={projects[currentIndex]} index={currentIndex} />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* New 3D Coverflow Carousel for MD and LG screens */}
-      <div className="hidden md:flex justify-center items-center min-h-[42rem] w-full overflow-visible relative perspective-1000">
+      <div className="hidden md:flex justify-center items-center min-h-[41rem] w-full overflow-visible relative perspective-1000">
         <div className="relative w-full flex justify-center items-center perspective-1000" style={{ perspective: "1200px" }}>
           <AnimatePresence initial={false} custom={direction} mode="popLayout">
             {getCardIndexes().map(({index, position}) => {
-              // Calculate card positioning based on its position relative to current
               const xOffset = position * (screenWidth >= 1280 ? 280 : 220);
               const zOffset = Math.abs(position) * -200;
               const rotateY = position * (position < 0 ? 45 : -45);
@@ -320,7 +330,6 @@ const Projects: React.FC = () => {
         </div>
       </div>
 
-      {/* Navigation controls for mobile only */}
       <div className="md:hidden w-full flex justify-between items-center top-[4.6rem] mt-4 right-0 z-40 px-2 space-x-4">
         <h2 
           className="text-sm bg-purple-600 font-bold mb-2 tracking-wide uppercase rounded-lg p-1 md:text-base"
