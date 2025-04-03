@@ -60,7 +60,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <div className="relative bottom-[4rem] mt-10 lg:mt-0 lg:absolute lg:bottom-5 lg:right-[-0.25rem] flex justify-center">
+        <div className="relative bottom-[4rem] mb-12 mt-10 lg:mt-0 lg:absolute lg:bottom-5 lg:right-[-0.25rem] flex justify-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

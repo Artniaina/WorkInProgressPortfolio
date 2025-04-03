@@ -91,7 +91,7 @@ const AboutMe: React.FC = () => {
   return (
     <div
       id="about"
-      className="flex relative items-center min-h-screen justify-center p-4 flex-col overflow-hidden"
+      className="flex relative items-center min-h-screen pt-12 justify-center pb-12 flex-col overflow-hidden"
     >
       {planets.map((planet) => (
         <motion.img
@@ -114,7 +114,7 @@ const AboutMe: React.FC = () => {
 
       <div className="flex justify-between w-full md:w-auto lg:w-auto">
         <motion.h1
-          className="text-2xl md:text-3xl lg:text-3xl relative mb-8 text-center left-[2rem] md:left-0 font-bold text-white md:mb-8 md:bottom-10 z-20"
+          className="text-2xl md:text-3xl lg:text-3xl relative mb-8 md:mb-0  text-center left-[3rem] md:left-0 font-bold text-white md:mt-12 md:bottom-10 z-20"
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -126,7 +126,7 @@ const AboutMe: React.FC = () => {
 
       <div className="flex flex-col md:flex-col lg:flex-row gap-8 relative z-10 md:right-0 lg:right-[5rem] md:bottom-0 lg:bottom-[2rem] items-center">
         <motion.div
-          className="w-[10rem] h-[12rem]  lg:w-[14rem] md:w-[13rem]  md:h-[15rem] lg:h-[20rem] bg-[#2a1245] rounded-full p-1 z-40 relative md:left-[5rem] lg:left-[6.5rem] md:bottom-0 lg:bottom-[8rem] overflow-hidden border-4 border-[#e44cff] shadow-[0_0_20px_#e44cff] pixelated-frame"
+          className="w-[10rem] h-[11rem]  lg:w-[14rem] md:w-[15rem]  md:h-[17rem] lg:h-[20rem] bg-[#2a1245] rounded-full p-1 z-40 relative md:left-0 lg:left-[6.5rem] md:bottom-0 lg:bottom-[8rem] overflow-hidden border-4 border-[#e44cff] shadow-[0_0_20px_#e44cff] pixelated-frame"
           animate={controls}
           initial="hidden"
           variants={{
@@ -159,7 +159,7 @@ const AboutMe: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="w-full md:w-[90%] lg:w-[55rem] lg:h-[35rem] relative md:left-0 lg:left-[2rem] md:top-0 lg:top-4 rounded-lg overflow-hidden border-4 border-t-purple-600 border-gray-600 shadow-2xl z-20"
+          className="w-[23rem] md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative md:left-0 lg:left-[2rem] md:top-0 lg:top-4 rounded-lg overflow-hidden border-4 border-t-purple-600 border-gray-600 shadow-2xl z-20"
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -177,7 +177,7 @@ const AboutMe: React.FC = () => {
 
             <div className="flex justify-between items-center px-4">
               <div
-                className="ml-20 text-white font-mono font-bold text-lg md:text-xl lg:text-xl tracking-wide"
+                className="ml-20 text-white text-lg font-mono font-bold  md:text-xl lg:text-xl tracking-wide"
                 style={{ textShadow: "2px 2px 0 rgba(0,0,0,0.3)" }}
               >
                 AboutMe.txt
@@ -220,7 +220,7 @@ const AboutMe: React.FC = () => {
               `}
               </style>
               <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
-              <div className="text-white text-base md:text-xl lg:text-xl relative left-2 font-mono space-y-4 md:space-y-6 lg:space-y-6 pr-4 md:pr-10 lg:pr-10">
+              <div className="text-white text-[1.2rem] md:text-2xl lg:text-xl relative left-2 font-mono space-y-4 md:space-y-6 lg:space-y-6 pr-4 md:pr-10 lg:pr-10">
                 <p className="leading-relaxed mb-4 md:mb-8 lg:mb-8">
                   I am{" "}
                   <span className="font-bold text-pink-300">

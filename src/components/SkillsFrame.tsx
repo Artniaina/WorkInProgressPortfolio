@@ -94,7 +94,7 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
       </motion.div>
 
       <motion.div
-        className="relative w-full border-8 border-[#B341F3] bg-cyber-dark max-w-xs sm:max-w-md md:max-w-[47rem] lg:max-w-[60rem] xl:max-w-6xl 
+        className="relative w-full border-4 border-[#B341F3] bg-cyber-dark max-w-xs sm:max-w-md md:max-w-[47rem] lg:max-w-[60rem] xl:max-w-6xl 
            h-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[600px] 
            bg-[#B341F3] rounded-xl md:rounded-2xl p-1"
         animate={controls}
