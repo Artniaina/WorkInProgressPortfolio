@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Image from "../assets/pinkbutter.jpg";
 import Game from '../assets/Console.gif'
+
 const Projects: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -66,7 +67,7 @@ const Projects: React.FC = () => {
 
   const handleNext = () => {
     setDirection(1);
-    setCurrentIndex((prev) => Math.min(prev + 1, projects.length - 1));
+    setCurrentIndex((prev) => Math.min(prev + 1, projects.length - (window.innerWidth >= 1024 ? 2 : 1)));
   };
 
   const handlePrevious = () => {
@@ -91,6 +92,64 @@ const Projects: React.FC = () => {
     })
   };
 
+  // Card component to avoid repetition
+  const ProjectCard = ({ project, index }: { project: any, index: number }) => (
+    <motion.div
+      className="rounded h-[37rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[42rem]"
+      whileHover={{
+        scale: 1.03,
+        transition: { type: "spring", stiffness: 300, damping: 20 },
+      }}
+    >
+      <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
+        <div className="flex space-x-1">
+          <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
+          <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
+        </div>
+        <div className="flex space-x-2">
+          <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
+            <div className="w-2 h-2 bg-purple-300"></div>
+          </div>
+          <div className="w-4 h-4 bg-gray-900 border border-purple-300"></div>
+          <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
+            <div className="text-purple-300 text-xs">X</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col justify-center">
+        <div className="h-[15rem] md:h-64 border-b-2 border-purple-400 overflow-hidden">
+          <img 
+            src={Image} 
+            alt="Project thumbnail" 
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        <div className="space-y-3 text-center p-3 md:p-5">
+          <h2 className="text-xl text-pink-200 font-mono font-bold text-white md:text-2xl">
+            {project.title}
+          </h2>
+          <p className="text-[1.1rem] font-mono text-white md:text-lg">
+            {project.description}
+          </p>
+          <div className="mt-auto p-3 text-[0.8rem] text-white md:text-sm">
+            <span className="text-[0.8rem] text-pink-300 md:text-sm">Tech Stack and tools:</span>{" "}
+            {project.tech}
+          </div>
+        </div>
+      </div>
+      <a
+        href={project.githubLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-2 right-2 text-[10px] text-white flex items-center space-x-1 hover:text-pink-400 transition md:text-xs"
+      >
+        <FaGithub className="text-sm text-white" />
+        <span>View code</span>
+      </a>
+    </motion.div>
+  );
+
   return (
     <motion.div
       id="projects"
@@ -100,7 +159,7 @@ const Projects: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
       <motion.h1
-        className="mb-8 text-2xl font-bold text-white text-center"
+        className="mb-8 text-2xl font-bold text-white text-center md:text-3xl lg:text-4xl"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
@@ -109,7 +168,8 @@ const Projects: React.FC = () => {
         {/* <img src={Game} alt="" className="w-[8rem] h-[8rem] m-auto"/> */}
       </motion.h1>
   
-      <div className="relative overflow-hidden flex justify-center items-center min-h-[38rem] md:min-h-[600px] w-full">
+      {/* Mobile and md version (single card) */}
+      <div className="relative overflow-hidden flex justify-center items-center min-h-[38rem] md:min-h-[600px] w-full lg:hidden">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentIndex}
@@ -122,79 +182,46 @@ const Projects: React.FC = () => {
               x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 }
             }}
-            className="absolute w-full  max-w-[25rem] md:max-w-md"
+            className="absolute w-full max-w-[25rem] md:max-w-lg"
           >
-            <motion.div
-              className="rounded h-[37rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg"
-              whileHover={{
-                scale: 1.03,
-                transition: { type: "spring", stiffness: 300, damping: 20 },
-              }}
-            >
-              <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
-                <div className="flex space-x-1">
-                  <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
-                  <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
-                </div>
-                <div className="flex space-x-2">
-                  <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-purple-300"></div>
-                  </div>
-                  <div className="w-4 h-4 bg-gray-900 border border-purple-300"></div>
-                  <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
-                    <div className="text-purple-300 text-xs">X</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col justify-center">
-                <div className="h-[15rem] md:h-48 border-b-2 border-purple-400 overflow-hidden">
-                  <img 
-                    src={Image} 
-                    alt="Project thumbnail" 
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                <div className="space-y-3 text-center p-3 md:p-5">
-                  <h2 className="text-xl text-pink-200 font-mono font-bold text-white">
-                    {projects[currentIndex].title}
-                  </h2>
-                  <p className="text-[1.1rem] font-mono  text-white">
-                    {projects[currentIndex].description}
-                  </p>
-                    <div className="mt-auto p-3 text-[0.8rem] text-white ">
-                    <span className="text-[0.8rem] text-pink-300">Tech Stack and tools:</span>{" "}
-                    {projects[currentIndex].tech}
-                    </div>
-                </div>
-              </div>
-              <a
-                href={projects[currentIndex].githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-2 right-2 text-[10px] text-white flex items-center space-x-1 hover:text-pink-400 transition"
-              >
-                <FaGithub className="text-sm text-white" />
-                <span>View code</span>
-              </a>
-            </motion.div>
+            <ProjectCard project={projects[currentIndex]} index={currentIndex} />
           </motion.div>
         </AnimatePresence>
-
-      
       </div>
-        <div className="w-full flex justify-between items-center top-[4.6rem] mt-4 right-0 z-40 px-2 space-x-4">
+
+      {/* Large screen version (2 cards) */}
+      <div className="hidden lg:flex justify-center items-center min-h-[42rem] w-full gap-8 overflow-hidden">
+        {[0, 1].map((offset) => {
+          const index = currentIndex + offset;
+          if (index >= projects.length) return null;
+          
+          return (
+            <motion.div
+              key={`lg-${index}`}
+              initial={{ opacity: 0, x: offset === 0 ? -50 : 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="w-full max-w-md"
+            >
+              <ProjectCard project={projects[index]} index={index} />
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Controls - same for all versions */}
+      <div className="w-full flex justify-between items-center top-[4.6rem] mt-4 right-0 z-40 px-2 space-x-4">
         <h2 
-          className="text-sm bg-purple-600  font-bold mb-2 
-                tracking-wide uppercase rounded-lg  p-1"
+          className="text-sm bg-purple-600 font-bold mb-2 tracking-wide uppercase rounded-lg p-1 md:text-base"
           style={{
             letterSpacing: "0.15em",
           }}
         >
           {projects[currentIndex].title1}
         </h2>
-          <div className="flex space-x-4">
-                 {currentIndex > 0 && (
+        <div className="flex space-x-4">
+          {currentIndex > 0 && (
             <motion.button 
               onClick={handlePrevious} 
               className="bg-purple-600 text-white p-2 border-2 border-white hover:bg-purple-700 transition shadow-md z-10"
@@ -206,7 +233,7 @@ const Projects: React.FC = () => {
             </motion.button>
           )}
          
-          {currentIndex < projects.length - 1 && (
+          {currentIndex < projects.length - (window.innerWidth >= 1024 ? 2 : 1) && (
             <motion.button 
               onClick={handleNext} 
               className="bg-purple-600 text-white p-2 border-2 border-white hover:bg-purple-700 transition shadow-md z-10"
@@ -217,18 +244,26 @@ const Projects: React.FC = () => {
               <FaChevronRight />
             </motion.button>
           )}
-          </div>
-     
         </div>
+      </div>
+
+      {/* Pagination dots */}
       <div className="flex justify-center mt-4 space-x-1">
-        {projects.map((_, index) => (
-          <div 
-            key={index} 
-            className={`w-2 h-2 rounded-full ${
-              currentIndex === index ? "bg-pink-500" : "bg-purple-400 opacity-50"
-            }`}
-          />
-        ))}
+        {projects.map((_, index) => {
+          // For large screens, we need to adjust how we highlight the dots
+          const isActive = window.innerWidth >= 1024 
+            ? (index === currentIndex || index === currentIndex + 1)
+            : index === currentIndex;
+            
+          return (
+            <div 
+              key={index} 
+              className={`w-2 h-2 rounded-full ${
+                isActive ? "bg-pink-500" : "bg-purple-400 opacity-50"
+              }`}
+            />
+          );
+        })}
       </div>
     </motion.div>
   );
