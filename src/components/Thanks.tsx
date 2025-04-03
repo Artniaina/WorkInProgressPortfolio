@@ -95,7 +95,7 @@ const Thanks = () => {
           </div>
         </motion.div>
         <motion.div
-          className='w-24 h-24 md:w-[14rem] md:h-[14rem] mt-4 md:mt-8 md:mr-16'
+          className='w-[10rem] h-[10rem] md:w-[14rem] md:h-[14rem] mt-4 md:mt-8 md:mr-16'
           animate={controls}
           initial="hidden"
           variants={{

@@ -29,7 +29,7 @@ const Contacts = () => {
         <div className="w-full lg:w-auto mb-8 lg:mb-0">
           <Thanks />
         </div>
-        <div className="w-full lg:w-auto flex md:justify-center relative md:bottom-[7rem] lg:top-0 ">
+        <div className="w-full lg:w-auto flex md:justify-center relative bottom-[5rem] md:bottom-[7rem] lg:top-0 ">
           <AboutFrame />
         </div>
       </div>

@@ -54,7 +54,7 @@ const AboutFrame = () => {
           </motion.div>
           <div className="px-3 md:px-6 lg:px-6 py-2 flex-grow text-center">
             <motion.div
-              className="text-white text-xs md:text-base lg:text-sm font-bold mb-3 md:mb-5 lg:mb-6 -mt-2 px-2 text-center"
+              className="text-white text-[0.9rem] md:text-base lg:text-sm font-bold mb-3 md:mb-5 lg:mb-6 -mt-2 px-2 text-center"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -62,7 +62,7 @@ const AboutFrame = () => {
               ANDRIAHARINIAINA Kanto Fitiavana
             </motion.div>
             <motion.div
-              className="text-white text-base md:text-xl lg:text-lg font-bold mb-2 md:mb-4 lg:mb-4 px-2"
+              className="text-white text-base mb-2 md:text-xl lg:text-lg font-bold mb-8 mt-4 md:mb-4 lg:mb-4 px-2"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -72,60 +72,60 @@ const AboutFrame = () => {
 
             <div className="space-y-2 md:space-y-4 lg:space-y-4">
               <motion.div
-                className="flex"
-                initial={{ x: -50, opacity: 0 }}
-                animate={inView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 }}
+              className="flex"
+              initial={{ x: -50, opacity: 0 }}
+              animate={inView ? { x: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-2">
-                  <div className="text-white text-base md:text-lg lg:text-lg">
-                    <CgMail className="text-white text-xl md:text-2xl lg:text-2xl" />
-                  </div>
+              <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-2">
+                <div className="text-white text-sm md:text-lg lg:text-lg">
+                <CgMail className="text-white text-lg md:text-2xl lg:text-2xl" />
                 </div>
-                <div className="text-white text-xs md:text-base">
-                  <a href="mailto:kanto.andriahariniaina@gmail.com" className="hover:underline break-all">
-                    kanto.andriahariniaina@gmail.com
-                  </a>
-                </div>
+              </div>
+              <div className="text-white text-[0.7rem] md:text-base">
+                <a href="mailto:kanto.andriahariniaina@gmail.com" className="hover:underline break-all">
+                kanto.andriahariniaina@gmail.com
+                </a>
+              </div>
               </motion.div>
               <motion.div
-                className="flex items-center"
-                initial={{ x: -50, opacity: 0 }}
-                animate={inView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.8 }}
+              className="flex items-center"
+              initial={{ x: -50, opacity: 0 }}
+              animate={inView ? { x: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-2">
-                  <div className="text-white text-xs md:text-sm">
-                    <FaGithub className="text-xl md:text-2xl lg:text-2xl" />
-                  </div>
+              <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-2">
+                <div className="text-white text-sm md:text-sm">
+                <FaGithub className="text-lg md:text-2xl lg:text-2xl" />
                 </div>
-                <div className="text-white text-xs md:text-base">
-                  <a href="https://github.com/Artniaina" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    https://github.com/Artniaina
-                  </a>
-                </div>
+              </div>
+              <div className="text-white text-[0.7rem] md:text-base">
+                <a href="https://github.com/Artniaina" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                https://github.com/Artniaina
+                </a>
+              </div>
               </motion.div>
               <motion.div
-                className="flex items-center"
-                initial={{ x: -50, opacity: 0 }}
-                animate={inView ? { x: 0, opacity: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.8 }}
+              className="flex items-center"
+              initial={{ x: -50, opacity: 0 }}
+              animate={inView ? { x: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-2">
-                  <div className="text-white text-xs md:text-sm">
-                    <IoHome className="text-xl md:text-2xl lg:text-2xl" />
-                  </div>
+              <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-2">
+                <div className="text-white text-sm md:text-sm">
+                <IoHome className="text-lg md:text-2xl lg:text-2xl" />
                 </div>
-                <div className="text-white text-xs md:text-base">
-                  <a
-                    href="https://www.google.com/maps/place/Ambohibao,+Tananarive/@-18.849497,47.4680614,15z/data=!3m1!4b1!4m6!3m5!1s0x21f081b29c61542d:0x9bc0bac052a04d7a!8m2!3d-18.848831!4d47.4760116!16s%2Fg%2F11crxrxymw?entry=ttu&g_ep=EgoyMDI1MDMyMy4wIKXMDSoASAFQAw%3D%3D"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                  >
-                    Ambohibao Antehiroka
-                  </a>
-                </div>
+              </div>
+              <div className="text-white text-[0.7rem] md:text-base">
+                <a
+                href="https://www.google.com/maps/place/Ambohibao,+Tananarive/@-18.849497,47.4680614,15z/data=!3m1!4b1!4m6!3m5!1s0x21f081b29c61542d:0x9bc0bac052a04d7a!8m2!3d-18.848831!4d47.4760116!16s%2Fg%2F11crxrxymw?entry=ttu&g_ep=EgoyMDI1MDMyMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+                >
+                Ambohibao Antehiroka
+                </a>
+              </div>
               </motion.div>
             </div>
           </div>
