@@ -7,13 +7,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  // Fonction pour détecter automatiquement la section active pendant le défilement
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'skills', 'projects'];
-      const scrollPosition = window.scrollY + 300; // Ajuster l'offset selon votre mise en page
+      const scrollPosition = window.scrollY + 300;
       
-      // Trouver la section actuellement visible
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -42,7 +40,7 @@ const Header = () => {
     
     if (element) {
       const isLargeScreen = window.matchMedia('(min-width: 1024px)').matches;
-      const yOffset = isLargeScreen ? -80 : 0;
+      const yOffset = isLargeScreen ? -60 : 0;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       
       element.style.transform = 'translateY(80px)';

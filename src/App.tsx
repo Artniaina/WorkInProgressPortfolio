@@ -8,8 +8,10 @@ import SkillsFrame from './components/SkillsFrame';
 import Projects from './components/Projects';
 import Contacts from './components/Contacts';
 import Education from './components/Education';
-import SeeMore from './components/SeeMore';
 import Header from './components/Header';
+import CustomCursor from './components/CustomCursor';
+import CursorImage from './assets/smt.png';
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,7 +31,6 @@ function App() {
           clearInterval(progressTimer);
           setTimeout(() => {
             setIsLoading(false);
-            // Add a small delay before showing content with animation
             setTimeout(() => setShowContent(true), 300);
           }, 500);
         }
@@ -45,7 +46,7 @@ function App() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-cyber-dark flex flex-col items-center justify-center px-4">
-        {/* Stickers animation */}
+       
         <div className="mb-2 flex">
           <span className='animate-[bounce_1.1s_infinite]'>
             <img src={Stickers} width="70" height="70" alt="Sticker" />
@@ -64,7 +65,6 @@ function App() {
           </h2>
         </div>
 
-        {/* Progress bar for larger screens */}
         <div className="hidden md:block w-full max-w-md h-3 bg-purple-900/50 rounded-full overflow-hidden backdrop-blur border-2 border-purple-500">
           <div
             className="h-full bg-gradient-to-r from-purple-500 via-pink-400 to-purple-300 rounded-full shadow-[0_0_10px_rgba(192,132,252,0.7)]"
@@ -94,44 +94,43 @@ function App() {
 
   return (
     <div className={`min-h-screen bg-cyber-purple/10 ${showContent ? 'animate-fadeIn' : 'opacity-0'}`}>
+        <CustomCursor 
+          size={20}
+          imageSrc={CursorImage} 
+          trailEffect={true}
+        />  
         <Header />
-      <main>
-        <Hero />
-      </main>
-      <section>
-        <div>
-          <AboutMe />
-        </div>
-      </section>
-      <section>
-        <div>
-          <SeeMore />
-        </div>
-      </section>
-      <section >
-        <div>
-          <Education />
-        </div>
-      </section>
-      <section >
-      <div >
-          <SkillsFrame>
-            <Skills />
-          </SkillsFrame>
-        </div>
-      </section>
-      <section>
-        <div>
-          <Projects />
-        </div>
-      </section>
-      <section>
-
-        <div>
-          <Contacts />
-        </div>
-      </section>
-      <Footer />
+        <main id="home">
+          <Hero />
+        </main>
+        <section id="about">
+          <div>
+            <AboutMe />
+          </div>
+        </section>
+        <section id="education">
+          <div>
+            <Education />
+          </div>
+        </section>
+        <section id="skills" className='bg-cyber-purple/10'>
+          <div>
+            <SkillsFrame>
+              <Skills />
+            </SkillsFrame>
+          </div>
+        </section>
+        <section id="projects">
+          <div>
+            <Projects />
+          </div>
+        </section>
+        <section id="contacts" className='bg-cyber-purple/10'>
+          <div>
+            <Contacts />
+          </div>
+        </section>
+        <Footer />
     </div>
   );
 }
