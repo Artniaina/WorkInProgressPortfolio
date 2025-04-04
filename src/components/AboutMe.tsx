@@ -114,13 +114,17 @@ const AboutMe: React.FC = () => {
 
       <div className="flex justify-between w-full md:w-auto lg:w-auto">
         <motion.h1
-          className="text-2xl md:text-3xl lg:text-3xl relative mb-8 md:mb-0  text-center left-[3rem] md:left-0 font-bold text-white md:mt-12 md:bottom-10 z-20"
+           className="text-white mt-2 md:mt-4 text-xl md:text-3xl mb-6 md:mb-12 font-bold tracking-wider" 
+           style={{
+             textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
+             fontFamily: "'Press Start 2P', cursive"
+           }}
           ref={ref}
           initial="hidden"
           animate={controls}
           variants={variants}
         >
-          ABOUT ME :D
+          ABOUT ME :D 
         </motion.h1>
       </div>
 

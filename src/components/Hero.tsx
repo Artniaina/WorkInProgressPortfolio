@@ -5,9 +5,9 @@ import FrameWorkLol from './FrameWorkLol';
 
 const Hero = () => {
   return (
-    <div className="h-full lg:h-[100vh] relative">
-      <Header />
-      <div className=" top-[5rem] md:top-[8rem] lg:top-[7rem] px-6 py-20 flex flex-col  lg:flex-row justify-start relative overflow-hidden">
+    <div id='home' className="h-full lg:h-[100vh] relative">
+ 
+      <div className=" top-[5rem] md:top-[8rem] lg:top-[12rem] px-6 py-20 flex flex-col  lg:flex-row justify-start relative overflow-hidden">
         <div className="w-full lg:w-4xl flex flex-col relative -top-20 items-center lg:items-start lg:left-12">
           <motion.h1
             className="text-2xl w-[20rem] md:w-full lg:w-[40rem] md:text-4xl lg:text-5xl font-pixel mb-8 text-center lg:text-left"

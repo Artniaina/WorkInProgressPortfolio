@@ -36,7 +36,7 @@ const Thanks = () => {
           initial="hidden"
           variants={variants}
         >
-          HOW TO REACH ME
+          HOW TO REACH ME 
         </motion.h1>
         <motion.div
           className="w-full mt-2 md:mt-4 lg:ml-12 bg-[#2a1245] rounded-lg p-3 md:p-6 relative overflow-hidden"

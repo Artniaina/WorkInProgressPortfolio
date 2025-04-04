@@ -33,6 +33,7 @@ const Contacts = () => {
           <AboutFrame />
         </div>
       </div>
+       
     </div>
   );
 };

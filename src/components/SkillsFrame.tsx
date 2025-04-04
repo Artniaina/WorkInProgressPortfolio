@@ -50,7 +50,7 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
         MY TECH STACK
       </motion.h1>
       <p className="mb-12 text-center text-white text-xs md:text-sm lg:text-lg">
-      Tools and technologies I've worked with <br /> throughout my projects and experiences
+      Tools and technologies I've worked with <br /> throughout my projects
     </p>
       <motion.div
         className="absolute inset-0 overflow-hidden pointer-events-none"

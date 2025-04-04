@@ -47,7 +47,7 @@ const Projects: React.FC = () => {
         "Implemented a Two-Factor Authentication (2FA) system  with Google Authenticator integration.",
       stats: "",
       tech: "MySQL • Express • React • Node • JWT • OTP • Google Authenticator",
-      githubLink: "https://github.com/Artniaina/2fa-authentication-system",
+      githubLink: "https://github.com/Artniaina/2faSystem",
     },
   ];
 
@@ -98,6 +98,7 @@ const Projects: React.FC = () => {
         transition: { type: "spring", stiffness: 300, damping: 20 },
       }}
     >
+      
       <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
         <div className="flex space-x-1">
           <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
@@ -158,7 +159,7 @@ const Projects: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
     <motion.h1
- className="text-[#e44cff] mt-2 md:mt-4 text-xl md:text-4xl mb-2 md:mb-2 font-bold tracking-wider" 
+ className="text-[#e44cff] mt-2 md:mt-4 text-center text-xl md:text-4xl mb-2 md:mb-2 font-bold tracking-wider" 
  style={{
    textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
    fontFamily: "'Press Start 2P', cursive"
@@ -169,9 +170,14 @@ const Projects: React.FC = () => {
 >
   TECHNICAL PROJECTS
 </motion.h1>
-<p className="mb-12 text-center text-white text-xs md:text-sm lg:text-lg">
-Here are some of the projects <br /> I have worked on.
-</p>
+<motion.p
+  className="mb-12 text-center text-white text-xs md:text-sm lg:text-lg"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.7 }}
+>
+  Here are some of the projects <br /> I have worked on.
+</motion.p>
       <div className="hidden md:block">
         <motion.button
           onClick={handlePrevious}

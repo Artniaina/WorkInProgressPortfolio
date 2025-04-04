@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Contacts from './components/Contacts';
 import Education from './components/Education';
 import SeeMore from './components/SeeMore';
+import Header from './components/Header';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -93,37 +94,39 @@ function App() {
 
   return (
     <div className={`min-h-screen bg-cyber-purple/10 ${showContent ? 'animate-fadeIn' : 'opacity-0'}`}>
-      <main className='bg-cyber-purple/10'>
+        <Header />
+      <main>
         <Hero />
       </main>
-      <section className="bg-cyber-dark">
+      <section>
         <div>
           <AboutMe />
         </div>
       </section>
-      <section className="bg-cyber-purple/10">
+      <section>
         <div>
           <SeeMore />
         </div>
       </section>
-      <section className="bg-cyber-purple/10">
+      <section >
         <div>
           <Education />
         </div>
       </section>
-      <section className="bg-cyber-purple/10">
-        <div>
+      <section >
+      <div >
           <SkillsFrame>
             <Skills />
           </SkillsFrame>
         </div>
       </section>
-      <section className="bg-cyber-purple/10">
+      <section>
         <div>
           <Projects />
         </div>
       </section>
-      <section className="bg-cyber-purple/10">
+      <section>
+
         <div>
           <Contacts />
         </div>
