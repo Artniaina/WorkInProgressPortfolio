@@ -16,20 +16,20 @@ const Header = () => {
 
   return (
     <div
-      className="flex justify-between items-center top-8 mx-4 md:mx-8 lg:mx-12 relative py-4 px-6 z-10 
-      bg-[#1a012a] rounded-full shadow-[8px_8px_16px_#0e0017,_-8px_-8px_16px_#2e013e]"
+      className="flex justify-between items-center top-8 mx-2 lg:mx-4 relative py-2 lg:py-[0.3rem] px-6 z-10 
+      bg-cyber-dark rounded-full shadow-[8px_8px_16px_#0e0017,_-8px_-8px_16px_#2e013e]"
     >
       <motion.div
         className="flex items-center text-white font-pixel"
         whileHover={{ scale: 1.1 }}
       >
-        <img src={Logo} className="w-12 h-12 md:w-16 md:h-16 lg:w-16 lg:h-16" alt="Logo" />
-        <span className="ml-3 text-base md:text-lg lg:text-2xl">
+        <img src={Logo} className="w-12 h-12 lg:w-16 lg:h-16" alt="Logo" />
+        <span className="ml-3 lg:w-[14rem] text-base lg:text-xl">
           {"<Kanto/>"}
         </span>
       </motion.div>
 
-      <div>
+      <div className="lg:hidden">
         <button
           className="text-white text-2xl"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -41,8 +41,8 @@ const Header = () => {
       <div
         className={`${
           isMenuOpen ? 'flex' : 'hidden'
-        } flex-col justify-center items-center gap-4 
-        absolute top-16 left-0 w-full bg-[#1a012a] z-20 rounded-full py-4`}
+        } flex-col lg:flex lg:flex-row justify-center lg:justify-end items-center gap-4 md:gap-6 lg:gap-8 
+        absolute lg:static top-16 left-0 w-full bg-[#1a012a] p-12 lg:p-0 lg:bg-transparent z-20 rounded-lg py-4`}
       >
         <motion.a
           href="#"

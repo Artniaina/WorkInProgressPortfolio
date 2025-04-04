@@ -159,7 +159,7 @@ const AboutMe: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="w-[23rem] md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative md:left-0 lg:left-[2rem] md:top-0 lg:top-4 rounded-lg overflow-hidden border-4 border-t-purple-600 border-gray-600 shadow-2xl z-20"
+          className="w-[23.5rem] md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative md:left-0 lg:left-[2rem] md:top-0 lg:top-4 rounded-lg overflow-hidden border-4 border-t-purple-600 border-gray-600 shadow-2xl z-20"
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -197,11 +197,11 @@ const AboutMe: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-4  md:p-6 lg:p-6 bg-black relative">
+          <div className="pl-4 py-2  md:p-6 lg:p-6 bg-black relative">
             <div
-              className="relative max-h-[40vh] sm:max-h-none overflow-y-auto pr-2"
+              className="relative max-h-[50vh]  sm:max-h-none overflow-y-auto pr-2"
               style={{
-                scrollbarWidth: "thin",
+                scrollbarWidth: "auto",
                 scrollbarColor: "#e44cff #2a1245",
               }}
             >

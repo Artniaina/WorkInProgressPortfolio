@@ -38,14 +38,20 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
       className="relative w-full py-10 md:py-16 lg:py-20 px-4 md:px-6 min-h-[60vh] md:min-h-[80vh] lg:min-h-[90vh] flex flex-col items-center justify-center"
     >
       <motion.h1
-        className="text-2xl md:text-3xl lg:text-4xl text-center font-bold text-white font-pixel mb-8 md:mb-12 lg:mb-16"
+        className=" text-2xl md:text-3xl lg:text-4xl text-center font-bold text-[#e44cff] tracking-wider  font-pixel mb-2 md:mb-4"
+        style={{
+          textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
+          fontFamily: "'Press Start 2P', cursive"
+        }}
         animate={controls}
         initial="hidden"
         variants={variants}
       >
         MY TECH STACK
       </motion.h1>
-      
+      <p className="mb-12 text-center text-white text-xs md:text-sm lg:text-lg">
+      Tools and technologies I've worked with <br /> throughout my projects and experiences
+    </p>
       <motion.div
         className="absolute inset-0 overflow-hidden pointer-events-none"
         animate={controls}

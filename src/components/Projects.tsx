@@ -157,15 +157,21 @@ const Projects: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <motion.h1
-        className="mb-8 text-2xl font-bold text-white text-center md:text-3xl lg:text-4xl"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-      >
-        TECHNICAL PROJECTS
-      </motion.h1>
-
+    <motion.h1
+ className="text-[#e44cff] mt-2 md:mt-4 text-xl md:text-4xl mb-2 md:mb-2 font-bold tracking-wider" 
+ style={{
+   textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
+   fontFamily: "'Press Start 2P', cursive"
+ }}
+  initial={{ opacity: 0, y: -50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.5 }}
+>
+  TECHNICAL PROJECTS
+</motion.h1>
+<p className="mb-12 text-center text-white text-xs md:text-sm lg:text-lg">
+Here are some of the projects <br /> I have worked on.
+</p>
       <div className="hidden md:block">
         <motion.button
           onClick={handlePrevious}

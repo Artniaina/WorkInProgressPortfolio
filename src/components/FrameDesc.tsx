@@ -1,79 +1,112 @@
-import React, { useEffect } from "react";
+import React, { useEffect, ReactNode } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaGithub } from "react-icons/fa6";
+import type { LucideIcon } from 'lucide-react';
 
 interface FrameDescProps {
   title: string;
-  description: string;
-  tech: string;
-  githubLink: string;
+  description: ReactNode;
+  Icon: LucideIcon;
+  color: string;
 }
 
-const FrameDesc: React.FC<FrameDescProps> = ({ title, description, tech, githubLink }) => {
+const colorVariants = {
+  purple: {
+    bg: "bg-purple-800",
+    border: "border-purple-400",
+    header: "bg-purple-600",
+    accent: "bg-purple-700",
+    text: "text-purple-300"
+  },
+  blue: {
+    bg: "bg-blue-800",
+    border: "border-blue-400",
+    header: "bg-blue-600",
+    accent: "bg-blue-700",
+    text: "text-blue-300"
+  },
+  green: {
+    bg: "bg-emerald-800",
+    border: "border-emerald-400",
+    header: "bg-emerald-600",
+    accent: "bg-emerald-700",
+    text: "text-emerald-300"
+  }
+};
+
+const FrameDesc: React.FC<FrameDescProps> = ({ title, description, Icon, color }) => {
   const { ref, inView } = useInView({
     threshold: 0.2,
+    triggerOnce: true
   });
 
   const controls = useAnimation();
+  const colors = colorVariants[color as keyof typeof colorVariants];
 
   useEffect(() => {
     if (inView) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
     }
   }, [inView, controls]);
 
   const containerVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.6,
+        ease: "easeOut"
+      } 
+    }
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        delay: 0.3,
+        duration: 0.5 
+      } 
+    }
   };
 
   return (
     <div ref={ref}>
       <motion.div
-        className="w-[25rem] bg-purple-800 rounded h-[32rem] ml-4 border-2 border-purple-400 overflow-hidden flex flex-col"
+        className={`w-[50rem] rounded-lg h-[400px] border-2 ${colors.border} overflow-hidden flex flex-col`}
         animate={controls}
         initial="hidden"
         variants={containerVariants}
       >
-        <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
-          <div className="text-white text-sm">Description.txt</div>
+        <div className={`h-10 ${colors.header} border-b ${colors.border} px-3 flex justify-between items-center`}>
+          <div className="text-white font-medium">{title}</div>
           <div className="flex space-x-2">
-            <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
-              <div className="w-2 h-2 bg-purple-300"></div>
-            </div>
-            <div className="w-4 h-4 bg-gray-900 border border-purple-300"></div>
-            <div className="w-4 h-4 bg-gray-900 border border-purple-300 flex items-center justify-center">
-              <div className="text-purple-300 text-xs">×</div>
-            </div>
+            <div className={`w-3 h-3 rounded-full bg-red-500`}></div>
+            <div className={`w-3 h-3 rounded-full bg-yellow-500`}></div>
+            <div className={`w-3 h-3 rounded-full bg-green-500`}></div>
           </div>
         </div>
 
-        <motion.div className="flex-grow bg-cyber-dark text-white p-4">
-          <h2 className="text-xl text-center mt-4">{title}</h2>
-          <p className="text-lg mt-12 font-mono">{description}</p>
-          <div className="text-lg font-mono  mt-20">
-            <span className="text-cyber-pink">Tech Stack and tools:</span> {tech}
-          </div>
-        </motion.div>
         <motion.div
-          className="h-8 bg-purple-700 border-t border-purple-500 flex justify-between items-center px-2"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
+          className="flex-1 p-6 flex flex-col items-center justify-center"
+          variants={contentVariants}
         >
-          <a
-            href={githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[10px] text-white flex items-center space-x-1"
-          >
-            <FaGithub className="text-sm text-white" />
-            <span>View code</span>
-          </a>
-          <div className="ml-2 w-6 h-6 flex items-center justify-center text-purple-300">♥</div>
+          <Icon className={`w-16 h-16 ${colors.text} mb-6`} />
+          <p className="text-white text-center leading-relaxed">
+            {description}
+          </p>
+        </motion.div>
+
+        <motion.div
+          className={`h-12 ${colors.accent} border-t ${colors.border} flex items-center justify-center`}
+          variants={contentVariants}
+        >
+          <span className={`${colors.text} text-sm font-medium`}>
+            {title.toUpperCase()}
+          </span>
         </motion.div>
       </motion.div>
     </div>
