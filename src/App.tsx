@@ -11,7 +11,8 @@ import Education from './components/Education';
 import Header from './components/Header';
 import CustomCursor from './components/CustomCursor';
 import CursorImage from './assets/smt.png';
-
+import  {motion} from 'framer-motion';
+import Planet from './assets/planet.gif';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -91,8 +92,81 @@ function App() {
     );
   }
 
+  const generatePlanets = (count: number) => {
+    const planets = [];
+    for (let i = 0; i < count; i++) {
+      let sizeCategory = Math.floor(Math.random() * 3);
+      let size;
+      let opacity;
+
+      if (sizeCategory === 0) {
+        size = Math.random() * 2 + 1;
+        opacity = Math.random() * 0.15 + 0.05;
+      } else if (sizeCategory === 1) {
+        size = Math.random() * 3 + 3;
+        opacity = Math.random() * 0.15 + 0.1;
+      } else {
+        size = Math.random() * 5 + 6;
+        opacity = Math.random() * 0.2 + 0.05;
+      }
+
+      const xMovement = [-30, 0, 30, 0];
+      const yMovement = [0, 30, 0, -30];
+
+      if (Math.random() > 0.5) {
+        xMovement.reverse();
+      }
+      if (Math.random() > 0.5) {
+        yMovement.reverse();
+      }
+
+      const amplitudeMultiplier = Math.random() * 2 + 0.5;
+      const xAmplified = xMovement.map((val) => val * amplitudeMultiplier);
+      const yAmplified = yMovement.map((val) => val * amplitudeMultiplier);
+
+      planets.push({
+        id: i,
+        top: `${Math.random() * 100}vh`,
+        left: `${Math.random() * 100}vw`,
+        size: `${size}rem`,
+        opacity: opacity,
+        zIndex: 10,
+        animate: {
+          x: xAmplified,
+          y: yAmplified,
+        },
+        transition: {
+          duration: Math.random() * 15 + 25,
+          repeat: Infinity,
+          delay: Math.random() * 5,
+          ease: "linear",
+        },
+      });
+    }
+    return planets;
+  };
+
+  const planets = generatePlanets(10);
   return (
     <div className={`min-h-screen bg-cyber-purple/10 ${showContent ? 'animate-fadeIn' : 'opacity-0'}`}>
+           {/* {planets.map((planet) => (
+        <motion.img
+          key={planet.id}
+          src={Planet}
+          alt="Planet"
+          className="absolute"
+          style={{
+            top: planet.top,
+            left: planet.left,
+            width: planet.size,
+            height: planet.size,
+            opacity: planet.opacity,
+            zIndex: planet.zIndex,
+          }}
+          animate={planet.animate}
+          transition={planet.transition}
+        />
+      ))} */}
         <CustomCursor 
           size={20}
           imageSrc={CursorImage} 

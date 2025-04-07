@@ -43,13 +43,13 @@ function Game() {
           ))}
         </div>
      
-        <div className="absolute bottom-[5rem] text-sm  md:ml-[4rem] transform text-center">
+        <div className="absolute bottom-[5rem] text-sm   md:ml-[4rem] transform text-center">
   
             <div className="text-sm md:text-lg text-left p-2  rounded-md overflow-x-auto text-gray-300 shadow-lg border-pink-500">
               <ReactTyped
               strings={[
               `<pre><code><span class="text-green-500 w-[25rem]">/*The future depends on what 
-              we do in the present."*/</span><br/> const <span class="text-cyan-400">pursueGoal</span> = <span class="text-yellow-400">goal</span> =&gt; {
+we do in the present."*/</span><br/> const <span class="text-cyan-400">pursueGoal</span> = <span class="text-yellow-400">goal</span> =&gt; {
 <span class="text-cyan-400">    if</span> (<span class="text-green-400">isAchievable</span>(<span class="text-yellow-400">goal</span>)) {
 <span class="text-purple-400">         workHard</span>(<span class="text-yellow-400">goal</span>);
 <span class="text-cyan-400">    if</span> (<span class="text-green-400">faceChallenges</span>(<span class="text-yellow-400">goal</span>)) {

@@ -124,7 +124,7 @@ const AboutFrame = () => {
                     <IoHome className="text-lg md:text-2xl lg:text-2xl" />
                   </div>
                 </div>
-                <div className="text-white text-[0.7rem] md:text-base">
+                <div className="text-white  text-[0.7rem] md:text-base">
                   <a
                     href="https://www.google.com/maps/place/Ambohibao,+Tananarive/@-18.849497,47.4680614,15z/data=!3m1!4b1!4m6!3m5!1s0x21f081b29c61542d:0x9bc0bac052a04d7a!8m2!3d-18.848831!4d47.4760116!16s%2Fg%2F11crxrxymw?entry=ttu&g_ep=EgoyMDI1MDMyMy4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
