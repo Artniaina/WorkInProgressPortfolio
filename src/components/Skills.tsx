@@ -95,7 +95,7 @@ const Skills = () => {
 
   return (
     <div className="w-full h-full flex items-center justify-center">
-      <div ref={ref} className="w-full overflow-y-auto py-4">
+      <div ref={ref} className="w-full overflow-hidden py-4">
         <motion.div
           className="flex flex-col items-center justify-center"
           variants={containerVariants}

@@ -70,14 +70,14 @@ const AboutFrame = () => {
               My contacts
             </motion.div>
 
-            <div className="space-y-2 md:space-y-4 lg:space-y-4">
+            <div className="space-y-2 text-center md:space-y-4 lg:space-y-4">
               <motion.div
                 className="flex"
                 initial={{ x: -50, opacity: 0 }}
                 animate={inView ? { x: 0, opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-2">
+                <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-4">
                   <div className="text-white text-sm md:text-lg lg:text-lg">
                     <CgMail className="text-white text-lg md:text-2xl lg:text-2xl" />
                   </div>
@@ -97,7 +97,7 @@ const AboutFrame = () => {
                 animate={inView ? { x: 0, opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-2">
+                <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-4">
                   <div className="text-white text-sm md:text-sm">
                     <FaGithub className="text-lg md:text-2xl lg:text-2xl" />
                   </div>
@@ -109,7 +109,7 @@ const AboutFrame = () => {
                     rel="noopener noreferrer"
                     className="hover:underline"
                   >
-                    https://github.com/Artniaina
+                    Artniaina
                   </a>
                 </div>
               </motion.div>
@@ -119,7 +119,7 @@ const AboutFrame = () => {
                 animate={inView ? { x: 0, opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-2">
+                <div className="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 bg-cyber-pink rounded-full flex items-center justify-center mr-4">
                   <div className="text-white text-sm md:text-sm">
                     <IoHome className="text-lg md:text-2xl lg:text-2xl" />
                   </div>

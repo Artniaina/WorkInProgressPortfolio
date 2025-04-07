@@ -72,7 +72,6 @@ function App() {
           />
         </div>
         
-        {/* Compact progress bar for mobile */}
         <div className="md:hidden w-full max-w-xs h-4 bg-purple-900/50 rounded-full overflow-hidden backdrop-blur border border-purple-500">
           <div
             className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-[0_0_8px_rgba(192,132,252,0.7)]"
@@ -100,32 +99,32 @@ function App() {
           trailEffect={true}
         />  
         <Header />
-        <main id="home">
+        <main id="home" className='min-h-[100vh]'>
           <Hero />
         </main>
-        <section id="about">
+        <section id="about" className='min-h-[100vh]'>
           <div>
             <AboutMe />
           </div>
         </section>
-        <section id="education">
+        <section id="education" className='min-h-[100vh]'>
           <div>
             <Education />
           </div>
         </section>
-        <section id="skills" className='bg-cyber-purple/10'>
+        <section id="skills" className='bg-cyber-purple/10 min-h-[100vh]'>
           <div>
             <SkillsFrame>
               <Skills />
             </SkillsFrame>
           </div>
         </section>
-        <section id="projects">
+        <section id="projects" className='min-h-[100vh]'>
           <div>
             <Projects />
           </div>
         </section>
-        <section id="contacts" className='bg-cyber-purple/10'>
+        <section id="contacts" className='bg-cyber-purple/10 min-h-[100vh]'>
           <div>
             <Contacts />
           </div>

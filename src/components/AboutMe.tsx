@@ -112,9 +112,9 @@ const AboutMe: React.FC = () => {
         />
       ))}
 
-      <div className="flex justify-between w-full md:w-auto lg:w-auto">
+      <div className="flex justify-between w-full w-auto md:w-auto lg:w-auto">
         <motion.h1
-          className="text-white mt-2 md:mt-4 text-xl md:text-3xl lg:text-2xl mb-6 md:mb-12 font-bold tracking-wider"
+          className="text-white mt-2 md:mt-4 text-xl text-center md:text-3xl lg:text-2xl mb-6 md:mb-12 font-bold tracking-wider"
           style={{
             textShadow: "0 0 10px rgba(228, 76, 255, 0.5)",
             fontFamily: "'Press Start 2P', cursive",
@@ -161,7 +161,7 @@ const AboutMe: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="w-[23.5rem] md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative md:left-0 lg:left-[2rem] md:top-0 lg:top-4 overflow-hidden border-4 border-purple-600 shadow-2xl z-20 rounded-lg rounded-tl-none"
+          className=" w-[90vw] md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative md:left-0 lg:left-[2rem] md:top-0 lg:top-4 overflow-hidden border-2  md:border-4 border-purple-600 shadow-2xl z-20 rounded-lg lg:rounded-tl-none"
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -201,7 +201,7 @@ const AboutMe: React.FC = () => {
 
           <div className="pl-4 py-2  md:p-6 lg:p-6 bg-black relative">
             <div
-              className="relative max-h-[50vh]  sm:max-h-none overflow-y-auto pr-2"
+              className="relative max-h-[60vh]  sm:max-h-none overflow-y-auto pr-2"
               style={{
                 scrollbarWidth: "auto",
                 scrollbarColor: "#e44cff #2a1245",
@@ -230,7 +230,7 @@ const AboutMe: React.FC = () => {
                   </span>{" "}
                   <br />I am a{" "}
                   <span className="text-purple-300">
-                    fourth-year Software Engineering student
+                  Software Engineering student
                   </span>{" "}
                   passionate about technology and interactivity to create
                   innovative and engaging experiences. <br /> <br /> As a{" "}
