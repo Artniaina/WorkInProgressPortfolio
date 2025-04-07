@@ -90,7 +90,7 @@ const Projects: React.FC = () => {
     return visibleCards;
   };
 
-  const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+  const ProjectCard = ({ project }: { project: any; index: number }) => (
     <motion.div
       className="rounded h-[37rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[37rem]"
       whileHover={{

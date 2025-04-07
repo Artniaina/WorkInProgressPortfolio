@@ -114,7 +114,7 @@ const AboutMe: React.FC = () => {
 
       <div className="flex justify-between w-full md:w-auto lg:w-auto">
         <motion.h1
-           className="text-white mt-2 md:mt-4 text-xl md:text-3xl mb-6 md:mb-12 font-bold tracking-wider" 
+           className="text-white mt-2 md:mt-4 text-xl md:text-3xl lg:text-2xl mb-6 md:mb-12 font-bold tracking-wider" 
            style={{
              textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
              fontFamily: "'Press Start 2P', cursive"
