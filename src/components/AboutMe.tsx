@@ -114,23 +114,23 @@ const AboutMe: React.FC = () => {
 
       <div className="flex justify-between w-full md:w-auto lg:w-auto">
         <motion.h1
-           className="text-white mt-2 md:mt-4 text-xl md:text-3xl lg:text-2xl mb-6 md:mb-12 font-bold tracking-wider" 
-           style={{
-             textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
-             fontFamily: "'Press Start 2P', cursive"
-           }}
+          className="text-white mt-2 md:mt-4 text-xl md:text-3xl lg:text-2xl mb-6 md:mb-12 font-bold tracking-wider"
+          style={{
+            textShadow: "0 0 10px rgba(228, 76, 255, 0.5)",
+            fontFamily: "'Press Start 2P', cursive",
+          }}
           ref={ref}
           initial="hidden"
           animate={controls}
           variants={variants}
         >
-          ABOUT ME :D 
+          ABOUT ME :D
         </motion.h1>
       </div>
 
       <div className="flex flex-col md:flex-col lg:flex-row gap-8 relative z-10 md:right-0 lg:right-[5rem] md:bottom-0 lg:bottom-[2rem] items-center">
         <motion.div
-          className="w-[10rem] h-[11rem]  lg:w-[14rem] md:w-[15rem]  md:h-[17rem] lg:h-[20rem] bg-[#2a1245] rounded-full p-1 z-40 relative md:left-0 lg:left-[6.5rem] md:bottom-0 lg:bottom-[8rem] overflow-hidden border-4 border-[#e44cff] shadow-[0_0_20px_#e44cff] pixelated-frame"
+          className="w-[10rem] h-[11rem] lg:p-0 lg:w-[14rem] md:w-[15rem]  md:h-[17rem] lg:h-[17rem] bg-[#2a1245] rounded-full p-1 z-40 relative md:left-0 lg:left-[6rem] md:bottom-0 lg:bottom-[10rem] overflow-hidden border-4 border-[#e44cff] shadow-[0_0_20px_#e44cff] pixelated-frame"
           animate={controls}
           initial="hidden"
           variants={{
@@ -148,22 +148,20 @@ const AboutMe: React.FC = () => {
         </motion.div>
 
         <motion.div
-          animate={controls}
+          ref={ref}
           initial="hidden"
-          variants={{
-            hidden: { scale: 0.8, opacity: 0 },
-            visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
-          }}
+          animate={controls}
+          variants={variants2}
           className="z-20 relative  bottom-[14.8rem]  hidden md:hidden lg:block"
         >
           <IoTriangleSharp
-            className="text-purple-600 text-[5.5rem] relative right-[-5.8rem]  z-40 top-[0.4rem]"
-            style={{ transform: "rotate(30deg)" }}
+            className="text-purple-600 text-[5.5rem] relative right-[-5.7rem]  z-10 top-[-0.1rem] "
+            style={{ transform: "rotate(28deg)" }}
           />
         </motion.div>
 
         <motion.div
-          className="w-[23.5rem] md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative md:left-0 lg:left-[2rem] md:top-0 lg:top-4 rounded-lg overflow-hidden border-4 border-t-purple-600 border-gray-600 shadow-2xl z-20"
+          className="w-[23.5rem] md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative md:left-0 lg:left-[2rem] md:top-0 lg:top-4 overflow-hidden border-4 border-purple-600 shadow-2xl z-20 rounded-lg rounded-tl-none"
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -228,36 +226,36 @@ const AboutMe: React.FC = () => {
                 <p className="leading-relaxed mb-4 md:mb-8 lg:mb-8">
                   I am{" "}
                   <span className="font-bold text-pink-300">
-                  ANDRIAHARINIAINA Kanto Fitiavana
+                    ANDRIAHARINIAINA Kanto Fitiavana
                   </span>{" "}
                   <br />I am a{" "}
                   <span className="text-purple-300">
-                  fourth-year Software Engineering student
+                    fourth-year Software Engineering student
                   </span>{" "}
                   passionate about technology and interactivity to create
                   innovative and engaging experiences. <br /> <br /> As a{" "}
                   <span className="text-pink-400">Full-Stack Developer</span>, I
                   specialize in building{" "}
                   <span className="text-salmon-400">
-                  scalable, high-performance applications
+                    scalable, high-performance applications
                   </span>{" "}
                   across both the frontend and backend. <br /> <br />
                   Beyond functionality, I focus on delivering{" "}
                   <span className="text-purple-400">
-                  seamless user experiences
+                    seamless user experiences
                   </span>{" "}
                   through well-designed, intuitive interfaces that leave a
                   lasting impression. <br />I am currently expanding my
                   knowledge of advanced JavaScript <br /> frameworks and
                   libraries, including{" "}
                   <span className="text-pink-500">
-                  Next.js, <br />
-                  NestJS and beyond
+                    Next.js, <br />
+                    NestJS and beyond
                   </span>{" "}
                   <img
-                  src={Animated}
-                  alt="Cute animation"
-                  className="w-[8rem] md:w-[10rem] lg:w-[10rem] relative bottom-[5.6rem] left-[50%] md:left-[50%] lg:left-[42rem] transform -translate-x-1/2 md:-translate-x-1/2 lg:transform-none hidden md:block"
+                    src={Animated}
+                    alt="Cute animation"
+                    className="w-[8rem] md:w-[10rem] lg:w-[10rem] relative bottom-[5.6rem] left-[50%] md:left-[50%] lg:left-[42rem] transform -translate-x-1/2 md:-translate-x-1/2 lg:transform-none hidden md:block"
                   />
                 </p>
               </div>
