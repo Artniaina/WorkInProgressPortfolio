@@ -1,0 +1,40 @@
+
+{
+
+    "navbar": {
+        "home": "ACCEUIL",
+        "about": "À PROPOS",
+        "skills": "COMPETENCES",
+        "projects": "PROJETS"
+    },
+    
+  "hero": {
+    "title": "JE SUIS KANTO",
+    "typed": {
+      "juniorDev": "UN DÉVELOPPEUR JUNIOR",
+      "fullStack": "UN DÉVELOPPEUR FULL-STACK",
+      "webDesigner": "UN DESIGNER WEB",
+      "softwareEngineer": "UN INGÉNIEUR LOGICIEL"
+    },
+    "description": {
+      "line1": "Je suis un développeur web et mobile",
+      "line2": "de Madagascar.",
+      "line3": "Passionné par la technologie,",
+      "line4": "le design et l'innovation."
+    },
+    "contactButton": "Contact"
+  },
+    "footer": {
+      "copyright": "© 2025 My Portfolio"
+    },
+    "skills": {
+      "title": "Skills",
+      "description": "Here are the technologies I work with."
+    },
+    "education": {
+      "title": "Education",
+      "degree": "Bachelor of Computer Science",
+      "university": "XYZ University"
+    }
+  }
+  

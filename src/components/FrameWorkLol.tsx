@@ -43,7 +43,7 @@ const FrameWorkLol = () => {
       />
       </motion.div>
       <motion.div
-      className=" w-[90vw] md:w-[35rem] bg-purple-800 rounded h-[19rem] sm:h-[20rem] border-2 border-purple-400 overflow-hidden flex flex-col"
+      className=" w-[90vw] md:w-[35rem]  lg:w-[31rem] bg-purple-800 rounded h-[19rem] sm:h-[20rem] border-2 border-purple-400 overflow-hidden flex flex-col"
       animate={controls}
       initial="hidden"
       variants={containerVariants}

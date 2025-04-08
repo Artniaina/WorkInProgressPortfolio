@@ -2,10 +2,14 @@ import { motion } from "framer-motion";
 import Logo from "../assets/logolol.png";
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -96,6 +100,7 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 15 }}
     >
+
       <motion.div
         className="flex items-center text-white font-pixel"
         whileHover={{ scale: 1.1 }}
@@ -134,7 +139,7 @@ const Header = () => {
             handleScroll("home");
           }}
         >
-          HOME
+          {t("navbar.home")} 
         </motion.a>
 
         <motion.a
@@ -150,7 +155,7 @@ const Header = () => {
             handleScroll("about");
           }}
         >
-          ABOUT
+          {t("navbar.about")} 
         </motion.a>
 
         <motion.a
@@ -166,7 +171,7 @@ const Header = () => {
             handleScroll("skills");
           }}
         >
-          SKILLS
+          {t("navbar.skills")} 
         </motion.a>
 
         <motion.a
@@ -182,8 +187,11 @@ const Header = () => {
             handleScroll("projects");
           }}
         >
-          PROJECTS
+          {t("navbar.projects")} 
         </motion.a>
+
+        {/* <LanguageSwitcher /> */}
+
       </div>
     </motion.div>
   );

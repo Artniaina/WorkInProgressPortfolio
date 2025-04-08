@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { ReactTyped } from "react-typed";
 import FrameWorkLol from "./FrameWorkLol";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next"; 
 
 const Hero = () => {
   const [activeSection, setActiveSection] = useState("");
+  const { t } = useTranslation(); 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,6 +88,13 @@ const Hero = () => {
     setTimeout(applyEntranceAnimation, 300);
   }, []);
 
+  const typedStrings = [
+    t('hero.typed.juniorDev'),
+    t('hero.typed.fullStack'),
+    t('hero.typed.webDesigner'),
+    t('hero.typed.softwareEngineer')
+  ];
+
   return (
     <div id="home" className="h-full lg:h-[100vh] relative">
       <div className="hidden lg:block absolute left-[3rem] top-[7rem] h-[50%] w-[4px] bg-gradient-to-b from-pink-500 to-purple-800 rounded-full opacity-60 ">
@@ -102,19 +111,14 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="glitch-effect" data-text="I AM KANTO">
-              I AM KANTO{" "}
+            <span className="glitch-effect" data-text={t('hero.title')}>
+              {t('hero.title')}{" "}
             </span>
 
             <br />
             <span className="text-pink-500 relative w-full left-2 md:left-[9rem] md:w-[35rem] lg:w-[35rem] lg:left-[1rem] lg:top-0 md:text-2xl text-[1.2rem] h-12 lg:text-[1.3rem] mt-8 md:mt-7  flex justify-center lg:justify-start">
               <ReactTyped
-                strings={[
-                  "A JUNIOR DEVELOPER",
-                  "A FULL-STACK DEV",
-                  "A WEB DESIGNER",
-                  "A SOFTWARE ENGINEER",
-                ]}
+                strings={typedStrings}
                 typeSpeed={50}
                 backSpeed={30}
                 loop
@@ -128,14 +132,14 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            I am a web and mobile developer <br />
-            from Madagascar. <br />
-            Passionate about technology, <br />
-            design, and innovation.
+            {t('hero.description.line1')} <br />
+            {t('hero.description.line2')} <br />
+            {t('hero.description.line3')} <br />
+            {t('hero.description.line4')}
           </motion.p>
 
           <motion.div
-            className="relative top-[-0.5rem] md:top-[1rem] lg:top-0 flex justify-center lg:justify-start lg:left-[25rem] gap-10 lg:gap-20"
+            className="relative top-[-0.5rem] md:top-[1rem] lg:top-0 flex justify-center lg:justify-start lg:left-[21rem] gap-10 lg:gap-20"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
@@ -148,7 +152,7 @@ const Hero = () => {
               }}
               className="px-4 py-2 border border-cyber-light rounded text-xs md:text-lg hover:bg-cyber-light hover:text-black transition-colors duration-300"
             >
-              Contact
+              {t('hero.contactButton')}
             </a>
           </motion.div>
         </div>
