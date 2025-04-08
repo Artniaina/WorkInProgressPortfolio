@@ -16,8 +16,10 @@ import Hfsql from "../assets/cloud_stockage-hfsql.svg";
 import Python from "../assets/PY.png";
 import ReactNative from "../assets/reactnative-inner.svg";
 import Node from "../assets/node.webp";
+import { useTranslation } from "react-i18next";
 
 const Skills = () => {
+  const  { t } = useTranslation();
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: false,
@@ -185,7 +187,7 @@ const Skills = () => {
 
           <div className="mt-8 pt-4 text-xs sm:text-sm md:text-base border-t border-cyber-light text-cyber-light font-mono w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl text-center">
             <div className="typing-animation">
-              $ Skills updated successfully. Version 3.2.0
+              {t('skills.subtitle3')}
             </div>
           </div>
         </motion.div>

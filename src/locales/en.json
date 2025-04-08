@@ -34,6 +34,15 @@
   "skills":{
     "title": "MY TECH STACK",
     "subtitle": "Tools and technologies I've worked with <br /> throughout my projects",
-    "subtile2":"MySkillsFolder"
+    "subtitle2":"MySkillsFolder",
+    "subtitle3":"$ Skills updated successfully. Version 3.2.0"
+  },
+  "thanks": {
+    "title": "HOW TO REACH ME",
+    "subtitle": "Would you be interested in working together? Feel free to reach out:D",
+    "yes": "Yes",
+    "maybe": "Maybe",
+    "gotIt": "Got it!",
+    "subtitle2": "My contacts"
   }
 }

@@ -4,8 +4,9 @@ import { IoHome } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Pixel from "../assets/pixell.png";
-
+import { useTranslation } from "react-i18next";
 const AboutFrame = () => {
+  const { t } = useTranslation();
   const { ref, inView } = useInView({
     threshold: 0.2,
   });
@@ -67,7 +68,7 @@ const AboutFrame = () => {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              My contacts
+              {t("thanks.subtitle2")}
             </motion.div>
 
             <div className="space-y-2 text-center md:space-y-4 lg:space-y-4">
@@ -145,7 +146,7 @@ const AboutFrame = () => {
             transition={{ duration: 0.5, delay: 1 }}
           >
             <button className="bg-purple-500 hover:bg-purple-600 text-white px-4 md:px-6 lg:px-6 py-1 md:py-2 lg:py-2 rounded text-sm md:text-lg lg:text-base">
-              got it!
+              {t("thanks.gotIt")}
             </button>
           </motion.div>
         </motion.div>
