@@ -2,49 +2,46 @@ import { FaGithub, FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "../assets/pinkbutter.jpg";
+import { useTranslation } from "react-i18next";
 
-const Projects: React.FC = () => {
+const Projects = () => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   const projects = [
     {
-      title: "Lawyer management Intranet",
-      description:
-        "Developed an intranet platform to manage a lawyer's bar and digitize internal processes.",
+      titleKey: "projects.items.lawyerManagement.title",
+      descriptionKey: "projects.items.lawyerManagement.description",
       stats: "",
       tech: "React • Redux • Webdev • Express • Node • HFSQL",
       githubLink: "https://github.com/Artniaina/AdvocatHub",
     },
     {
-      title: "E-commerce Platform",
-      description:
-        "Developed an e-commerce platform with features like product browsing, cart management, sales tracking, and user authentication.",
+      titleKey: "projects.items.ecommerce.title",
+      descriptionKey: "projects.items.ecommerce.description",
       stats: "",
       tech: "React • Redux • Express • Node • MySQL • MongoDB",
       githubLink: "https://github.com/Artniaina/E-commerceMERN",
     },
     {
-      title: "Classic Games Platform",
-      description:
-        "A platform to play some old classic games such as Tic-Tac-Toe, Snake, Brick Breaker, and Space Invader.",
+      titleKey: "projects.items.classicGames.title",
+      descriptionKey: "projects.items.classicGames.description",
       stats: "",
       tech: "JavaScript • HTML • CSS",
       githubLink: "https://github.com/Artniaina/Shaboom",
     },
     {
-      title: "Movie Search Application (PWA)",
-      description:
-        "Developed a PWA for searching movies, featuring offline support, and integration with a movie database API.",
+      titleKey: "projects.items.movieSearch.title",
+      descriptionKey: "projects.items.movieSearch.description",
       stats: "",
       tech: "React • PWA • Service Worker ",
       githubLink: "https://github.com/Artniaina/Pwa",
     },
     {
-      title: "2FA Authentication System",
-      description:
-        "Implemented a Two-Factor Authentication (2FA) system  with Google Authenticator integration.",
+      titleKey: "projects.items.twoFactor.title",
+      descriptionKey: "projects.items.twoFactor.description",
       stats: "",
       tech: "MySQL • Express • React • Node • JWT • OTP • Google Authenticator",
       githubLink: "https://github.com/Artniaina/2faSystem",
@@ -90,7 +87,7 @@ const Projects: React.FC = () => {
     return visibleCards;
   };
 
-  const ProjectCard = ({ project }: { project: any; index: number }) => (
+  const ProjectCard = ({ project, index }: { project: any; index: number }) => (
     <motion.div
       className="rounded h-[37rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[37rem]"
       whileHover={{
@@ -125,14 +122,14 @@ const Projects: React.FC = () => {
         </div>
         <div className="space-y-3 text-center p-3 md:p-5">
           <h2 className="text-xl text-pink-200 font-mono font-bold text-white md:text-2xl">
-            {project.title}
+            {t(project.titleKey)}
           </h2>
           <p className="text-[1.1rem] font-mono text-white md:text-lg">
-            {project.description}
+            {t(project.descriptionKey)}
           </p>
           <div className="mt-auto p-3 text-[0.8rem] text-white md:text-sm">
             <span className="text-[0.8rem] text-pink-300 md:text-sm">
-              Tech Stack and tools:
+              {t('projects.techStack')}
             </span>{" "}
             {project.tech}
           </div>
@@ -145,7 +142,7 @@ const Projects: React.FC = () => {
         className="absolute bottom-2 right-2 text-[10px] text-white flex items-center space-x-1 hover:text-pink-400 transition md:text-xs"
       >
         <FaGithub className="text-sm text-white" />
-        <span>View code</span>
+        <span>{t('projects.viewCode')}</span>
       </a>
     </motion.div>
   );
@@ -159,32 +156,32 @@ const Projects: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
     <motion.h1
- className="text-[#e44cff] mt-2 md:mt-4 text-center text-xl md:text-4xl mb-2 md:mb-2 font-bold tracking-wider" 
- style={{
-   textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
-   fontFamily: "'Press Start 2P', cursive"
- }}
-  initial={{ opacity: 0, y: -50 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.5 }}
->
-  TECHNICAL PROJECTS
-</motion.h1>
-<motion.p
-  className="mb-12 text-center text-white text-xs md:text-sm lg:text-lg"
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.7 }}
->
-  Here are some of the projects <br /> I have worked on.
-</motion.p>
+      className="text-[#e44cff] mt-2 md:mt-4 text-center text-xl md:text-4xl mb-2 md:mb-2 font-bold tracking-wider" 
+      style={{
+        textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
+        fontFamily: "'Press Start 2P', cursive"
+      }}
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.5 }}
+    >
+      {t('projects.title')}
+    </motion.h1>
+    <motion.p
+      className="mb-12 text-center text-white text-xs md:text-sm lg:text-lg"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.7 }}
+      dangerouslySetInnerHTML={{ __html: t('projects.subtitle') }}
+    />
+
       <div className="hidden md:block">
         <motion.button
           onClick={handlePrevious}
           className="absolute left-4 top-1/2 -translate-y-1/2 bg-purple-600 text-white p-3 border-2 border-white hover:bg-purple-700 transition shadow-md z-10"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          aria-label="Previous project"
+          aria-label={t('projects.navigation.previous')}
         >
           <FaChevronLeft />
         </motion.button>
@@ -194,7 +191,7 @@ const Projects: React.FC = () => {
           className="absolute right-4 top-1/2 -translate-y-1/2 bg-purple-600 text-white p-3 border-2 border-white hover:bg-purple-700 transition shadow-md z-10"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          aria-label="Next project"
+          aria-label={t('projects.navigation.next')}
         >
           <FaChevronRight />
         </motion.button>
@@ -205,7 +202,7 @@ const Projects: React.FC = () => {
             key={currentIndex}
             custom={direction}
             variants={{
-              enter: (direction: number) => ({
+              enter: (direction) => ({
                 x: direction > 0 ? 1000 : -1000,
                 opacity: 0,
               }),
@@ -214,7 +211,7 @@ const Projects: React.FC = () => {
                 opacity: 1,
                 rotateY: direction > 0 ? 360 : -360,
               },
-              exit: (direction: number) => ({
+              exit: (direction) => ({
                 x: direction < 0 ? 1000 : -1000,
                 opacity: 0,
               }),
@@ -366,7 +363,7 @@ const Projects: React.FC = () => {
               className="bg-purple-600 text-white p-2 border-2 border-white hover:bg-purple-700 transition shadow-md z-10"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              aria-label="Previous project"
+              aria-label={t('projects.navigation.previous')}
             >
               <FaChevronLeft />
             </motion.button>
@@ -378,7 +375,7 @@ const Projects: React.FC = () => {
               className="bg-purple-600 text-white p-2 border-2 border-white hover:bg-purple-700 transition shadow-md z-10"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              aria-label="Next project"
+              aria-label={t('projects.navigation.next')}
             >
               <FaChevronRight />
             </motion.button>

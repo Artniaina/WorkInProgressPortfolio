@@ -8,10 +8,10 @@
   "hero": {
     "title": "I AM KANTO",
     "typed": {
-      "juniorDev": "A JUNIOR DEVELOPER",
+      "juniorDev": "A DEVELOPER WEB/MOBILE",
       "fullStack": "A FULL-STACK DEV",
       "webDesigner": "A WEB DESIGNER",
-      "softwareEngineer": "A SOFTWARE ENGINEER"
+      "softwareEngineer": "AN ASPIRING ENGINEER"
     },
     "description": {
       "line1": "I am a web and mobile developer",
@@ -23,14 +23,43 @@
 
   },
   "about": {
+    "text":"AboutMe.txt",
     "title": "WHO AM I?",
     "subtitle": "Here is a brief description :D",
     "content": "I am <span style=\"font-weight: bold; color: #f472b6;\">ANDRIAHARINIAINA Kanto Fitiavana</span> <br />I am a <span style=\"color: #a78bfa;\">Software Engineering student</span> passionate about technology and interactivity to create innovative and engaging experiences. <br /><br /> As a <span style=\"color: #f472b6;\">Full-Stack Developer</span>, I specialize in building <span style=\"color: #f87171;\">scalable, high-performance applications</span> across both the frontend and backend. <br /><br /> Beyond functionality, I focus on delivering <span style=\"color: #a78bfa;\">seamless user experiences</span> through well-designed, intuitive interfaces that leave a lasting impression. <br />I am currently expanding my knowledge of advanced JavaScript <br /> frameworks and libraries, including <span style=\"color: #ec4899;\">Next.js, <br />NestJS and beyond</span> <img src={Animated} alt=\"Cute animation\" style=\"width: 8rem; position: relative; bottom: 5.6rem; left: 50%; transform: translateX(-50%); display: none;\" className=\"md:block lg:block\" />"
   },
-  "education": {
-    "title": "EDUCATION AND BACKGROUND",
-    "subtile": "My academic journey"
-  },
+  
+    "education": {
+      "title": "EDUCATION AND BACKGROUND",
+      "subtitle": "My academic journey",
+      "items": {
+        "master": {
+          "title": "Master's Degree in Information Systems Engineering",
+          "institution": "ESTI/ ESIEE-IT",
+          "period": "2025 - Present",
+          "description": "Currently pursuing at ESTI/ ESIEE-IT"
+        },
+        "bachelor": {
+          "title": "Bachelor's Degree in Computer Science",
+          "institution": "ESTI",
+          "period": "2022 - 2025",
+          "description": "Integration and Development Track:\"Ecole Supérieure des Technologies de l'Information\""
+        },
+        "english": {
+          "title": "English Diploma",
+          "institution": "MPTC",
+          "period": "December 2021",
+          "description": "Madagascar Professional Training Centre"
+        },
+        "baccalaureate": {
+          "title": "Scientific Baccalaureate",
+          "institution": "Les Bambinos II",
+          "period": "September 2021",
+          "description": "Scientific Baccalaureate at \"Les Bambinos II\""
+        }
+      }
+    }
+  ,
   "skills":{
     "title": "MY TECH STACK",
     "subtitle": "Tools and technologies I've worked with <br /> throughout my projects",
@@ -39,10 +68,42 @@
   },
   "thanks": {
     "title": "HOW TO REACH ME",
-    "subtitle": "Would you be interested in working together? Feel free to reach out:D",
+    "subtitle": "Would you be interested in working together? <br /> <span style=\"color: #f9a8d4; font-size: 15px;\">Feel free to reach out</span>",
     "yes": "Yes",
     "maybe": "Maybe",
     "gotIt": "Got it!",
     "subtitle2": "My contacts"
+  },
+  "projects": {
+  "title": "TECHNICAL PROJECTS",
+  "subtitle": "Here are some of the projects I have worked on.",
+  "viewCode": "View code",
+  "techStack": "Tech Stack and tools:",
+  "navigation": {
+    "previous": "Previous project",
+    "next": "Next project"
+  },
+  "items": {
+    "lawyerManagement": {
+      "title": "Lawyer management Intranet",
+      "description": "Developed an intranet platform to manage a lawyer's bar and digitize internal processes."
+    },
+    "ecommerce": {
+      "title": "E-commerce Platform",
+      "description": "Developed an e-commerce platform with features like product browsing, cart management, sales tracking, and user authentication."
+    },
+    "classicGames": {
+      "title": "Classic Games Platform",
+      "description": "A platform to play some old classic games such as Tic-Tac-Toe, Snake, Brick Breaker, and Space Invader."
+    },
+    "movieSearch": {
+      "title": "Movie Search Application (PWA)",
+      "description": "Developed a PWA for searching movies, featuring offline support, and integration with a movie database API."
+    },
+    "twoFactor": {
+      "title": "2FA Authentication System",
+      "description": "Implemented a Two-Factor Authentication (2FA) system with Google Authenticator integration."
+    }
   }
+}
 }

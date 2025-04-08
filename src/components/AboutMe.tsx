@@ -115,7 +115,7 @@ const AboutMe: React.FC = () => {
                 className="ml-16 lg:ml-20 text-white text-lg font-mono font-bold  md:text-xl lg:text-xl tracking-wide"
                 style={{ textShadow: "2px 2px 0 rgba(0,0,0,0.3)" }}
               >
-                AboutMe.txt
+                {t("about.text")}
               </div>
             </div>
 

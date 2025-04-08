@@ -81,7 +81,9 @@ const Thanks = () => {
             }}
           ></div>
           <p className="text-white mt-1 md:mt-2 mb-3 md:mb-6 text-base md:text-lg">
-            {t("thanks.subtitle")}
+           <div />
+           <div dangerouslySetInnerHTML={{ __html:  t("thanks.subtitle")}} />
+
           </p>
           <div className="space-y-1 md:space-y-2 text-white">
             {[`${t("thanks.yes")}`, `${t("thanks.maybe")}`].map((option, index) => (

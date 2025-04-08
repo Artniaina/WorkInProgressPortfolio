@@ -9,10 +9,10 @@
   "hero": {
     "title": "JE SUIS KANTO",
     "typed": {
-      "juniorDev": "UN DEVELOPPEUR JUNIOR",
+      "juniorDev": "UN DEVELOPPEUR WEB/MOBILE",
       "fullStack": "UN DEVELOPPEUR FULL-STACK",
       "webDesigner": "UN DESIGNER WEB",
-      "softwareEngineer": "UN INGÉNIEUR LOGICIEL"
+      "softwareEngineer": "UNE ASPIRANTE INGENIEUR"
     },
     "description": {
       "line1": "Je suis un développeur web et mobile",
@@ -24,26 +24,87 @@
   },
 
   "about": {
+    "text":"APropos.txt",
     "title": "QUI SUIS-JE ?",
     "subtitle": "Une brève description :D",
     "content": "Je suis <span style=\"font-weight: bold; color: #F472B6;\">ANDRIAHARINIAINA Kanto Fitiavana</span> <br />Etudiante en<span style=\"color: #A78BFA;\"> Génie Logiciel</span> passionnée par la Tech et l'interactivité pour créer des expériences innovantes. <br /><br /> En tant que <span style=\"color: #FB7185;\">Développeur Full-Stack</span>, je me spécialise dans la création d'<span style=\"color: #FCA5A5;\">applications évolutives et performantes</span> tant pour le frontend que le backend. <br /><br /> Au-delà de la fonctionnalité, je me concentre egalement sur la création d'<span style=\"color: #C084FC;\">expériences utilisateur fluides</span> à travers des interfaces intuitives et bien conçues. <br />Je suis actuellement en train d'approfondir mes connaissances des frameworks et <br />bibliothèques JavaScript avancés"
   },
-  "education": {
-    "title": "ÉDUCATION ET PARCOURS",
-    "subtitle": "Mon parcours académique"
-  },
+  
+    "education": {
+      "title": "EDUCATION ET PARCOURS",
+      "subtitle": "Mon parcours académique",
+      "items": {
+        "master": {
+          "title": "Master en Ingénierie des Systeme d'information",
+          "institution": "ESTI/ ESIEE-IT",
+          "period": "2025 - Présent",
+          "description": "Actuellement en cours à ESTI/ ESIEE-IT"
+        },
+        "bachelor": {
+          "title": "Licence en Informatique",
+          "institution": "ESTI",
+          "period": "2022 - 2025",
+          "description": "Parcours Integration et developpement : \"École Supérieure des Technologies de l'Information\""
+        },
+        "english": {
+          "title": "Diplôme d'Anglais",
+          "institution": "MPTC",
+          "period": "Décembre 2021",
+          "description": "Madagascar Professional Training Centre"
+        },
+        "baccalaureate": {
+          "title": "Baccalauréat Scientifique",
+          "institution": "Les Bambinos II",
+          "period": "Septembre 2021",
+          "description": "Baccalauréat Scientifique à \"Les Bambinos II\""
+        }
+      }
+      }
+    ,
   "skills": {
     "title": "MES COMPETENCES",
-    "subtitle": "Technologies et outils avec lesquels j'ai déja travaillé <br /> au cour de mes projets",
+    "subtitle": "Technologies et outils avec lesquels j'ai déjà travaillé <br /> au cours de mes projets",
     "subtitle2": "DossierDesCompétences",
     "subtitle3": "$ Mise à jour des compétences réussie. Version 3.2.0."
   },
   "thanks": {
     "title": "ME CONTACTER",
-    "subtitle": "Envie de collaborer ensemble ? N'hésitez pas à prendre contact :D",
+    "subtitle": "Envie de collaborer ensemble ? <br />  <span style=\"color: #f9a8d4; font-size: 15px;\"> N'hésitez pas à prendre contact Y</span>", 
     "yes": "Oui",
     "maybe": "Peut-être",
     "gotIt": "Compris !",
     "subtitle2": "Mes coordonnées"
+  },
+  "projects": {
+  "title": "PROJETS TECHNIQUES",
+  "subtitle": "Voici quelques projets sur lesquels j'ai travaillé.",
+  "viewCode": "Voir le code",
+  "techStack": "Technologies et outils :",
+  "navigation": {
+    "previous": "Projet précédent",
+    "next": "Projet suivant"
+  },
+  "items": {
+    "lawyerManagement": {
+      "title": "Intranet de gestion d'avocats",
+      "description": "Développement d'une plateforme intranet pour gérer un barreau d'avocats et numériser les processus internes."
+    },
+    "ecommerce": {
+      "title": "Plateforme E-commerce",
+      "description": "Développement d'une plateforme e-commerce avec des fonctionnalités comme la navigation des produits, la gestion du panier, le suivi des ventes et l'authentification des utilisateurs."
+    },
+    "classicGames": {
+      "title": "Plateforme de jeux classiques",
+      "description": "Une plateforme pour jouer à d'anciens jeux classiques comme le Morpion, Snake, Casse-briques et Space Invader."
+    },
+    "movieSearch": {
+      "title": "Application de recherche de films (PWA)",
+      "description": "Développement d'une PWA pour la recherche de films, avec support hors ligne et intégration d'une API de base de données de films."
+    },
+    "twoFactor": {
+      "title": "Système d'authentification 2FA",
+      "description": "Implémentation d'un système d'authentification à deux facteurs (2FA) avec intégration de Google Authenticator."
+    }
   }
+}
 }

@@ -4,6 +4,7 @@ import { GiGraduateCap } from "react-icons/gi";
 import { GiDiploma } from "react-icons/gi";
 import { LiaFlagUsaSolid } from "react-icons/lia";
 import { LiaSchoolSolid } from "react-icons/lia";
+import { useTranslation } from "react-i18next";
 
 interface EducationItem {
   title: string;
@@ -13,38 +14,41 @@ interface EducationItem {
   icon: JSX.Element;
 }
 
-const education: EducationItem[] = [
-  {
-    title: "Master's Degree in Software Engineering",
-    institution: "ESTI/ ESIEE-IT",
-    period: "2025 - Present",
-    description: "Currently pursuing at ESTI/ ESIEE-IT",
-    icon: <GiGraduateCap />,
-  },
-  {
-    title: "Bachelor's Degree in Computer Science",
-    institution: "ESTI",
-    period: " 2022 - 2025",
-    description: "Ecole Supérieure des Technologies de l'Information",
-    icon: <GiDiploma />,
-  },
-  {
-    title: "English Diploma",
-    institution: "MPTC",
-    period: "December 2021",
-    description: "Madagascar Professional Training Centre",
-    icon: <LiaFlagUsaSolid />,
-  },
-  {
-    title: "Scientific Baccalaureate",
-    institution: "Les Bambinos II",
-    period: "September 2021",
-    description: 'Scientific Baccalaureate at "Les Bambinos II"',
-    icon: <LiaSchoolSolid />,
-  },
-];
+
+
 
 const Education = () => {
+  const { t } = useTranslation();
+  const education: EducationItem[] = [
+    {
+      title: t('education.items.master.title'),
+      institution: t('education.items.master.institution'),
+      period: t('education.items.master.period'),
+      description: t('education.items.master.description'),
+      icon: <GiGraduateCap />,
+    },
+    {
+      title: t('education.items.bachelor.title'),
+      institution: t('education.items.bachelor.institution'),
+      period: t('education.items.bachelor.period'),
+      description: t('education.items.bachelor.description'),
+      icon: <GiDiploma />,
+    },
+    {
+      title: t('education.items.english.title'),
+      institution: t('education.items.english.institution'),
+      period: t('education.items.english.period'),
+      description: t('education.items.english.description'),
+      icon: <LiaFlagUsaSolid />,
+    },
+    {
+      title: t('education.items.baccalaureate.title'),
+      institution: t('education.items.baccalaureate.institution'),
+      period: t('education.items.baccalaureate.period'),
+      description: t('education.items.baccalaureate.description'),
+      icon: <LiaSchoolSolid />,
+    },
+  ];
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.05,
@@ -113,10 +117,10 @@ const Education = () => {
           className="text-center mb-8 md:mb-12 lg:mb-20"
         >
             <motion.h2 className="text-lg md:text-2xl lg:text-3xl font-bold pixelated">
-            EDUCATION AND BACKGROUND
+            {t("education.title")}
             </motion.h2>
           <motion.p className="text-gray-400 mt-2 md:mt-3 lg:mt-4 max-w-2xl mx-auto text-xs md:text-sm lg:text-base pixelated">
-            My academic journey
+            {t("education.subtitle")}
           </motion.p>
         </motion.div>
 
