@@ -1,12 +1,14 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { useTranslation } from "react-i18next";
 
 interface FrameProps {
   children: React.ReactNode;
 }
 
 const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
+  const { t } = useTranslation();
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.2,
@@ -47,10 +49,11 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
         initial="hidden"
         variants={variants}
       >
-        MY TECH STACK
+        {t("skills.title")}
+
       </motion.h1>
       <p className="mb-12 text-center text-white text-xs md:text-sm lg:text-lg">
-      Tools and technologies I've worked with <br /> throughout my projects
+        <div dangerouslySetInnerHTML={{ __html: t("skills.subtitle") }} />
     </p>
       <motion.div
         className="absolute inset-0 overflow-hidden pointer-events-none"
@@ -116,7 +119,7 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
 
         <div className="w-full h-full bg-cyber-dark  rounded-lg md:rounded-xl p-1 flex flex-col">
           <div className="border-b-2 border-[#B341F3]  p-1 font-mono text-sm md:text-base text-white flex-shrink-0">
-            SkillsFolder
+            {t("skills.subtitle2")}
           </div>
           
           <div className="flex-shrink-0  mt-1 ml-2 md:ml-6 pt-2 md:pt-4 border-t border-cyber-light/30 text-cyber-light text-xs md:text-sm font-mono"></div>

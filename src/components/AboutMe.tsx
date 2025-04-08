@@ -132,7 +132,7 @@ const AboutMe: React.FC = () => {
             </div>
           </div>
 
-          <div className="pl-4 py-2  md:p-6 lg:p-6 bg-black relative">
+          <div className="pl-4 py-0 md:p-6 lg:p-6 bg-black relative">
             <div
               className="relative max-h-[60vh]  sm:max-h-none overflow-y-auto pr-2"
               style={{
@@ -157,38 +157,11 @@ const AboutMe: React.FC = () => {
               <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
               <div className="text-white text-[1.2rem] md:text-2xl lg:text-xl relative left-2 font-mono space-y-4 md:space-y-6 lg:space-y-6 pr-4 md:pr-10 lg:pr-10">
                 <p className="leading-relaxed mb-4 md:mb-8 lg:mb-8">
-                  I am{" "}
-                  <span className="font-bold text-pink-300">
-                    ANDRIAHARINIAINA Kanto Fitiavana
-                  </span>{" "}
-                  <br />I am a{" "}
-                  <span className="text-purple-300">
-                  Software Engineering student
-                  </span>{" "}
-                  passionate about technology and interactivity to create
-                  innovative and engaging experiences. <br /> <br /> As a{" "}
-                  <span className="text-pink-400">Full-Stack Developer</span>, I
-                  specialize in building{" "}
-                  <span className="text-salmon-400">
-                    scalable, high-performance applications
-                  </span>{" "}
-                  across both the frontend and backend. <br /> <br />
-                  Beyond functionality, I focus on delivering{" "}
-                  <span className="text-purple-400">
-                    seamless user experiences
-                  </span>{" "}
-                  through well-designed, intuitive interfaces that leave a
-                  lasting impression. <br />I am currently expanding my
-                  knowledge of advanced JavaScript <br /> frameworks and
-                  libraries, including{" "}
-                  <span className="text-pink-500">
-                    Next.js, <br />
-                    NestJS and beyond
-                  </span>{" "}
+                <div dangerouslySetInnerHTML={{ __html: t("about.content") }} />
                   <img
                     src={Animated}
                     alt="Cute animation"
-                    className="w-[8rem] md:w-[10rem] lg:w-[10rem] relative bottom-[5.6rem] left-[50%] md:left-[50%] lg:left-[42rem] transform -translate-x-1/2 md:-translate-x-1/2 lg:transform-none hidden md:block"
+                    className="w-[8rem] md:w-[10rem] lg:w-[11rem] relative bottom-[5.6rem] left-[50%] md:left-[70%] lg:left-[80%] lg:top-[-5rem] transform -translate-x-1/2 md:-translate-x-1/2 lg:transform-none hidden md:block"
                   />
                 </p>
               </div>

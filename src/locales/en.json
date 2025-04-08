@@ -1,13 +1,11 @@
-
 {
-  
-    "navbar": {
-        "home": "HOME",
-        "about": "ABOUT",
-        "skills": "SKILLS",
-        "projects": "PROJECTS"
-    },
-    "hero": {
+  "navbar": {
+    "home": "HOME",
+    "about": "ABOUT",
+    "skills": "SKILLS",
+    "projects": "PROJECTS"
+  },
+  "hero": {
     "title": "I AM KANTO",
     "typed": {
       "juniorDev": "A JUNIOR DEVELOPER",
@@ -21,18 +19,21 @@
       "line3": "Passionate about technology,",
       "line4": "design, and innovation."
     },
-  "contactButton": "Contact",
-    "footer": {
-      "copyright": "© 2025 My Portfolio"
-    },
-    "about": {
-      "title": "WHO AM I?",
-      "subtitle": "Here is a brief description :D"
-    },
-    "education": {
-      "title": "EDUCATION AND BACKGROUND",
-      "subtile": "My academic journey"
-      }
-    }
+    "contactButton": "Contact"
+
+  },
+  "about": {
+    "title": "WHO AM I?",
+    "subtitle": "Here is a brief description :D",
+    "content": "I am <span style=\"font-weight: bold; color: #f472b6;\">ANDRIAHARINIAINA Kanto Fitiavana</span> <br />I am a <span style=\"color: #a78bfa;\">Software Engineering student</span> passionate about technology and interactivity to create innovative and engaging experiences. <br /><br /> As a <span style=\"color: #f472b6;\">Full-Stack Developer</span>, I specialize in building <span style=\"color: #f87171;\">scalable, high-performance applications</span> across both the frontend and backend. <br /><br /> Beyond functionality, I focus on delivering <span style=\"color: #a78bfa;\">seamless user experiences</span> through well-designed, intuitive interfaces that leave a lasting impression. <br />I am currently expanding my knowledge of advanced JavaScript <br /> frameworks and libraries, including <span style=\"color: #ec4899;\">Next.js, <br />NestJS and beyond</span> <img src={Animated} alt=\"Cute animation\" style=\"width: 8rem; position: relative; bottom: 5.6rem; left: 50%; transform: translateX(-50%); display: none;\" className=\"md:block lg:block\" />"
+  },
+  "education": {
+    "title": "EDUCATION AND BACKGROUND",
+    "subtile": "My academic journey"
+  },
+  "skills":{
+    "title": "MY TECH STACK",
+    "subtitle": "Tools and technologies I've worked with <br /> throughout my projects",
+    "subtile2":"MySkillsFolder"
   }
-  
+}

@@ -11,8 +11,7 @@ import Education from "./components/Education";
 import Header from "./components/Header";
 import CustomCursor from "./components/CustomCursor";
 import CursorImage from "./assets/smt.png";
-import { motion } from "framer-motion";
-import Planet from "./assets/planet.gif";
+// import Planet from "./assets/planet.gif";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

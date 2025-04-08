@@ -11,8 +11,8 @@
   "hero": {
     "title": "JE SUIS KANTO",
     "typed": {
-      "juniorDev": "UN DÉVELOPPEUR JUNIOR",
-      "fullStack": "UN DÉVELOPPEUR FULL-STACK",
+      "juniorDev": "UN DEVELOPPEUR JUNIOR",
+      "fullStack": "UN DEVELOPPEUR FULL-STACK",
       "webDesigner": "UN DESIGNER WEB",
       "softwareEngineer": "UN INGÉNIEUR LOGICIEL"
     },
@@ -24,17 +24,20 @@
     },
     "contactButton": "Contact"
   },
-    "footer": {
-      "copyright": "© 2025 My Portfolio"
-    },
+
     "about": {
       "title": "QUI SUIS-JE ?",
-      "subtitle": "Une brève description :D"
-    },
+      "subtitle": "Une brève description :D",
+      "content": "Je suis <span style=\"font-weight: bold; color: #F472B6;\">ANDRIAHARINIAINA Kanto Fitiavana</span> <br />Etudiante en<span style=\"color: #A78BFA;\"> Génie Logiciel</span> passionnée par la Tech et l'interactivité pour créer des expériences innovantes. <br /><br /> En tant que <span style=\"color: #FB7185;\">Développeur Full-Stack</span>, je me spécialise dans la création d'<span style=\"color: #FCA5A5;\">applications évolutives et performantes</span> tant pour le frontend que le backend. <br /><br /> Au-delà de la fonctionnalité, je me concentre egalement sur la création d'<span style=\"color: #C084FC;\">expériences utilisateur fluides</span> à travers des interfaces intuitives et bien conçues. <br />Je suis actuellement en train d'approfondir mes connaissances des frameworks et <br />bibliothèques JavaScript avancés"  },
     "education": {
       "title": "ÉDUCATION ET PARCOURS",
       "subtitle": "Mon parcours académique"
-    
+    },
+    "skills":{
+      "title": "MES COMPETENCES",
+      "subtitle": "Technologies et outils avec lesquels j'ai travaillé <br /> tout au long de mes projets",
+      "subtile2":"DossierCompétencesXD"
     }
   }
+
   
