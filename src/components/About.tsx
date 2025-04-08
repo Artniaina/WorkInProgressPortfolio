@@ -2,8 +2,10 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import FrameWorkLol from "./FrameWorkLol";
+import { useTranslation } from "react-i18next";
 
 const About: React.FC = () => {
+  const { t } = useTranslation();
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.2,
@@ -31,7 +33,7 @@ const About: React.FC = () => {
         initial="hidden"
         variants={variants}
       >
-        ABOUT ME
+        {t("about.title")}
       </motion.h1>
       <div className="flex flex-row relative -top-4 justify-center items-center w-full space-x-8">
         <div className="h-[37rem]">

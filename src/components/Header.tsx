@@ -190,7 +190,7 @@ const Header = () => {
           {t("navbar.projects")} 
         </motion.a>
 
-        {/* <LanguageSwitcher /> */}
+        <LanguageSwitcher />
 
       </div>
     </motion.div>

@@ -4,8 +4,10 @@ import { useInView } from "react-intersection-observer";
 import Image from "../assets/hehe.png";
 import Animated from "../assets/accc.gif";
 import { IoTriangleSharp } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 
 const AboutMe: React.FC = () => {
+  const { t } = useTranslation();
   const controls = useAnimation();
   const { ref, inView } = useInView({
     threshold: 0.2,
@@ -46,13 +48,14 @@ const AboutMe: React.FC = () => {
        animate={{ opacity: 1, y: 0 }}
        transition={{ duration: 0.6, delay: 0.5 }}
      >
-       WHO AM I? <motion.p
+        {t("about.title")}
+       <motion.p
        className="mb-12  relative lg:left-20 left-0 text-center text-white text-xs md:text-sm lg:text-sm opacity-80 mt-2 md:mt-2 lg:mt-2"
        initial={{ opacity: 0, y: 20 }}
        animate={{ opacity: 1, y: 0 }}
        transition={{ duration: 0.6, delay: 0.7 }}
      >
-            Here is a brief description :D
+            {t("about.subtitle")}
             </motion.p>
      </motion.h1>
     

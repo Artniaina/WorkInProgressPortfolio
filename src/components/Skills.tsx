@@ -185,7 +185,7 @@ const Skills = () => {
 
           <div className="mt-8 pt-4 text-xs sm:text-sm md:text-base border-t border-cyber-light text-cyber-light font-mono w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl text-center">
             <div className="typing-animation">
-              $ Skills updated successfully. Version 3.0.0
+              $ Skills updated successfully. Version 3.2.0
             </div>
           </div>
         </motion.div>
