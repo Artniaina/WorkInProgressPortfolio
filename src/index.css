@@ -32,7 +32,6 @@ body {
   border-radius: 4px;
 }
 
-/* Pixelated Image Effects */
 .pixelated-image {
   image-rendering: pixelated;
   width: 100%;

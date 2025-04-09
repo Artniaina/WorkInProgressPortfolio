@@ -57,9 +57,9 @@ const AboutMe: React.FC = () => {
   return (
     <div
       id="about"
-      className="flex relative items-center min-h-screen pt-12 justify-center pb-12 flex-col overflow-hidden"
+      className="flex relative items-center min-h-[100dvh] pt-12 justify-center pb-12 flex-col overflow-hidden"
     >
-      <div>
+      <div className="w-full max-w-[90rem] px-4">
         <motion.h1
           className="text-[#e44cff] mt-2 md:mt-4 text-center text-xl md:text-4xl mb-2 font-bold tracking-wider" 
           style={{
@@ -82,7 +82,7 @@ const AboutMe: React.FC = () => {
         </motion.h1>
       </div>
 
-      <div className="flex flex-col md:flex-col lg:flex-row gap-8 relative z-10 lg:right-[5rem] lg:bottom-[2rem] items-center">
+      <div className="flex flex-col md:flex-col lg:flex-row gap-8 relative z-10 lg:right-[5rem] lg:bottom-[2rem] items-center w-full max-w-[90rem] px-4">
         <motion.div
           className="w-[10rem] h-[11rem] p-1 md:w-[15rem] md:h-[17rem] lg:w-[14rem] lg:h-[17rem] bg-[#2a1245] rounded-full z-40 relative lg:left-[6rem] lg:bottom-[10rem] overflow-hidden border-4 border-[#e44cff] shadow-[0_0_20px_#e44cff] pixelated-frame"
           ref={ref}
@@ -90,11 +90,12 @@ const AboutMe: React.FC = () => {
           animate={controls}
           variants={fadeInUp}
         >
-          <div className="relative">
+          <div className="relative w-full h-full">
             <img
               src={Image}
               alt="Profile"
-              className="rounded-full pixelated-image"
+              className="rounded-full pixelated-image w-full h-full object-cover"
+              loading="lazy"
             />
           </div>
         </motion.div>
@@ -113,7 +114,7 @@ const AboutMe: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="w-[90vw] md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative lg:left-[2rem] lg:top-4 overflow-hidden border-2 md:border-4 border-purple-600 shadow-2xl z-20 rounded-lg lg:rounded-tl-none"
+          className="w-full md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative lg:left-[2rem] lg:top-4 overflow-hidden border-2 md:border-4 border-purple-600 shadow-2xl z-20 rounded-lg lg:rounded-tl-none"
           ref={ref}
           initial="hidden"
           animate={controls}
@@ -153,10 +154,11 @@ const AboutMe: React.FC = () => {
 
           <div className="pl-4 py-0 md:p-6 bg-black relative">
             <div
-              className="relative max-h-[60vh] sm:max-h-none overflow-y-auto pr-2"
+              className="relative max-h-[60dvh] sm:max-h-none overflow-y-auto pr-2"
               style={{
                 scrollbarWidth: "auto",
                 scrollbarColor: "#e44cff #2a1245",
+                WebkitOverflowScrolling: "touch"
               }}
             >
               <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
@@ -167,6 +169,7 @@ const AboutMe: React.FC = () => {
                     src={Animated}
                     alt="Cute animation"
                     className="w-[8rem] md:w-[10rem] lg:w-[11rem] relative bottom-[5.6rem] left-[50%] md:left-[70%] lg:left-[80%] lg:top-[-5rem] transform -translate-x-1/2 lg:transform-none hidden md:block"
+                    loading="lazy"
                   />
                 </div>
               </div>
