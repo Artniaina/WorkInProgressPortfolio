@@ -48,13 +48,13 @@ function App() {
       <div className="min-h-screen bg-cyber-dark flex flex-col items-center justify-center px-4">
         <div className="mb-2 flex">
           <span className="animate-[bounce_1.1s_infinite]">
-            <img src={Stickers} width="70" height="70" alt="Sticker" />
+            <img src={Stickers} width="70" height="70"  />
           </span>
           <span className="animate-[bounce_1.3s_infinite]">
-            <img src={Stickers} width="70" height="70" alt="Sticker" />
+            <img src={Stickers} width="70" height="70"  />
           </span>
           <span className="animate-[bounce_0.9s_infinite]">
-            <img src={Stickers} width="70" height="70" alt="Sticker" />
+            <img src={Stickers} width="70" height="70"  />
           </span>
         </div>
 
@@ -62,16 +62,16 @@ function App() {
           <h2 className="text-xl font-bold text-purple-300 mb-2">Loading...</h2>
         </div>
 
-        <div className="hidden md:block w-full max-w-md h-3 bg-purple-900/50 rounded-full overflow-hidden backdrop-blur border-2 border-purple-500">
+        <div className="hidden md:block w-full max-w-md h-3 bg-purple-900/50 rounded-full overflow-hidden border-2 border-purple-500">
           <div
-            className="h-full bg-gradient-to-r from-purple-500 via-pink-400 to-purple-300 rounded-full shadow-[0_0_10px_rgba(192,132,252,0.7)]"
+            className="h-full bg-gradient-to-r from-purple-500 via-pink-400 to-purple-300 rounded-full"
             style={{ width: `${progress}%`, transition: "width 0.3s ease-out" }}
           />
         </div>
 
-        <div className="md:hidden w-full max-w-xs h-4 bg-purple-900/50 rounded-full overflow-hidden backdrop-blur border border-purple-500">
+        <div className="md:hidden w-full max-w-xs h-4 bg-purple-900/50 rounded-full overflow-hidden border border-purple-500">
           <div
-            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-[0_0_8px_rgba(192,132,252,0.7)]"
+            className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
             style={{ width: `${progress}%`, transition: "width 0.2s ease-out" }}
           />
         </div>
@@ -149,52 +149,34 @@ function App() {
         showContent ? "animate-fadeIn" : "opacity-0"
       }`}
     >
-      {/* {planets.map((planet) => (
-        <motion.img
-          key={planet.id}
-          src={Planet}
-          alt="Planet"
-          className="absolute"
-          style={{
-            top: planet.top,
-            left: planet.left,
-            width: planet.size,
-            height: planet.size,
-            opacity: planet.opacity,
-            zIndex: planet.zIndex,
-          }}
-          animate={planet.animate}
-          transition={planet.transition}
-        />
-      ))} */}
       <CustomCursor size={20} imageSrc={CursorImage} trailEffect={true} />
       <Header />
-      <main id="home" className="min-h-[100vh]">
+      <main id="home">
         <Hero />
       </main>
-      <section id="about" className="min-h-[100vh]">
+      <section id="about" >
         <div>
           <AboutMe />
         </div>
       </section>
-      <section id="education" className="min-h-[100vh]">
+      <section id="education">
         <div>
           <Education />
         </div>
       </section>
-      <section id="skills" className="bg-cyber-purple/10 min-h-[100vh]">
+      <section id="skills" className="bg-cyber-purple/10">
         <div>
           <SkillsFrame>
             <Skills />
           </SkillsFrame>
         </div>
       </section>
-      <section id="projects" className="min-h-[100vh]">
+      <section id="projects" >
         <div>
           <Projects />
         </div>
       </section>
-      <section id="contacts" className="bg-cyber-purple/10 min-h-[100vh]">
+      <section id="contacts" className="bg-cyber-purple/10 ">
         <div>
           <Contacts />
         </div>

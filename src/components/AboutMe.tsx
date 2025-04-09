@@ -35,41 +35,38 @@ const AboutMe: React.FC = () => {
       id="about"
       className="flex relative items-center min-h-screen pt-12 justify-center pb-12 flex-col overflow-hidden"
     >
-    
-
-      <div className=" ">
-     <motion.h1
-      className="text-[#e44cff] mt-2 md:mt-4 text-center text-xl md:text-4xl mb-2 md:mb-2 font-bold tracking-wider" 
-      style={{
-        textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
-        fontFamily: "'Press Start 2P', cursive"
-      }}
-      animate={controls}
-      initial="hidden"
-      variants={{
-        hidden: { scale: 0.8, opacity: 0 },
-        visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
-      }}
-     >
-        {t("about.title")}
-       <motion.p
-       className="mb-12  relative  left-0 text-center text-white text-xs md:text-sm lg:text-sm opacity-80 mt-2 md:mt-2 lg:mt-2"
-       animate={controls}
-       initial="hidden"
-       variants={{
-         hidden: { scale: 0.8, opacity: 0 },
-         visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
-       }}
-     >
+      <div>
+        <motion.h1
+          className="text-[#e44cff] mt-2 md:mt-4 text-center text-xl md:text-4xl mb-2 font-bold tracking-wider" 
+          style={{
+            textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
+            fontFamily: "'Press Start 2P', cursive"
+          }}
+          animate={controls}
+          initial="hidden"
+          variants={{
+            hidden: { scale: 0.8, opacity: 0 },
+            visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
+          }}
+        >
+          {t("about.title")}
+          <motion.p
+            className="mb-12 text-center text-white text-xs md:text-sm opacity-80 mt-2"
+            animate={controls}
+            initial="hidden"
+            variants={{
+              hidden: { scale: 0.8, opacity: 0 },
+              visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
+            }}
+          >
             {t("about.subtitle")}
-            </motion.p>
-     </motion.h1>
-    
+          </motion.p>
+        </motion.h1>
       </div>
 
-      <div className="flex flex-col md:flex-col lg:flex-row gap-8 relative z-10 md:right-0 lg:right-[5rem] md:bottom-0 lg:bottom-[2rem] items-center">
+      <div className="flex flex-col md:flex-col lg:flex-row gap-8 relative z-10 lg:right-[5rem] lg:bottom-[2rem] items-center">
         <motion.div
-          className="w-[10rem] h-[11rem] lg:p-0 lg:w-[14rem] md:w-[15rem]  md:h-[17rem] lg:h-[17rem] bg-[#2a1245] rounded-full p-1 z-40 relative md:left-0 lg:left-[6rem] md:bottom-0 lg:bottom-[10rem] overflow-hidden border-4 border-[#e44cff] shadow-[0_0_20px_#e44cff] pixelated-frame"
+          className="w-[10rem] h-[11rem] p-1 md:w-[15rem] md:h-[17rem] lg:w-[14rem] lg:h-[17rem] bg-[#2a1245] rounded-full z-40 relative lg:left-[6rem] lg:bottom-[10rem] overflow-hidden border-4 border-[#e44cff] shadow-[0_0_20px_#e44cff] pixelated-frame"
           animate={controls}
           initial="hidden"
           variants={{
@@ -91,22 +88,22 @@ const AboutMe: React.FC = () => {
           initial="hidden"
           animate={controls}
           variants={variants2}
-          className="z-20 relative  bottom-[14.8rem]  hidden md:hidden lg:block"
+          className="z-20 relative bottom-[14.8rem] hidden lg:block"
         >
           <IoTriangleSharp
-            className="text-purple-600 text-[5.5rem] relative right-[-5.7rem]  z-10 top-[-0.1rem] "
+            className="text-purple-600 text-[5.5rem] relative right-[-5.7rem] z-10 top-[-0.1rem]"
             style={{ transform: "rotate(28deg)" }}
           />
         </motion.div>
 
         <motion.div
-          className=" w-[90vw] md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative md:left-0 lg:left-[2rem] md:top-0 lg:top-4 overflow-hidden border-2  md:border-4 border-purple-600 shadow-2xl z-20 rounded-lg lg:rounded-tl-none"
+          className="w-[90vw] md:w-[90%] md:h-[47rem] lg:w-[55rem] lg:h-[35rem] mb-4 relative lg:left-[2rem] lg:top-4 overflow-hidden border-2 md:border-4 border-purple-600 shadow-2xl z-20 rounded-lg lg:rounded-tl-none"
           ref={ref}
           initial="hidden"
           animate={controls}
           variants={variants2}
         >
-          <div className="px-4 py-2 h-[3rem]  bg-purple-600 flex items-center justify-between relative">
+          <div className="px-4 py-2 h-[3rem] bg-purple-600 flex items-center justify-between relative">
             <div className="absolute left-0 top-0 flex">
               {[...Array(3)].map((_, i) => (
                 <div
@@ -118,7 +115,7 @@ const AboutMe: React.FC = () => {
 
             <div className="flex justify-between items-center px-4">
               <div
-                className="ml-16 lg:ml-20 text-white text-lg font-mono font-bold  md:text-xl lg:text-xl tracking-wide"
+                className="ml-16 lg:ml-20 text-white text-lg font-mono font-bold md:text-xl tracking-wide"
                 style={{ textShadow: "2px 2px 0 rgba(0,0,0,0.3)" }}
               >
                 {t("about.text")}
@@ -138,9 +135,9 @@ const AboutMe: React.FC = () => {
             </div>
           </div>
 
-          <div className="pl-4 py-0 md:p-6 lg:p-6 bg-black relative">
+          <div className="pl-4 py-0 md:p-6 bg-black relative">
             <div
-              className="relative max-h-[60vh]  sm:max-h-none overflow-y-auto pr-2"
+              className="relative max-h-[60vh] sm:max-h-none overflow-y-auto pr-2"
               style={{
                 scrollbarWidth: "auto",
                 scrollbarColor: "#e44cff #2a1245",
@@ -161,13 +158,13 @@ const AboutMe: React.FC = () => {
               `}
               </style>
               <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
-              <div className="text-white text-[1.2rem] md:text-2xl lg:text-xl relative left-2 font-mono space-y-4 md:space-y-6 lg:space-y-6 pr-4 md:pr-10 lg:pr-10">
-                <div className="leading-relaxed mb-4 md:mb-8 lg:mb-8">
-                <div dangerouslySetInnerHTML={{ __html: t("about.content") }} />
+              <div className="text-white text-[1.2rem] md:text-2xl lg:text-xl relative left-2 font-mono space-y-4 md:space-y-6 pr-4 md:pr-10">
+                <div className="leading-relaxed mb-4 md:mb-8">
+                  <div dangerouslySetInnerHTML={{ __html: t("about.content") }} />
                   <img
                     src={Animated}
                     alt="Cute animation"
-                    className="w-[8rem] md:w-[10rem] lg:w-[11rem] relative bottom-[5.6rem] left-[50%] md:left-[70%] lg:left-[80%] lg:top-[-5rem] transform -translate-x-1/2 md:-translate-x-1/2 lg:transform-none hidden md:block"
+                    className="w-[8rem] md:w-[10rem] lg:w-[11rem] relative bottom-[5.6rem] left-[50%] md:left-[70%] lg:left-[80%] lg:top-[-5rem] transform -translate-x-1/2 lg:transform-none hidden md:block"
                   />
                 </div>
               </div>
