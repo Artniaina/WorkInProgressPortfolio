@@ -9,25 +9,49 @@ import { useTranslation } from "react-i18next";
 const AboutMe: React.FC = () => {
   const { t } = useTranslation();
   const controls = useAnimation();
-  const { ref, inView } = useInView({
+  const [ref, inView] = useInView({
     threshold: 0.2,
+    triggerOnce: false,
   });
-  useEffect(() => {
-    controls.start("hidden");
-  }, [controls]);
 
   useEffect(() => {
     if (inView) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
     }
   }, [controls, inView]);
 
+  const fadeInUp = {
+    hidden: { 
+      opacity: 0, 
+      y: 60,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
 
-  const variants2 = {
-    hidden: { opacity: 0, x: -70 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.9 } },
+  const slideIn = {
+    hidden: { 
+      opacity: 0, 
+      x: -70,
+      scale: 0.95
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.9,
+        ease: "easeOut"
+      }
+    }
   };
 
   return (
@@ -42,22 +66,16 @@ const AboutMe: React.FC = () => {
             textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
             fontFamily: "'Press Start 2P', cursive"
           }}
-          animate={controls}
           initial="hidden"
-          variants={{
-            hidden: { scale: 0.8, opacity: 0 },
-            visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
-          }}
+          animate={controls}
+          variants={fadeInUp}
         >
           {t("about.title")}
           <motion.p
             className="mb-12 text-center text-white text-xs md:text-sm opacity-80 mt-2"
-            animate={controls}
             initial="hidden"
-            variants={{
-              hidden: { scale: 0.8, opacity: 0 },
-              visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
-            }}
+            animate={controls}
+            variants={fadeInUp}
           >
             {t("about.subtitle")}
           </motion.p>
@@ -67,17 +85,15 @@ const AboutMe: React.FC = () => {
       <div className="flex flex-col md:flex-col lg:flex-row gap-8 relative z-10 lg:right-[5rem] lg:bottom-[2rem] items-center">
         <motion.div
           className="w-[10rem] h-[11rem] p-1 md:w-[15rem] md:h-[17rem] lg:w-[14rem] lg:h-[17rem] bg-[#2a1245] rounded-full z-40 relative lg:left-[6rem] lg:bottom-[10rem] overflow-hidden border-4 border-[#e44cff] shadow-[0_0_20px_#e44cff] pixelated-frame"
-          animate={controls}
+          ref={ref}
           initial="hidden"
-          variants={{
-            hidden: { scale: 0.8, opacity: 0 },
-            visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
-          }}
+          animate={controls}
+          variants={fadeInUp}
         >
           <div className="relative">
             <img
               src={Image}
-              alt="Hehe"
+              alt="Profile"
               className="rounded-full pixelated-image"
             />
           </div>
@@ -87,7 +103,7 @@ const AboutMe: React.FC = () => {
           ref={ref}
           initial="hidden"
           animate={controls}
-          variants={variants2}
+          variants={slideIn}
           className="z-20 relative bottom-[14.8rem] hidden lg:block"
         >
           <IoTriangleSharp
@@ -101,7 +117,7 @@ const AboutMe: React.FC = () => {
           ref={ref}
           initial="hidden"
           animate={controls}
-          variants={variants2}
+          variants={slideIn}
         >
           <div className="px-4 py-2 h-[3rem] bg-purple-600 flex items-center justify-between relative">
             <div className="absolute left-0 top-0 flex">
@@ -143,20 +159,6 @@ const AboutMe: React.FC = () => {
                 scrollbarColor: "#e44cff #2a1245",
               }}
             >
-              <style>
-                {`
-              ::-webkit-scrollbar {
-                width: 20px;
-              }
-              ::-webkit-scrollbar-track {
-                background: #2a1245;
-              }
-              ::-webkit-scrollbar-thumb {
-                background-color: #e44cff;
-                border-radius: 4px;
-              }
-              `}
-              </style>
               <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
               <div className="text-white text-[1.2rem] md:text-2xl lg:text-xl relative left-2 font-mono space-y-4 md:space-y-6 pr-4 md:pr-10">
                 <div className="leading-relaxed mb-4 md:mb-8">

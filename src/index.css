@@ -19,7 +19,43 @@ body {
     0 0 0 4px #6B1FB1;
   image-rendering: pixelated;
 }
+::-webkit-scrollbar {
+  width: 20px;
+}
 
+::-webkit-scrollbar-track {
+  background: #2a1245;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e44cff;
+  border-radius: 4px;
+}
+
+/* Pixelated Image Effects */
+.pixelated-image {
+  image-rendering: pixelated;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pixelated-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.pixelated-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 20px rgba(228, 76, 255, 0.5);
+  pointer-events: none;
+  z-index: 1;
+}
 .retro-shadow {
   text-shadow: 
     2px 2px 0 #FF2E93,
@@ -39,7 +75,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #111827; /* Match your background color */
+  background: #111827;
 }
 
 .glitch-effect::before {
