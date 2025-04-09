@@ -11,6 +11,57 @@ function Game() {
   const [isJumping, setIsJumping] = useState(false);
   const [currentLogo, setCurrentLogo] = useState(0);
   const [obstaclePosition, setObstaclePosition] = useState(100);
+  const [wa, setWa] = useState(localStorage.getItem('language') || 'en');
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const newStoredWa = localStorage.getItem('language') || 'en';
+      setWa(newStoredWa);
+    };
+  
+    window.addEventListener('storage', handleStorageChange);
+  
+    const interval = setInterval(() => {
+      const current = localStorage.getItem('language') || 'en';
+      if (current !== wa) {
+        setWa(current);
+      }
+    }, 500);
+  
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
+  }, [wa]);
+  
+
+  const stringToTyped = wa == 'en' 
+    ? `<pre><code><span class="text-green-500 w-[25rem]">/*The future depends on what 
+    we do in the present."*/</span><br/> const <span class="text-cyan-400">pursueGoal</span> = <span class="text-yellow-400">goal</span> =&gt; {
+    <span class="text-cyan-400">    if</span> (<span class="text-green-400">isAchievable</span>(<span class="text-yellow-400">goal</span>)) {
+    <span class="text-purple-400">         workHard</span>(<span class="text-yellow-400">goal</span>);
+    <span class="text-cyan-400">    if</span> (<span class="text-green-400">faceChallenges</span>(<span class="text-yellow-400">goal</span>)) {
+    <span class="text-pink-500">         stayPositive</span>();
+    <span class="text-purple-400">         seekSupport</span>();
+    <span class="text-purple-400">         workHard</span>(<span class="text-yellow-400">goal</span>);
+          }
+        } <span class="text-cyan-400">else</span> {
+    <span class="text-pink-500">       setRealisticExpectations</span>(<span class="text-yellow-400">goal</span>);
+        }
+    };</code></pre>`
+    : `<pre><code><span class="text-green-500 w-[25rem]">/*L'avenir dépend de ce que 
+    nous faisons dans le présent."*/</span><br/> const <span class="text-cyan-400">poursuivreObjectif</span> = <span class="text-yellow-400">objectif</span> =&gt; {
+    <span class="text-cyan-400">    if</span> (<span class="text-green-400">estRealisable</span>(<span class="text-yellow-400">objectif</span>)) {
+    <span class="text-purple-400">         travaillerDur</span>(<span class="text-yellow-400">objectif</span>);
+    <span class="text-cyan-400">    if</span> (<span class="text-green-400">affronterDefis</span>(<span class="text-yellow-400">objectif</span>)) {
+    <span class="text-pink-500">         resterPositif</span>();
+    <span class="text-purple-400">         chercherSoutien</span>();
+    <span class="text-purple-400">         travaillerDur</span>(<span class="text-yellow-400">objectif</span>);
+          }
+        } <span class="text-cyan-400">else</span> {
+    <span class="text-pink-500">       fixerAttentesRealistes</span>(<span class="text-yellow-400">objectif</span>);
+        }
+    };</code></pre>`;
 
   useEffect(() => {
     const moveObstacle = () => {
@@ -43,32 +94,19 @@ function Game() {
           ))}
         </div>
      
-        <div className="absolute bottom-[5rem] text-sm   md:ml-[4rem] transform text-center">
+        <div className="absolute bottom-[5rem] text-sm md:ml-[4rem] transform text-center">
   
-            <div className="text-sm md:text-lg text-left p-2  rounded-md overflow-x-auto text-gray-300 shadow-lg border-pink-500">
+            <div className="text-sm md:text-lg text-left p-2 rounded-md overflow-x-auto text-gray-300 shadow-lg border-pink-500">
               <ReactTyped
-              strings={[
-              `<pre><code><span class="text-green-500 w-[25rem]">/*The future depends on what 
-we do in the present."*/</span><br/> const <span class="text-cyan-400">pursueGoal</span> = <span class="text-yellow-400">goal</span> =&gt; {
-<span class="text-cyan-400">    if</span> (<span class="text-green-400">isAchievable</span>(<span class="text-yellow-400">goal</span>)) {
-<span class="text-purple-400">         workHard</span>(<span class="text-yellow-400">goal</span>);
-<span class="text-cyan-400">    if</span> (<span class="text-green-400">faceChallenges</span>(<span class="text-yellow-400">goal</span>)) {
-<span class="text-pink-500">         stayPositive</span>();
-<span class="text-purple-400">         seekSupport</span>();
-<span class="text-purple-400">         workHard</span>(<span class="text-yellow-400">goal</span>);
-      }
-    } <span class="text-cyan-400">else</span> {
-<span class="text-pink-500">       setRealisticExpectations</span>(<span class="text-yellow-400">goal</span>);
-    }
-};</code></pre>`,
-              ]}
-              typeSpeed={40}
-              backSpeed={5}
-              loop={true}
+                strings={[stringToTyped]}
+                typeSpeed={40}
+                backSpeed={5}
+                loop={true}
               />
             </div>
         </div>
-        {/* ITY DIA TEST TS NETY, FA TIAKO DONC TS HO FAFAKO XD */}
+        
+        {/* Comments and other UI elements preserved from original code */}
         {/* <div className="absolute bottom-[80px] w-full h-1 bg-purple-500 shadow-[0_0_20px_rgba(236,72,153,0.5)]"></div>
         <div
           className="absolute bottom-[80px] w-10 h-10"
