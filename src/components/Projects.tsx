@@ -205,13 +205,10 @@ const Projects = () => {
   };
 
   return (
-    <motion.div
+    <div
       ref={sectionRef}
       id="projects"
-      className="min-h-screen bg-[#1a0933] flex flex-col items-center justify-center px-4 md:px-8 py-12 relative overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      className="relative w-full py-10 md:py-16 lg:py-20 px-4 md:px-6 min-h-[60vh] md:min-h-[80vh] lg:min-h-[90vh] flex flex-col items-center justify-center"
     >
       <motion.div
         variants={containerVariants}
@@ -437,7 +434,7 @@ const Projects = () => {
           ))}
         </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 
