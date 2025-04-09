@@ -241,7 +241,6 @@ const Projects = () => {
         </>
       )}
 
-      {/* Main content with animations when section is in view */}
       <motion.div
         variants={containerVariants}
         initial="hidden"

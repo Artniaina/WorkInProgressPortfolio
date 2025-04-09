@@ -1,56 +1,108 @@
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import British from "../assets/british.png";
+import French from "../assets/french.png";
 
-const LanguageSwitcher: React.FC = () => {
+const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
   const [isAnimating, setIsAnimating] = useState(false);
-  
+
+  useEffect(() => {
+    // Check if a language is stored in localStorage and set it
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage) {
+      i18n.changeLanguage(storedLanguage);  // Apply the stored language
+    } else {
+      // If no language is stored, set the default language (optional)
+      localStorage.setItem('language', i18n.language);
+    }
+
+    // Clean up function to remove language from localStorage on page unload
+    const handleBeforeUnload = () => {
+      localStorage.removeItem('language');
+    };
+    
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [i18n]);
+
   const toggleLanguage = () => {
     setIsAnimating(true);
     const newLang = i18n.language === 'en' ? 'fr' : 'en';
     i18n.changeLanguage(newLang);
-    
+
+    // Store the selected language in localStorage
+    localStorage.setItem('language', newLang);
+
     setTimeout(() => {
       setIsAnimating(false);
-    }, 300);
+    }, 500);
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center opacity-90 select-none">
       <button
         onClick={toggleLanguage}
-        className="relative outline-none focus:outline-none"
+        className="relative outline-none focus:outline-none transform hover:scale-105 transition-transform duration-300"
         aria-label={`Switch to ${i18n.language === 'en' ? 'French' : 'English'} language`}
       >
-        <div className="w-24 h-12 relative bg-gray-900 border-4 border-gray-700 rounded-md overflow-hidden">
-          <div className="absolute inset-0 grid grid-cols-8 grid-rows-3 opacity-20">
-            {[...Array(24)].map((_, i) => (
-              <div key={i} className="border border-gray-800"></div>
-            ))}
-          </div>
-          
-          <div className="flex justify-between items-center h-full px-1 relative">
-            <span className={`text-xs font-bold ${i18n.language === 'en' ? 'text-white' : 'text-gray-500'}`}>EN</span>
-            <span className={`text-xs font-bold ${i18n.language === 'fr' ? 'text-white' : 'text-gray-500'}`}>FR</span>
-          </div>
-          
-          <div 
-            className={`absolute top-1 h-6 w-8 transition-all duration-300 ease-in-out ${
-              i18n.language === 'en' ? 'left-1' : 'left-11'
-            } ${isAnimating ? 'translate-y-px' : ''}`}
+        <div className="w-[5rem] h-[2.2rem] relative bg-gray-100 rounded-full flex items-center justify-between px-4
+                      shadow-[inset_-2px_-2px_5px_rgba(255,255,255,0.7),inset_2px_2px_5px_rgba(70,70,70,0.12)]
+                      hover:shadow-[inset_-1px_-1px_3px_rgba(255,255,255,0.7),inset_1px_1px_3px_rgba(70,70,70,0.12)]
+                      transition-all duration-300">
+          <span 
+            className={`text-sm font-bold transition-all duration-300 z-10
+                      ${i18n.language === 'en' 
+                        ? 'text-gray-800 transform scale-110' 
+                        : 'text-gray-400 transform scale-90'}`}
           >
-       
-            <div className="h-full w-full bg-pink-600 border-2 border-pink-800 rounded relative overflow-hidden">
-    
-              <div className="absolute top-0 left-0 w-1 h-1 bg-pink-300"></div>
-              <div className="absolute bottom-1 right-1 w-2 h-1 bg-pink-800"></div>
+            
+          </span>
+          
+        
+          <div 
+            className={`absolute h-[2.2rem] w-[2.2rem] rounded-full bg-white 
+                      transform transition-all duration-500 ease-in-out flex items-center justify-center
+                      shadow-[4px_4px_8px_rgba(70,70,70,0.12),-4px_-4px_8px_rgba(255,255,255,0.9)]
+                      ${i18n.language === 'en' ? 'left-1' : 'left-[calc(100%-2.4rem)]'}
+                      ${isAnimating ? 'scale-90' : 'scale-100 hover:scale-105'}`}
+          >
+         
+            <div className={`w-[1.8rem] h-[1.8rem] rounded-full overflow-hidden transform transition-all duration-300
+                          ${isAnimating ? 'rotate-180' : ''}`}>
+              {i18n.language === 'en' ? (
+                <div className="w-full h-full relative animate-fade-in">
+                  <div className="flex h-full shadow-inner">
+                 <img src={British} alt="English" />
+                  </div>
+                </div>
+              ) : (
+                <div className="w-full h-full relative animate-fade-in">
+                  <div className="flex h-full shadow-inner">
+                 <img src={French} alt="French" />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
+          
+          <span 
+            className={`text-sm font-bold transition-all duration-300 z-10
+                      ${i18n.language === 'fr' 
+                        ? 'text-gray-800 transform scale-110' 
+                        : 'text-gray-400 transform scale-90'}`}
+          >
+           
+          </span>
         </div>
       </button>
       
-
-      <div className="mt-2 text-xs font-mono text-gray-400">
+      <div className={`mt-2 text-xs font-mono text-gray-500 tracking-wider transition-all duration-300
+                    ${isAnimating ? 'opacity-0 transform -translate-y-1' : 'opacity-100'}`}>
         {i18n.language === 'en' ? 'ENGLISH' : 'FRENCH'}
       </div>
     </div>
