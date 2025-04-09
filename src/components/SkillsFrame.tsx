@@ -52,9 +52,9 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
         {t("skills.title")}
 
       </motion.h1>
-      <p className="mb-12 text-center text-white text-xs md:text-sm lg:text-lg">
+      <div className="mb-12 text-center text-white text-xs md:text-sm lg:text-lg">
         <div dangerouslySetInnerHTML={{ __html: t("skills.subtitle") }} />
-    </p>
+    </div>
       <motion.div
         className="absolute inset-0 overflow-hidden pointer-events-none"
         animate={controls}

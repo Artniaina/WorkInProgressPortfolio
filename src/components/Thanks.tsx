@@ -80,11 +80,10 @@ const Thanks = () => {
               boxShadow: "0 0 10px #e44cff, 0 0 20px #e44cff",
             }}
           ></div>
-          <p className="text-white mt-1 md:mt-2 mb-3 md:mb-6 text-base md:text-lg">
-           <div />
+          <div className="text-white mt-1 md:mt-2 mb-3 md:mb-6 text-base md:text-lg">
            <div dangerouslySetInnerHTML={{ __html:  t("thanks.subtitle")}} />
 
-          </p>
+          </div>
           <div className="space-y-1 md:space-y-2 text-white">
             {[`${t("thanks.yes")}`, `${t("thanks.maybe")}`].map((option, index) => (
               <motion.div

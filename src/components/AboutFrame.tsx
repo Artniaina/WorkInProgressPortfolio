@@ -71,7 +71,7 @@ const AboutFrame = () => {
               {t("thanks.subtitle2")}
             </motion.div>
 
-            <div className="space-y-2 text-center md:space-y-4 lg:space-y-4">
+            <div className="space-y-2 text-start md:space-y-4 lg:space-y-4">
               <motion.div
                 className="flex"
                 initial={{ x: -50, opacity: 0 }}

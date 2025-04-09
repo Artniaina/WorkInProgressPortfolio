@@ -162,14 +162,14 @@ const AboutMe: React.FC = () => {
               </style>
               <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
               <div className="text-white text-[1.2rem] md:text-2xl lg:text-xl relative left-2 font-mono space-y-4 md:space-y-6 lg:space-y-6 pr-4 md:pr-10 lg:pr-10">
-                <p className="leading-relaxed mb-4 md:mb-8 lg:mb-8">
+                <div className="leading-relaxed mb-4 md:mb-8 lg:mb-8">
                 <div dangerouslySetInnerHTML={{ __html: t("about.content") }} />
                   <img
                     src={Animated}
                     alt="Cute animation"
                     className="w-[8rem] md:w-[10rem] lg:w-[11rem] relative bottom-[5.6rem] left-[50%] md:left-[70%] lg:left-[80%] lg:top-[-5rem] transform -translate-x-1/2 md:-translate-x-1/2 lg:transform-none hidden md:block"
                   />
-                </p>
+                </div>
               </div>
             </div>
           </div>
