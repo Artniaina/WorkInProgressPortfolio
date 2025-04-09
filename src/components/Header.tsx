@@ -105,7 +105,7 @@ const Header = () => {
         className="flex items-center text-white font-pixel"
         whileHover={{ scale: 1.1 }}
       >
-        <img src={Logo} className="w-12 h-12 lg:w-16 lg:h-16" alt="Logo" />
+        <img src={Logo} className="w-12 h-12 lg:w-16 lg:h-16"  />
         <span className="ml-3 lg:w-[14rem] text-base lg:text-base">
           {"<Kanto/>"}
         </span>

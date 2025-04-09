@@ -99,7 +99,7 @@ const Projects = () => {
 
   const ProjectCard = ({ project, index }: { project: any; index: number }) => (
     <motion.div
-      className="rounded h-[38rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[39rem]"
+      className="rounded h-[41rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[39rem]"
       whileHover={{
       scale: screenWidth >= 768 ? 1.03 : 1,
       transition: { type: "spring", stiffness: 300, damping: 20 },
@@ -288,7 +288,7 @@ const Projects = () => {
         </div>
         <motion.div 
           variants={itemVariants}
-          className="relative overflow-hidden flex justify-center items-center min-h-[38rem] md:min-h-[41rem] w-full md:hidden"
+          className="relative overflow-hidden flex justify-center items-center min-h-[41rem] md:min-h-[41rem] w-full md:hidden"
         >
           <AnimatePresence initial={false} custom={direction}>
             <motion.div

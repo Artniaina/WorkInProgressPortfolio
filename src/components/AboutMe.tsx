@@ -44,16 +44,22 @@ const AboutMe: React.FC = () => {
         textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
         fontFamily: "'Press Start 2P', cursive"
       }}
-       initial={{ opacity: 0, y: -50 }}
-       animate={{ opacity: 1, y: 0 }}
-       transition={{ duration: 0.6, delay: 0.5 }}
+      animate={controls}
+      initial="hidden"
+      variants={{
+        hidden: { scale: 0.8, opacity: 0 },
+        visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
+      }}
      >
         {t("about.title")}
        <motion.p
-       className="mb-12  relative lg:left-20 left-0 text-center text-white text-xs md:text-sm lg:text-sm opacity-80 mt-2 md:mt-2 lg:mt-2"
-       initial={{ opacity: 0, y: 20 }}
-       animate={{ opacity: 1, y: 0 }}
-       transition={{ duration: 0.6, delay: 0.7 }}
+       className="mb-12  relative  left-0 text-center text-white text-xs md:text-sm lg:text-sm opacity-80 mt-2 md:mt-2 lg:mt-2"
+       animate={controls}
+       initial="hidden"
+       variants={{
+         hidden: { scale: 0.8, opacity: 0 },
+         visible: { scale: 1, opacity: 1, transition: { duration: 0.8 } },
+       }}
      >
             {t("about.subtitle")}
             </motion.p>
