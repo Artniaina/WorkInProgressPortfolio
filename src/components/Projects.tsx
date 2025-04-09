@@ -8,7 +8,6 @@ import FA from "../assets/scann.png";
 import PWA from "../assets/pwa.png"; 
 import Game from "../assets/StayHydrated.gif";
 
-// Define TypeScript interfaces
 interface Project {
   titleKey: string;
   descriptionKey: string;
@@ -117,14 +116,39 @@ const Projects = () => {
 
     return visibleCards;
   };
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+        duration: 0.3
+      }
+    }
+  };
 
-  const ProjectCard = ({ project, index }: ProjectCardProps) => (
+  const itemVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
+
+  const ProjectCard = ({ project }: ProjectCardProps) => (
     <motion.div
-      className="rounded h-[41rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[39rem]"
+      className  ="rounded h-[41rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[39rem]"
       whileHover={{
         scale: screenWidth >= 768 ? 1.03 : 1,
       }}
-    >
+    > 
       <div className="h-8 bg-purple-600 border-b border-purple-400 px-2 flex justify-between items-center">
         <div className="flex space-x-1">
           <div className="w-2 h-2 bg-purple-300 rounded-full"></div>
@@ -178,37 +202,12 @@ const Projects = () => {
     </motion.div>
   );
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-        duration: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { 
-      opacity: 0,
-      y: 30,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.3
-      }
-    }
-  };
 
   return (
-    <div
+    <section
       ref={sectionRef}
       id="projects"
-      className="relative w-full py-10 md:py-16 lg:py-20 px-4 md:px-6 min-h-[60vh] md:min-h-[80vh] lg:min-h-[90vh] flex flex-col items-center justify-center"
+      className="py-8 md:py-12 lg:py-20 bg-cyber-dark relative overflow-hidden"
     >
       <motion.div
         variants={containerVariants}
@@ -434,7 +433,7 @@ const Projects = () => {
           ))}
         </motion.div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 
