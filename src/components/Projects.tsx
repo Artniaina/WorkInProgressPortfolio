@@ -408,7 +408,6 @@ const Projects = () => {
           </div>
         </motion.div>
 
-        {/* Desktop indicator */}
         <motion.div 
           variants={itemVariants}
           className="hidden md:flex justify-center mt-4"
@@ -418,7 +417,6 @@ const Projects = () => {
           </h2>
         </motion.div>
 
-        {/* Pagination dots */}
         <motion.div 
           variants={itemVariants}
           className="flex justify-center mt-4 space-x-1"
