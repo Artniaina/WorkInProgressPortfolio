@@ -207,7 +207,7 @@ const Projects = () => {
     <section
       ref={sectionRef}
       id="projects"
-      className="py-8 md:py-12 lg:py-20 bg-cyber-dark relative overflow-hidden"
+      className="py-8 md:py-12 lg:py-20 bg-cyber-dark relative overflow-hidden bg-cyber-purple/10 "
     >
       <motion.div
         variants={containerVariants}

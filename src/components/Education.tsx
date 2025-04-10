@@ -107,7 +107,7 @@ const Education = () => {
   return (
     <section
       id="aboutMe"
-      className="py-8 md:py-12 lg:py-20 bg-cyber-dark relative overflow-hidden"
+      className="py-8 md:py-12 lg:py-20 bg-cyber-dark relative overflow-hidden "
     >
       <div className="container mx-auto px-4 sm:px-6 relative z-10" ref={ref}>
         <motion.div
