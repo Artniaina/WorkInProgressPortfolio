@@ -8,24 +8,20 @@ const LanguageSwitcher = () => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    // Check if a language is stored in localStorage and set it
     const storedLanguage = localStorage.getItem('language');
     if (storedLanguage) {
-      i18n.changeLanguage(storedLanguage);  // Apply the stored language
+      i18n.changeLanguage(storedLanguage); 
     } else {
-      // If no language is stored, set the default language (optional)
+
       localStorage.setItem('language', i18n.language);
     }
 
-    // Clean up function to remove language from localStorage on page unload
     const handleBeforeUnload = () => {
       localStorage.removeItem('language');
     };
     
     window.addEventListener('beforeunload', handleBeforeUnload);
-    
-    // Clean up the event listener when the component is unmounted
-    return () => {
+        return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
   }, [i18n]);
@@ -35,7 +31,6 @@ const LanguageSwitcher = () => {
     const newLang = i18n.language === 'en' ? 'fr' : 'en';
     i18n.changeLanguage(newLang);
 
-    // Store the selected language in localStorage
     localStorage.setItem('language', newLang);
 
     setTimeout(() => {

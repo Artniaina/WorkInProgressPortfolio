@@ -7,7 +7,7 @@ interface CustomCursorProps {
 }
 
 const CustomCursor = ({ 
-  size = 40, 
+  size = 60, 
   imageSrc, 
   trailEffect = true 
 }: CustomCursorProps) => {
