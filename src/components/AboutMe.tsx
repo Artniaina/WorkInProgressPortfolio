@@ -57,7 +57,7 @@ const AboutMe: React.FC = () => {
   return (
     <div
       id="about"
-      className="flex relative items-center min-h-[100dvh] pt-12 justify-center pb-12 flex-col overflow-hidden"
+      className="flex relative items-center min-h-[100dvh] justify-center pb-12 flex-col overflow-hidden"
     >
       <div className="w-full max-w-[90rem] px-4">
         <motion.h1

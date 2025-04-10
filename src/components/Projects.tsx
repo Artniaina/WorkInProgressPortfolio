@@ -144,7 +144,7 @@ const Projects = () => {
 
   const ProjectCard = ({ project }: ProjectCardProps) => (
     <motion.div
-      className  ="rounded h-[41rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[39rem]"
+      className  ="rounded m-2 h-[39rem] border-2 border-purple-400 overflow-hidden flex flex-col relative bg-gray-900 shadow-lg md:h-[39rem]"
       whileHover={{
         scale: screenWidth >= 768 ? 1.03 : 1,
       }}
@@ -255,10 +255,9 @@ const Projects = () => {
           </motion.button>
         </div>
         
-        {/* Mobile view */}
         <motion.div 
           variants={itemVariants}
-          className="relative overflow-hidden flex justify-center items-center min-h-[41rem] md:min-h-[41rem] w-full md:hidden"
+          className="relative overflow-hidden flex justify-center items-center min-h-[39rem] md:min-h-[41rem] w-full md:hidden"
         >
           <AnimatePresence initial={false} custom={direction}>
             <motion.div

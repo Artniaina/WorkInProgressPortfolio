@@ -19,7 +19,7 @@ function App() {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    const duration = 5000;
+    const duration = 2500;
     const interval = 50;
     const steps = duration / interval;
     const increment = 100 / steps;
