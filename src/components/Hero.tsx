@@ -96,7 +96,7 @@ const Hero = () => {
   ];
 
   return (
-    <div id="home" className="h-full lg:h-[100vh] relative">
+    <div id="home" className="h-full md:h-[90vh] lg:h-[100vh] relative">
       <div className="hidden lg:block absolute left-[3rem] top-[7rem] h-[50%] w-[4px] bg-gradient-to-b from-pink-500 to-purple-800 rounded-full opacity-60 ">
         <div className="absolute top-[-12px] left-[-12px] w-[25px] h-[25px] bg-pink-500 rounded-full shadow-lg"></div>
       </div>
