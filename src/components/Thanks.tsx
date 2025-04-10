@@ -30,7 +30,7 @@ const Thanks = () => {
       ref={ref}
       className="flex items-center w-full lg:w-[40rem] justify-center p-2 md:p-4"
     >
-      <div className="w-full max-w-sm md:max-w-3xl flex flex-col items-center">
+      <div className=" max-w-sm md:max-w-3xl flex flex-col items-center">
         <motion.h1
           className="text-[#e44cff] mt-2 md:mt-4 text-xl md:text-3xl mb-6 md:mb-12 font-bold tracking-wider"
           style={{

@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import Ecom from "../assets/ecom.png";
 import FA from "../assets/scann.png";
 import PWA from "../assets/pwa.png"; 
-import Game from "../assets/StayHydrated.gif";
+import Game from "../assets/casse.png";
 
 interface Project {
   titleKey: string;
