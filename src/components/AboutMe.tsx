@@ -162,7 +162,7 @@ const AboutMe: React.FC = () => {
               }}
             >
               <div className="absolute right-1/3 top-2 w-8 h-8 bg-pink-500 rounded-full opacity-60"></div>
-              <div className="text-white text-[1.2rem] md:text-2xl lg:text-xl relative left-2 font-mono space-y-4 md:space-y-6 pr-4 md:pr-10">
+              <div className="text-white text-sm md:text-2xl lg:text-xl relative left-2 font-mono space-y-4 md:space-y-6 pr-4 md:pr-10">
                 <div className="leading-relaxed mb-4 md:mb-8">
                   <div dangerouslySetInnerHTML={{ __html: t("about.content") }} />
                   <img
