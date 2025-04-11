@@ -104,7 +104,7 @@ const Hero = () => {
         <div className="absolute top-[-12px] left-[-11px] w-[25px] h-[25px] bg-pink-500 rounded-full shadow-lg"></div>
       </div>
       
-      <div className="top-[5rem] md:top-[8rem] lg:top-[12rem] px-6 py-20 flex flex-col lg:flex-row justify-start relative overflow-hidden">
+      <div className="top-[5rem] md:top-[8rem] lg:top-[12rem] lg:h-[33rem] px-6 py-20 flex flex-col lg:flex-row justify-start relative overflow-hidden">
         <div className="w-full lg:w-4xl flex flex-col relative -top-20 items-center lg:items-start lg:left-24">
           <motion.h1
             className="text-2xl w-[20rem] md:w-full lg:w-[40rem] md:text-4xl lg:text-5xl font-pixel mb-8 text-center lg:text-left"
@@ -157,7 +157,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <div className="relative bottom-[4rem] mt-8 lg:mt-0 lg:absolute lg:bottom-[-3rem] lg:right-[5rem] flex justify-center">
+        <div className="relative bottom-[4rem] mt-8 lg:mt-0 lg:absolute lg:bottom-[1rem] lg:right-[5rem] flex justify-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

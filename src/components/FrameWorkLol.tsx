@@ -26,9 +26,9 @@ const FrameWorkLol = () => {
   };
 
   return (
-    <div ref={ref} className="flex flex-col items-center px-4 sm:px-8">
+    <div ref={ref} className="flex  flex-col items-center px-4 sm:px-8">
       <motion.div
-      className="relative flex justify-center sm:justify-start sm:left-[4rem]"
+      className="relative flex  justify-center sm:justify-start sm:left-[4rem]"
       animate={controls}
       initial="hidden"
       variants={containerVariants}

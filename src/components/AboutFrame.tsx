@@ -5,15 +5,20 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Pixel from "../assets/pixell.png";
 import { useTranslation } from "react-i18next";
+import { useMemo } from "react";
+import { useNavigation } from "../context/NavigationContext";
 const AboutFrame = () => {
   const { t } = useTranslation();
+   const {fromClick} = useNavigation();
+        const viewKey = useMemo(() => (fromClick ? "click" : "scroll"), [fromClick]);
   const { ref, inView } = useInView({
     threshold: 0.2,
-    triggerOnce: true
+    triggerOnce: !fromClick,
   });
 
   return (
     <motion.div
+    key={viewKey}
       ref={ref}
       className="bg-transparent flex flex-col items-center"
       initial={{ opacity: 0, y: -50 }}

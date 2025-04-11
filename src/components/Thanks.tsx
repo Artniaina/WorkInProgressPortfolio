@@ -1,15 +1,19 @@
 import { useInView } from "react-intersection-observer";
 import Totoro from "../assets/ghibli.gif";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigation } from "../context/NavigationContext";
 
 const Thanks = () => {
   const { t } = useTranslation();
   const controls = useAnimation();
-  const [ref, inView] = useInView({
+  
+   const {fromClick} = useNavigation();
+        const viewKey = useMemo(() => (fromClick ? "click" : "scroll"), [fromClick]);
+  const { ref, inView } = useInView({
     threshold: 0.2,
-    triggerOnce: true,
+    triggerOnce: !fromClick,
   });
 
   useEffect(() => {
@@ -27,6 +31,7 @@ const Thanks = () => {
 
   return (
     <div
+    key={viewKey}
       ref={ref}
       className="flex items-center w-full lg:w-[40rem] justify-center p-2 md:p-4"
     >
