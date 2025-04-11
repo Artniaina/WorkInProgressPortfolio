@@ -1,7 +1,8 @@
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
+import { useNavigation } from "../context/NavigationContext";
 
 interface FrameProps {
   children: React.ReactNode;
@@ -10,9 +11,11 @@ interface FrameProps {
 const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
   const { t } = useTranslation();
   const controls = useAnimation();
+   const {fromClick} = useNavigation();
+        const viewKey = useMemo(() => (fromClick ? "click" : "scroll"), [fromClick]);
   const [ref, inView] = useInView({
     threshold: 0.2,
-    triggerOnce: true,
+    triggerOnce: !fromClick,
   });
 
   useEffect(() => {
@@ -35,6 +38,7 @@ const SkillsFrame: React.FC<FrameProps> = ({ children }) => {
 
   return (
     <div
+    key={viewKey}
       id="skills"
       ref={ref}
       className="relative w-full py-10 md:py-16 lg:py-20 px-4 md:px-6 min-h-[60vh] md:min-h-[80vh] lg:min-h-[90vh] flex flex-col items-center justify-center"

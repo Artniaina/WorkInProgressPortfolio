@@ -11,7 +11,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const { t } = useTranslation();
-  const { fromClick,  setFromClick } = useNavigation();
+  const { fromClick, setFromClick } = useNavigation();
+  
   useEffect(() => {
     const handleScroll = () => {
       setFromClick(false); 
@@ -46,6 +47,8 @@ const Header = () => {
   
 
   const handleScroll = (id: string) => {
+    if (activeSection === id) return;
+    
     const element = document.getElementById(id);
 
     if (element) {
@@ -70,7 +73,6 @@ const Header = () => {
       setActiveSection(id);
       setIsMenuOpen(false);
       setFromClick(true);
-
     }
   };
 
@@ -111,7 +113,7 @@ const Header = () => {
         className="flex items-center text-white font-pixel"
         whileHover={{ scale: 1.1 }}
       >
-        <img src={Logo} className="w-12 h-12 lg:w-16 lg:h-16"  />
+        <img src={Logo} className="w-12 h-12 lg:w-16 lg:h-16" />
         <span className="ml-3 lg:w-[14rem] text-base lg:text-base">
           {"<Kanto/>"}
         </span>
@@ -132,72 +134,37 @@ const Header = () => {
         } flex-col lg:flex lg:flex-row justify-center lg:justify-end items-center gap-4 md:gap-6 lg:gap-8
       absolute lg:static top-16 left-0 w-full bg-[#1a012a] p-12 lg:p-0 lg:bg-transparent z-20 rounded-lg py-4`}
       >
-        <motion.a
-          href="#home"
-          className={`text-lg md:text-[1.2rem] lg:text-sm font-pixel pb-1 md:pb-2 ${
-            activeSection === "home"
-              ? "text-pink-500 border-b-2 border-pink-500"
-              : "text-white hover:text-pink-500 transition-colors duration-300"
-          }`}
-          whileHover={{ scale: 1.05 }}
-          onClick={(e) => {
-            e.preventDefault();
-            handleScroll("home");
-          }}
-        >
-          {t("navbar.home")} 
-        </motion.a>
-
-        <motion.a
-          href="#about"
-          className={`text-sm md:text-[1.2rem] lg:text-sm pb-1 ${
-            activeSection === "about"
-              ? "text-pink-500 border-b-2 border-pink-500"
-              : "text-white hover:text-pink-500 transition-colors duration-300"
-          }`}
-          whileHover={{ scale: 1.05 }}
-          onClick={(e) => {
-            e.preventDefault();
-            handleScroll("about");
-          }}
-        >
-          {t("navbar.about")} 
-        </motion.a>
-
-        <motion.a
-          href="#skills"
-          className={`text-sm md:text-[1.2rem] lg:text-sm pb-1 ${
-            activeSection === "skills"
-              ? "text-pink-500 border-b-2 border-pink-500"
-              : "text-white hover:text-pink-500 transition-colors duration-300"
-          }`}
-          whileHover={{ scale: 1.05 }}
-          onClick={(e) => {
-            e.preventDefault();
-            handleScroll("skills");
-          }}
-        >
-          {t("navbar.skills")} 
-        </motion.a>
-
-        <motion.a
-          href="#projects"
-          className={`text-sm md:text-[1.2rem] lg:text-sm pb-1 ${
-            activeSection === "projects"
-              ? "text-pink-500 border-b-2 border-pink-500"
-              : "text-white hover:text-pink-500 transition-colors duration-300"
-          }`}
-          whileHover={{ scale: 1.05 }}
-          onClick={(e) => {
-            e.preventDefault();
-            handleScroll("projects");
-          }}
-        >
-          {t("navbar.projects")} 
-        </motion.a>
+        {[
+          { id: "home", label: t("navbar.home") },
+          { id: "about", label: t("navbar.about") },
+          { id: "skills", label: t("navbar.skills") },
+          { id: "projects", label: t("navbar.projects") }
+        ].map((item) => (
+          activeSection === item.id ? (
+            <span
+              key={item.id}
+              className={`text-lg md:text-[1.2rem] lg:text-sm font-pixel pb-1 md:pb-2 text-pink-500 border-b-2 border-pink-500 cursor-default`}
+            >
+              {item.label}
+            </span>
+          ) : (
+            <motion.a
+              key={item.id}
+              href={`#${item.id}`}
+              className={`text-lg md:text-[1.2rem] lg:text-sm font-pixel pb-1 md:pb-2 text-white hover:text-pink-500 transition-colors duration-300`}
+              whileHover={{ scale: 1.05 }}
+              onClick={(e) => {
+                e.preventDefault();
+                handleScroll(item.id);
+              }}
+            >
+              {item.label}
+            </motion.a>
+          )
+        ))}
 
         <LanguageSwitcher />
-
+        
       </div>
     </motion.div>
   );

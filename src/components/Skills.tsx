@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
 import Javascript from "../assets/JS.jpg";
 import ReactIcon from "../assets/REACT.png";
@@ -17,12 +17,15 @@ import Python from "../assets/PY.png";
 import ReactNative from "../assets/reactnative-inner.svg";
 import Node from "../assets/node.webp";
 import { useTranslation } from "react-i18next";
+import { useNavigation } from "../context/NavigationContext";
 
 const Skills = () => {
   const  { t } = useTranslation();
+   const {fromClick} = useNavigation();
+        const viewKey = useMemo(() => (fromClick ? "click" : "scroll"), [fromClick]);
   const { ref, inView } = useInView({
     threshold: 0.2,
-    triggerOnce: true,
+    triggerOnce: !fromClick,
   });
 
   const controls = useAnimation();
@@ -96,7 +99,7 @@ const Skills = () => {
   ];
 
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div key={viewKey} className="w-full h-full flex items-center justify-center">
       <div ref={ref} className="w-full overflow-hidden py-4">
         <motion.div
           className="flex flex-col items-center justify-center"

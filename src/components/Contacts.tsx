@@ -1,14 +1,18 @@
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import AboutFrame from "./AboutFrame";
 import Thanks from "./Thanks";
+import { useNavigation } from "../context/NavigationContext";
 
 const Contacts = () => {
   const controls = useAnimation();
+  const {fromClick} = useNavigation();
+    const viewKey = useMemo(() => (fromClick ? "click" : "scroll"), [fromClick]);
+  
   const [ref, inView] = useInView({
     threshold: 0.2,
-    triggerOnce: true,
+    triggerOnce: !fromClick,
   });
 
   useEffect(() => {
@@ -21,6 +25,7 @@ const Contacts = () => {
 
   return (
     <div 
+    key={viewKey}
       id="contacts" 
       ref={ref} 
       className="flex items-center justify-center  p-2 md:p-4 flex-col min-h-screen py-8 md:pt-12"

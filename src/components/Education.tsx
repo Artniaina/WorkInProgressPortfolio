@@ -5,6 +5,8 @@ import { GiDiploma } from "react-icons/gi";
 import { LiaFlagUsaSolid } from "react-icons/lia";
 import { LiaSchoolSolid } from "react-icons/lia";
 import { useTranslation } from "react-i18next";
+import { useNavigation } from "../context/NavigationContext";
+import { useMemo } from "react";
 interface EducationItem {
   title: string;
   institution: string;
@@ -50,8 +52,10 @@ const Education = () => {
       icon: <LiaSchoolSolid />,
     },
   ];
+    const {fromClick} = useNavigation();
+      const viewKey = useMemo(() => (fromClick ? "click" : "scroll"), [fromClick]);
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce: !fromClick,
     threshold: 0.05,
   });
 
@@ -107,6 +111,7 @@ const Education = () => {
 
   return (
     <section
+    key={viewKey}
       id="aboutMe"
       className="py-8 md:py-12 lg:py-20 bg-cyber-dark relative overflow-hidden "
     >

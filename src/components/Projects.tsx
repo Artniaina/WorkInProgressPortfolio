@@ -1,12 +1,13 @@
 import { FaGithub, FaChevronRight, FaChevronLeft } from "react-icons/fa6";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Intranet from "../assets/Image1.png";
 import { useTranslation } from "react-i18next";
 import Ecom from "../assets/ecom.png";
 import FA from "../assets/scann.png";
 import PWA from "../assets/pwa.png"; 
 import Game from "../assets/casse.png";
+import { useNavigation } from "../context/NavigationContext";
 
 interface Project {
   titleKey: string;
@@ -33,7 +34,9 @@ const Projects = () => {
   const [direction, setDirection] = useState<number>(0);
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const {fromClick} = useNavigation();
+  const viewKey = useMemo(() => (fromClick ? "click" : "scroll"), [fromClick]);
+  const isInView = useInView(sectionRef, { once: !fromClick, amount: 0.3 });
 
   const projects: Project[] = [
     {
@@ -205,6 +208,7 @@ const Projects = () => {
 
   return (
     <section
+    key={viewKey}
       ref={sectionRef}
       id="projects"
       className="py-8 md:py-12 lg:py-20 bg-cyber-dark relative overflow-hidden bg-cyber-purple/10 "
