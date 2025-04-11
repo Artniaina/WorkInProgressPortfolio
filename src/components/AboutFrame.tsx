@@ -9,6 +9,7 @@ const AboutFrame = () => {
   const { t } = useTranslation();
   const { ref, inView } = useInView({
     threshold: 0.2,
+    triggerOnce: true
   });
 
   return (

@@ -103,6 +103,7 @@ const Hero = () => {
       <div className="hidden lg:block absolute left-[6rem] top-[10rem] h-[60%] w-[4px] bg-gradient-to-b from-pink-500 to-purple-800 rounded-full opacity-60">
         <div className="absolute top-[-12px] left-[-11px] w-[25px] h-[25px] bg-pink-500 rounded-full shadow-lg"></div>
       </div>
+      
       <div className="top-[5rem] md:top-[8rem] lg:top-[12rem] px-6 py-20 flex flex-col lg:flex-row justify-start relative overflow-hidden">
         <div className="w-full lg:w-4xl flex flex-col relative -top-20 items-center lg:items-start lg:left-24">
           <motion.h1
@@ -114,7 +115,6 @@ const Hero = () => {
             <span className="glitch-effect" data-text={t('hero.title')}>
               {t('hero.title')}{" "}
             </span>
-
             <br />
             <span className="text-pink-500 relative w-full left-2 md:left-[9rem] md:w-[35rem] lg:w-[35rem] lg:left-[1rem] lg:top-0 md:text-2xl text-[1.2rem] h-12 lg:text-[1.3rem] mt-8 md:mt-7  flex justify-center lg:justify-start">
               <ReactTyped

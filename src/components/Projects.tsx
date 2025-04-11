@@ -33,8 +33,8 @@ const Projects = () => {
   const [direction, setDirection] = useState<number>(0);
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
-  
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+
   const projects: Project[] = [
     {
       titleKey: "projects.items.lawyerManagement.title",

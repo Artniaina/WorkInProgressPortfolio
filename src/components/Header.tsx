@@ -5,23 +5,26 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useNavigation } from "../context/NavigationContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const { t } = useTranslation();
-
+  const { fromClick,  setFromClick } = useNavigation();
   useEffect(() => {
     const handleScroll = () => {
+      setFromClick(false); 
+  
       const sections = ["home", "about", "skills", "projects"];
       const scrollPosition = window.scrollY + 300;
-
+  
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const offsetTop = element.offsetTop;
           const height = element.offsetHeight;
-
+  
           if (
             scrollPosition >= offsetTop &&
             scrollPosition < offsetTop + height
@@ -32,14 +35,15 @@ const Header = () => {
         }
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     handleScroll();
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
 
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
@@ -65,6 +69,8 @@ const Header = () => {
 
       setActiveSection(id);
       setIsMenuOpen(false);
+      setFromClick(true);
+
     }
   };
 
@@ -91,7 +97,7 @@ const Header = () => {
 
     setTimeout(applyEntranceAnimation, 300);
   }, []);
-
+  
   return (
     <motion.div
       className="flex justify-between items-center lg:fixed top-0 left-0 right-0 py-2 lg:py-[0rem] px-6 z-30 bg-cyber-dark

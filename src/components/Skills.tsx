@@ -22,7 +22,7 @@ const Skills = () => {
   const  { t } = useTranslation();
   const { ref, inView } = useInView({
     threshold: 0.2,
-    triggerOnce: false,
+    triggerOnce: true,
   });
 
   const controls = useAnimation();

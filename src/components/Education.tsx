@@ -5,7 +5,6 @@ import { GiDiploma } from "react-icons/gi";
 import { LiaFlagUsaSolid } from "react-icons/lia";
 import { LiaSchoolSolid } from "react-icons/lia";
 import { useTranslation } from "react-i18next";
-
 interface EducationItem {
   title: string;
   institution: string;
@@ -19,6 +18,8 @@ interface EducationItem {
 
 const Education = () => {
   const { t } = useTranslation();
+
+  
   const education: EducationItem[] = [
     {
       title: t('education.items.master.title'),

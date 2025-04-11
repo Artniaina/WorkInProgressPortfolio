@@ -9,7 +9,7 @@ const Thanks = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.2,
-    triggerOnce: false,
+    triggerOnce: true,
   });
 
   useEffect(() => {

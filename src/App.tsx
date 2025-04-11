@@ -11,6 +11,7 @@ import Education from "./components/Education";
 import Header from "./components/Header";
 import CustomCursor from "./components/CustomCursor";
 import CursorImage from "./assets/smt.png";
+import { NavigationProvider } from "./context/NavigationContext";
 // import Planet from "./assets/planet.gif";
 
 function App() {
@@ -144,6 +145,7 @@ function App() {
 
   const planets = generatePlanets(10);
   return (
+    <NavigationProvider>
     <div
       className={`min-h-screen bg-cyber-purple/10 ${
         showContent ? "animate-fadeIn" : "opacity-0"
@@ -183,6 +185,8 @@ function App() {
       </section>
       <Footer />
     </div>
+    </NavigationProvider>
+
   );
 }
 

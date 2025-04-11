@@ -1,17 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "../assets/hehe.png";
 import Animated from "../assets/accc.gif";
 import { IoTriangleSharp } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
+import { useNavigation } from "../context/NavigationContext";
 
 const AboutMe: React.FC = () => {
+  const { fromClick } = useNavigation(); 
   const { t } = useTranslation();
   const controls = useAnimation();
+
+  const viewKey = useMemo(() => (fromClick ? "click" : "scroll"), [fromClick]);
+
   const [ref, inView] = useInView({
     threshold: 0.2,
-    triggerOnce: false,
+    triggerOnce: !fromClick, 
   });
 
   useEffect(() => {
@@ -53,23 +58,30 @@ const AboutMe: React.FC = () => {
       }
     }
   };
+ 
+  const variants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
 
   return (
     <div
-      id="about"
-      className="flex relative items-center min-h-[100dvh] justify-center pb-12 flex-col overflow-hidden"
+    key={viewKey} 
+      ref={ref}
+      id="about"  
+      className="flex relative items-center lg:ml-[5rem] min-h-[100dvh] justify-center  lg:pt-[4rem] pb-12 flex-col overflow-hidden"
     >
       <div className="w-full max-w-[90rem] px-4">
-        <motion.h1
-          className="text-[#e44cff] mt-2 md:mt-4 text-center text-xl md:text-4xl mb-2 font-bold tracking-wider" 
-          style={{
-            textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
-            fontFamily: "'Press Start 2P', cursive"
-          }}
-          initial="hidden"
-          animate={controls}
-          variants={fadeInUp}
-        >
+      <motion.h1
+        className=" text-2xl md:text-3xl lg:text-4xl text-center font-bold text-[#e44cff] tracking-wider  font-pixel mb-2 md:mb-4"
+        style={{
+          textShadow: '0 0 10px rgba(228, 76, 255, 0.5)',
+          fontFamily: "'Press Start 2P', cursive"
+        }}
+        animate={controls}
+        initial="hidden"
+        variants={variants}
+      >
           {t("about.title")}
           <motion.p
             className="mb-12 text-center text-white text-xs md:text-sm opacity-80 mt-2"
